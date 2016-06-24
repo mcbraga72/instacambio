@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="utf-8" />
+
+    <!-- Website Title & Description -->
+    <title>.: Açoriana - Corretora de Câmbio :.</title>
+    <meta name="description" content="A Corretora de Câmbio Açoriana surgiu de um setor de câmbio na Açoriana Turismo que é uma empresa  que atua no mercado desde 1986. Hoje, o setor de Câmbio atingiu sua maturidade tornando-se uma Corretora, autorizada pelo Banco Central do Brasil a atuar como uma instituição financeira. Isto só foi possível em função de sua seriedade, respeito e foco total no cliente.">
+    <meta name="keywords" content="corretora de câmbio,cambio,turismo,troca de moeda,dolar,euro,libra,peso argentino,visa travel money, mastercard travel money, visa platinum,remessa expressa,reserva online de moedas">
+    <link href="/imagens/acoriana.ico" rel="shortcut icon" type="image/x-icon">
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                    m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-39935564-1', 'acorianacorretora.com.br');
+        ga('send', 'pageview');
+
+    </script>
+
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="/css/colorbox.css" />
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <!-- Included JS Files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/jigo.js"></script>
+    <script src="/js/jquery.colorbox.js"></script>
+    <script src="/js/carou.js"></script>
+    <script src="/js/jquery.maskedinput.js"></script>
+
+
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,500,700' rel='stylesheet' type='text/css'>
+
+    <!-- SUB MENU -->
+    <script type="text/javascript" >
+        $(document).ready(function() {
+
+            $(".group1").colorbox({rel: 'group1'});
+            $(".group2").colorbox({rel: 'group2', transition: "fade"});
+            $(".group3").colorbox({rel: 'group3', transition: "none", width: "75%", height: "75%"});
+            $(".group4").colorbox({rel: 'group4', slideshow: true});
+            $(".iframeMap").colorbox({iframe:true, width:"490px", height:"425px"});
+
+            //SUB MENU PRODUTOS E SERVIÇOS
+
+            $("#upMinhaConta").click(function() {
+                $("#ProdSev").slideUp();
+            });
+           
+            $("div#menuTopA").mouseenter(function() {
+
+                $("#ProdSev").slideDown();
+                $("#minhaConta").slideUp();
+                $("#QuemSomos").slideUp();
+                MClib = '0';
+
+            });
+           
+           $("div#menuTopA").mouseleave(function() {
+
+                $("#ProdSev").slideUp();
+
+            });
+
+            //SUB MENU QUEM SOMOS
+
+            $("#upQuemSomos").click(function() {
+                $("#QuemSomos").slideUp();
+            });
+            $("#QuemSomos").mouseleave(function() {
+
+                $("#QuemSomos").slideUp();
+
+            });
+            $("#menuTopB").click(function() {
+
+                $("#QuemSomos").slideDown();
+                $("#minhaConta").slideUp();
+                $("#ProdSev").slideUp();
+                MClib = '0';
+
+            });
+
+            //SUB MENU IDIOMAS
+
+            $(".link-lingua").click(function() {
+
+                $("#idiomas").slideDown();
+
+            });
+            $("#idiomas").mouseleave(function() {
+
+                $("#idiomas").slideUp();
+
+            });
+            $("#menuTopE").click(function() {
+
+                $("#idiomas").slideDown();
+
+            });
+            //SUB MENU MINHA CONTA
+
+
+            var MClib;
+
+
+            $("#upMinhaConta").click(function() {
+                $("#minhaConta").slideUp();
+                MClib = '0';
+            });
+
+            $("#menuTopD").click(function() {
+                if (MClib != '1') {
+                    $("#minhaConta").slideDown();
+                    MClib = '1';
+                }
+                else {
+                    $("#minhaConta").slideUp();
+                    MClib = '0';
+                }
+            });
+
+
+            $('#foo2').carouFredSel({
+                width: '100%',
+                direction: 'left',
+                align: 'center',
+                prev: '#prev2',
+                next: '#next2',
+                mousewheel: true,
+                swipe: {
+                    onMouse: true,
+                    onTouch: true
+                },
+                auto: {
+                    progress: '#timer1',
+                    duration: '1000'
+                }
+
+            })
+
+        });
+        function MClogin() {
+            $("#minhaConta").slideDown();
+            MClib = '1';
+        }
+    </script>
+
+    <script language="javascript">
+
+
+        // ANIMAÇÃO DO MENU
+
+        function menuTopFun(sel) {
+
+            $("#menuTop" + sel + "").animate({
+            }, 300);
+
+        }
+        function menuTopBac(sel) {
+
+            $("#menuTop" + sel + "").animate({
+            }, 200);
+
+        }
+
+
+    </script>
+
+
+
+    <!-- LOGIN -->
+
+    <script language="javascript">
+        var login;
+
+        $(document).ready(function() {
+            $(".mc-load-base, .mc-load").fadeToggle("fast");
+            if (("" != '')) {
+
+                $("#MCacesso").attr('href', '/sistema/minha-conta');
+
+                $("#MCacesso").html('Olá , Clique aqui para acessar sua conta.');
+
+                $(".home-lg-tit").css('margin-top', '35px');
+                //MUDA OS TÍTULOS
+                $(".home-sm-inp,#LGerro").hide();
+
+                $("#home-lg-bot a").attr('id', 'MCbot');
+
+                $("#MCbot").html('Sair');
+                $("#MCbot").attr('onClick', 'javascript:window.location = "/view/funcoes/sair.php"');
+
+            }
+
+
+        });
+
+        function list_dados() {
+
+            var valor = $("#user").val();
+            var senha = $("#pass").val();
+            // Passando os dados para a página result.php através do método GET.
+            http.open("GET", "/view/funcoes/login.php?user=" + valor + "&pass=" + senha, true);
+
+            http.onreadystatechange = handleHttpResponse;
+            http.send(null);
+
+            $(".mc-load-base, .mc-load").fadeToggle("slow");
+        }
+
+        function handleHttpResponse()
+        {
+            if (http.readyState == 4) {
+
+                $(".mc-load-base, .mc-load").fadeToggle("slow");
+
+                var results = new Number(http.responseText);
+
+                if (results != 1) {
+
+                    window.login = 2;
+
+                    $("#MCacesso").attr('href', '/sistema/minha-conta');
+
+                    $("#MCacesso").html('Olá, Clique aqui para acessar sua conta.');
+
+                    $(".home-lg-tit").css('margin-top', '35px');
+                    //MUDA OS TÍTULOS
+                    $(".home-sm-inp,#LGerro").hide();
+
+                    $("#home-lg-bot a").attr('id', 'MCbot');
+
+                    $("#MCbot").html('Sair');
+                    $("#MCbot").attr('onClick', 'javascript:window.location = "/view/funcoes/sair.php"');
+
+
+                    //Fecha a aba da compra online e abre a tela de concusão de pedido
+                    if ($("#deposito").val()) {
+                        $('#moenav li ul').slideUp();
+                        $('#moenavc').slideToggle();
+                        $('#moenav li a').removeClass('active');
+                        $('#moenavc').addClass('active');
+                    }
+                    if ($("#vtmRes").val()) {
+                        $('#vtmnav li ul').slideUp();
+                        $('#vtmnavc').slideToggle();
+                        $('#vtmnav li a').removeClass('active');
+                        $('#vtmnavc').addClass('active');
+                    }
+                }
+                else {
+                    $("#senhaIncorreta").html('Atenção: O usuário e/ou senha incorreto! Esqueci minha senha.');
+                }
+            }
+        }
+
+        //CLIQUE EM SAIR
+        $(document).ready(function() {
+
+
+        });
+        // Essa função é somente para identificar o Navegador e suporte ao XMLHttpRequest.
+        function getHTTPObject()
+        {
+            var req;
+            try {
+                if (window.XMLHttpRequest) {
+                    req = new XMLHttpRequest();
+                    if (req.readyState == null) {
+                        req.readyState = 1;
+                        req.addEventListener("load", function() {
+                            req.readyState = 4;
+                            if (typeof req.onReadyStateChange == "function") {
+                                req.onReadyStateChange();
+                            }
+                        }, false);
+                    }
+                    return req;
+                }
+
+                if (window.ActiveXObject) {
+                    var prefixes = ["MSXML2", "Microsoft", "MSXML", "MSXML3"];
+                    for (var i = 0; i < prefixes.length; i++) {
+                        try {
+                            req = new ActiveXObject(prefixes[i] + ".XmlHttp");
+                            return req;
+                        } catch (ex) {
+                        }
+                        ;
+                    }
+                }
+            } catch (ex) {
+            }
+
+            alert("XmlHttp Objects not supported by client browser");
+        }
+        var http = getHTTPObject();
+        // Logo após fazer a verificação, é chamada a função e passada 
+        // o valor à variável global http.
+
+
+
+        //FORMATAÇÃO DOS CAMPOS
+        $(document).ready(function() {
+            $("input.dataNasc").mask("99/99/9999");
+            $("input.cpf").mask("999.999.999-99");
+            $("input.cep").mask("99.999-999");
+            $("input.telefone").mask("(+99)(99) 9999-9999");
+            $("input.telefoneb").mask("(+99)(99) 9999-9999");
+            $("input.receber").mask("9.999," + '00');
+        });
+
+    </script>
+
+
+   <!-- <script src="https://form.jotformz.com/static/feedback2.js?3.3.REV" type="text/javascript">
+      var JFL_60323240371644 = new JotformFeedback({
+        formId: '60323240371644',
+        base: 'https://form.jotformz.com/',
+        windowTitle: 'Confira nosso horário de Natal e Ano Novo!',
+        background: '#FFA500',
+        fontColor: '#FFFFFF',
+        type: '1',
+        height: 925,
+        width: 745,
+        openOnLoad: true
+      });
+    </script>-->
+    <!--<script src="https://form.jotformz.com/static/feedback2.js?3.3.REV" type="text/javascript">
+      var JFL_53373918731663 = new JotformFeedback({
+        formId: '53373918731663',
+        base: 'https://form.jotformz.com/',
+        windowTitle: 'Confira nosso horário de Natal e Ano Novo!',
+        background: '#FFA500',
+        fontColor: '#FFFFFF',
+        type: '1',
+        height: 925,
+        width: 745,
+        openOnLoad: true
+      });
+    </script>-->
+     
+  
+    <!--<script src="https://form.jotformz.com/static/feedback2.js?3.3.REV" type="text/javascript">
+      new JotformFeedback({
+        formId: "53373918731663",
+        buttonText: "Confira nosso horário de Natal e Ano Novo!",
+        base: "https://form.jotformz.com/",
+        background: "#F59202",
+        fontColor: "#FFFFFF",
+        buttonSide: "right",
+        buttonAlign: "center",
+        type: 1,
+        width: 765,
+        height: 960
+      });
+    </script>-->
+</head>
+
+<body>
+    <div class="header">
+        <div class="content-header">
+            <a href="home"><img src="/images/logo-header.png" class="img-logo-header" /></a>
+            <div class="box-top-header">
+                <img src="/images/icon-5.png" />
+                <div class="dropdown"  id="linkMinhaConta"> <a class="conta" id="menuTopD" onmouseover="menuTopFun('D')" onmouseout="menuTopBac('D')"><span>Minha Conta</span></a>
+                    <div class="submenuconta" style="display:none;" id="minhaConta">
+                        <ul class="raiz">
+                            <li> 
+                                <form name="formulario" id="formulario" method="post" action="javascript:void(0)">
+                                    <div class="home-lg-item">
+
+                                        <div class="home-lg-logo"><img src="/images/gear_64.png"></div>
+                                        <div style="float:left; width:130px; margin-left:0px;">
+                                            <div class="home-lg-tit"><a id="MCacesso"  target="_blank" href="">Acesse sua conta:</a></div>
+                                            <div class="home-sm-inp">CPF (ex.: 000.000.000-00):
+                                                <input type="text" name="user" id="user" class="cpf">
+                                            </div>
+                                            <div class="home-sm-inp">Senha:
+                                                <input type="password" name="pass" id="pass">
+                                            </div>
+                                            <div id="LGerro" style="color:#C30">
+                                                 <div><a id="senhaIncorreta" class="iframe" target="_blank" href="/sistema/esqueci-senha" style='font-size:9px; color:#C30'>Esqueci minha senha</a></div>                                             </div>
+                                        </div> 
+                                        <div style="float:left; width:170px; margin-left:0px; margin-bottom:10px;">
+                                            <div class="home-cd-bot"><a class="iframe" target="_blank" href="/cadastro" style="color:#FFF;">Cadastre-se</a></div>
+                                            <div id="home-lg-bot" class="home-lg-bot"><a href="#" onClick="javascript:list_dados()" style="color:#FFF;">Acessar!</a></div>
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <img src="/images/icon-6.png" />
+                <a href="#" >(48) 3212.4500</a>
+                <a href="javascript:void(0)" class="link-lingua" style="padding-left: 28px"><img src="/images/icon-1.png" /></a>
+                <img src="/images/icon-4.png" />
+                <a href="javascript:void(0)" class="link-lingua"><img src="/images/icon-2.png" /></a>
+                <img src="/images/icon-4.png" />
+                <a href="javascript:void(0)" class="link-lingua"><img src="/images/icon-3.png" /></a>
+                <div class="position-idiomas">
+                    <div class="idiomas" id="idiomas">
+                        <ul class="raiz">
+                            <li>
+
+                                <div id="google_translate_element"></div>
+
+
+                                <script type="text/javascript">
+                                    function googleTranslateElementInit() {
+                                        new google.translate.TranslateElement({pageLanguage: 'pt', includedLanguages: 'pt,en,es', layout: google.translate.TranslateElement.FloatPosition.TOP_RIGHT}, 'google_translate_element');
+                                    }
+                                </script>
+
+                                <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+            <div class="box-bottom-header">
+                <a href="/home"><div class="menu">Página Inicial</div></a>
+
+                <div class="menu dropdown" id="menuTopA" onmouseover="menuTopFun('A')" onmouseout="menuTopBac('A')">Produtos e Serviços
+                    <div class="submenu" id="ProdSev" style="display:none;">
+                        <ul class="raiz">
+                            <li> <a href="/reserva-moedas">
+                                    <div class="home-sm active-par">
+                                        <div class="home-sm-item">
+                                            <div class="home-sm-logo"><img src="/images/seta.png"></div>
+                                            <div class="home-sm-tit">Reserva Online de Moedas</div>
+                                            <div class="home-sm-txt">Moedas internacionais com tarifas imperdíveis.</div>
+                                        </div>
+                                    </div>
+                                </a> 
+                            </li>
+                            <li><a href="/vtm">
+                                    <div class="home-sm">
+                                        <div class="home-sm-item">
+                                            <div class="home-sm-logo"><img src="/images/seta.png"></div>
+                                            <div class="home-sm-tit">Mastercard Travel Money</div>
+                                            <div class="home-sm-txt">Seguranças, Conveniência e Controle de Gastos.</div>
+                                        </div>
+                                    </div>
+                                </a> 
+                            </li>
+
+                            <li> <a class="iframe" href="/faq-expressa">
+                                    <div class="home-sm active-par">
+                                        <div class="home-sm-item">
+                                            <div class="home-sm-logo"><img src="/images/seta.png"></div>
+                                            <div class="home-sm-tit">Remessa Expressa</div>
+                                            <div class="home-sm-txt">Facilite e acelere o envio de valores ao exterior.</div>
+                                        </div>
+                                    </div>
+                                </a> 
+                            </li>
+                            <li> <a class="iframe" href="/trans-inter">
+                                    <div class="home-sm active-impar">
+                                        <div class="home-sm-item">
+                                            <div class="home-sm-logo"><img src="/images/seta.png"></div>
+                                            <div class="home-sm-tit">Transferências Internacionais</div>
+                                            <div class="home-sm-txt">Soluções em Pagamentos e Recebimentos ao Exterior.</div>
+                                        </div>
+                                    </div>
+                                </a> 
+                            </li>              
+                        </ul>
+                    </div>
+                </div>
+                <a href="/quem-somos"><div class="menu">Quem Somos</div></a>
+                <a href="/contato"><div class="menu">Contato</div></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="mainContent">
+        <div class="cotacao-home">
+    <div class="content-cotacao">
+    	<div class="cotacao-tit"><img src="/images/seta-.png" />Principais Cotações</div>
+        <div class="cotacao" style="background:none">
+        	<div style="float:left; width:49.5%; background:none">
+            	<div style="width:100%; color:#7b7b7b !important; clear:both; height:35px; font-size:12px !important;">
+                	<div style="float:right; font-weight: 700; background:#bfbfbf; width:54px;   height:35px; line-height:35px; border-left:1px solid #cecece;border-left:1px solid #a7a7a7;"><center>VTM</center></div>
+                    <div style="float:right;font-weight: 700; background:#bfbfbf; width:66px;  height:35px; line-height:35px; border-right:1px solid #cecece; border-left:1px solid #a7a7a7;"><center>Venda</center></div>
+                    <div style="float:right;font-weight: 700; background:#bfbfbf; width:77px;  height:35px; line-height:35px; border-right:1px solid #cecece;"><center>Compra</center></div>
+                </div>
+                <div style="width:100%; color:#7b7b7b !important; clear:both; height:35px; margin-bottom:2px;">
+                	<div style=" width:264px; font-weight: 400; background:#b6b6b6; float:left; height:35px; line-height:35px; font-size:12px !important; text-indent:20px; border-right:1px solid #cecece; color:#FFF;">Dólar Americano</div>
+                    <div style="float:left;font-weight: 400; font-size:12px !important; background:#bfbfbf; width:75px;  border-left:1px solid #a7a7a7; border-right:1px solid #cecece; height:35px; line-height:35px;color:#FFF;"><center>R$ 3,45</center></div>
+                    <div style="float:left;font-size:12px !important; border-left:1px solid #a7a7a7; border-right:1px solid #cecece;  background:#bfbfbf; width:66px;  height:35px; line-height:35px;color:#FFF;"><center>R$ 3,68</center></div>
+                    <div style="float:left;font-size:12px !important;border-left:1px solid #a7a7a7;  background:#bfbfbf; width:54px;  height:35px; line-height:35px;color:#FFF;"><center>R$ 3,85</center></div>
+                </div>
+                <div style="width:100%; color:#7b7b7b !important; clear:both; height:35px;">
+                	<div style=" width:264px; background:#b6b6b6; float:left; height:35px; line-height:35px; font-size:12px !important; text-indent:20px; border-right:1px solid #cecece; color:#FFF;">Peso Argentino</div>
+                    <div style="float:left;font-size:12px !important; background:#bfbfbf; width:75px;  border-left:1px solid #a7a7a7; border-right:1px solid #cecece; height:35px; line-height:35px; color:#FFF;"><center>R$ 0,16</center></div>
+                    <div style="float:left;font-size:12px !important; border-left:1px solid #a7a7a7; border-right:1px solid #cecece;  background:#bfbfbf; width:66px;  height:35px; line-height:35px;color:#FFF;"><center>R$ 0,30</center></div>
+                    <div style="float:left;font-size:12px !important;border-left:1px solid #a7a7a7;  background:#bfbfbf; width:54px;  height:35px; line-height:35px;color:#FFF;"><center>R$ ***</center></div>
+                </div>
+            </div>
+
+            <div style="float:right; width:49.5%;">
+            	<div style="width:100%; color:#7b7b7b !important; clear:both; height:35px; font-size:12px !important;">
+                	<div style="float:right;font-weight: 700; background:#bfbfbf; width:54px;   height:35px; line-height:35px; border-left:1px solid #cecece;border-left:1px solid #a7a7a7;"><center font-size:12px !important;>VTM</center></div>
+                    <div style="float:right;font-weight: 700; background:#bfbfbf; width:66px;  height:35px; line-height:35px; border-right:1px solid #cecece; border-left:1px solid #a7a7a7;"><center font-size:12px !important;>Venda</center></div>
+                    <div style="float:right;font-weight: 700; background:#bfbfbf; width:77px;  height:35px; line-height:35px; border-right:1px solid #cecece;"><center font-size:12px !important;>Compra</center></div>
+                </div>
+                <div style="width:100%; color:#7b7b7b !important; clear:both; height:35px; margin-bottom:2px;">
+                	<div style=" width:264px; background:#b6b6b6; float:left; height:35px; line-height:35px; font-size:12px !important; text-indent:20px; border-right:1px solid #cecece; color:#FFF;">Euro</div>
+                    <div style="float:left;font-size:12px !important; background:#bfbfbf; width:75px;  border-left:1px solid #a7a7a7; border-right:1px solid #cecece; height:35px; line-height:35px;color:#FFF;"><center>R$ 3,90</center></div>
+                    <div style="float:left;font-size:12px !important; border-left:1px solid #a7a7a7; border-right:1px solid #cecece;  background:#bfbfbf; width:66px;  height:35px; line-height:35px;color:#FFF;"><center>R$ 4,18</center></div>
+                    <div style="float:left;font-size:12px !important;border-left:1px solid #a7a7a7;  background:#bfbfbf; width:54px;  height:35px; line-height:35px;color:#FFF;"><center>R$ 4,41</center></div>
+                </div>
+                <div style="width:100%; color:#7b7b7b !important; clear:both; height:35px;">
+                	<div style=" width:264px; background:#b6b6b6; float:left; height:35px; line-height:35px; font-size:12px !important; text-indent:20px; border-right:1px solid #cecece; color:#FFF;">Libra Esterlina</div>
+                    <div style="float:left;font-size:12px !important; background:#bfbfbf; width:75px;  border-left:1px solid #a7a7a7; border-right:1px solid #cecece; height:35px; line-height:35px;color:#FFF;"><center>R$ 5,00</center></div>
+                    <div style="float:left;font-size:12px !important; border-left:1px solid #a7a7a7; border-right:1px solid #cecece;  background:#bfbfbf; width:66px;  height:35px; line-height:35px;color:#FFF; bor"><center>R$ 5,52</center></div>
+                    <div style="float:left;font-size:12px !important;border-left:1px solid #a7a7a7;  background:#bfbfbf; width:54px;  height:35px; line-height:35px;color:#FFF;"><center>R$ 5,66</center></div>
+                </div>
+            </div>
+            <div style='float:right; margin:-3px 0 0 0'><center><span style="font-size: 10px; color: #a2a2a2;">Valores sujeito a alterações sem aviso prévio. Consulte disponibilidade!</span></center></div>
+		</div>
+	</div>
+</div>
+<div class="sombra-home"></div>
+<div class="grid-slide-home" align="left">
+    <div class="list_carousel" align="left">
+        <ul id="foo2">
+        	<li><a href="" target="_blank"><img src="../admin/upload/banner/2a3eeff0a66379f7d75e7143a921d7dc.png" /></a></li>
+        </ul>
+        <div class="clearfix"></div>
+        <a id="prev2" class="site-prev" href="#"></a>
+        <a id="next2" class="site-next" href="#"></a>
+        <!--<div id="pager2" class="pager"></div>-->
+        <div id="timer1" class="timer"></div>
+    </div>
+</div>
+<div class="content-mainContent">
+    <div class="grid-informacoes-home">
+        <div class="box-info-home">
+            <img src="/images/icon-14.png" class="img-box-info-home" />
+            <span class="titulo-box-info-home">Reserva Online</span>
+            <span class="subtitulo-box-info-home">Reserve suas moedas e ganhe tempo.</span>
+            <span class="texto-box-info-home">Reservar moedas online é super prático e seguro. Você pode garantir quando e onde quiser realizando um único acesso em nosso site.</span>
+            <a href="/reserva-moedas" class="botao-box-info-home but-laranja" >Quero Reservar</a>
+            <img src="/images/sombra.png" class="sombra-box-info-home" />
+        </div>
+        <div class="box-info-home">
+            <img src="/images/icon-17.png" class="img-box-info-home" />
+            <span class="titulo-box-info-home">Correspondentes<br>Cambiais e Agências Parceiras</span>
+            <span class="subtitulo-box-info-home"></span>
+            <span class="texto-box-info-home">Seja uma agência de viagens parceira.<br>Agência de Turismo? Conheça as vantagens exclusivas da Açoriana Câmbio na indicação aos seus clientes para compra de moedas.</span>
+            <a href="/parceiros" class="botao-box-info-home but-amarelo" >Saiba Mais</a>
+            <img src="/images/sombra.png" class="sombra-box-info-home" />
+        </div>
+        <div class="box-info-home">
+            <img src="/images/icon-19.png" class="img-box-info-home" />
+            <span class="titulo-box-info-home">Mastercard Travelmoney</span>
+            <span class="subtitulo-box-info-home">Recarregue com conveniência e segurança.</span>
+            <span class="texto-box-info-home">Prático, Seguro e Recarregável. <br />
+            Pode ser sacado em mais de 1 milhão de caixas automáticos no exterior.</span>
+            <a href="/vtm" class="botao-box-info-home but-azul" >Quero Recarregar</a>
+            <img src="/images/sombra.png" class="sombra-box-info-home" />
+        </div>
+    </div>
+</div>    </div>
+
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <footer>
+        <div class="grid-footer">
+            <div style="width:100%; height:140px; float:left; margin-top:45px;"> 
+                <div class="coluna1">
+                    <ul class="titulo">
+                        <strong>Produtos e Serviços</strong>
+                        <li style="list-style: none;"><br /></li>
+                        <li> <a href="/reserva-moedas">Reserva de Moedas</a> </li>
+                        <li> <a href="/vtm">Mastercard Travel Money</a> </li>
+                        <li> <a href="faq-expressa">Remessa Expressa</a> </li>
+                        <li> <a href="/trans-inter">Transf. Internacional</a> </li>
+                    </ul>
+                </div>
+                <!--coluna 2 das opçoes do menu-->
+                <div class="coluna2">
+                    <ul class="titulo">
+                        <strong>Institucional</strong>
+                        <li style="list-style: none;"><br /></li>
+                        <li> <a href="/cadastro">Cadastre-se</a> </li> 
+                        <li> <a href="/sistema/esqueci-senha">Esqueci Minha Senha</a> </li> 
+                    </ul>
+                </div>
+                <div class="coluna2">
+                    
+                </div>
+                <div class="coluna3">
+                    <ul class="titulo">
+                        <strong>Central de Relacionamento</strong><br>
+                        <a href="https://exatus.net/ouvidoria/index.asp?corretora=436f727265746f72612064652043e26d62696f2041e76f7269616e61204c746461" target="_blank">
+                         <div class="ouvidoria"> 
+                         <strong>Acesse<br> Ouvidoria</strong>
+                            <br />
+                            0800.774.2006
+                        </div></a>
+                        <div class="atendimento">
+                            <strong>Atendimento</strong>
+                            <br /><br>
+                            (48) 3212.4500
+                        </div>
+                        <div class="rede-social">
+                            <strong>Rede Sociais</strong>
+                            <br />
+                            <a href="https://www.facebook.com/AcorianaCorretora" target="_blank"><img src="/images/icon-7.png" /></a>
+                            <a href="#" target="_blank"><img src="/images/icon-8.png" /></a>
+                        </div>
+                    </ul>
+                </div>
+                <img class="logo-footer" src="/images/logo-footer.png" />
+                <a href="http://agenciaproduza.com.br/" target="_blank"><img class="agencia" src="/images/agencia.png" /></a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

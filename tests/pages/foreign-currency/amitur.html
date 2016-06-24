@@ -1,0 +1,465 @@
+
+<script language="JavaScript"> 
+function f_d1(){ 
+d1=document.frm.d1.value.length; 
+if (d1>9) 
+{ document.frm.d2.focus()} 
+} 
+function f_d2(){ 
+d2=document.frm.d2.value.length; 
+if (d2>1) 
+{ document.frm.tel1.focus()} 
+} 
+function f_tel1(){ 
+tel1=document.frm.tel1.value.length; 
+if (tel1>8) 
+{ document.frm.tel2.focus()} 
+} 
+function f_tel2(){ 
+tel2=document.frm.tel2.value.length; 
+if (tel2>8) 
+{ document.frm.celular.focus()} 
+} 
+function f_celular(){ 
+celular=document.frm.celular.value.length; 
+if (celular>8) 
+{ document.frm.data_admissao.focus()} 
+} 
+function f_data_admissao(){ 
+data_admissao=document.frm.data_admissao.value.length; 
+if (data_admissao>9) 
+{ document.frm.salario.focus()} 
+} 
+function f_dia_pagamento(){ 
+dia_pagamento=document.frm.dia_pagamento.value.length; 
+if (dia_pagamento>1) 
+{ document.frm.cargo.focus()} 
+} 
+function f_cpf(){ 
+cpf=document.frm.cpf.value.length; 
+if (cpf>13) 
+{ document.frm.rg.focus()} 
+} 
+function f_inicio_atividade(){ 
+inicio_atividade=document.frm.inicio_atividade.value.length; 
+if (inicio_atividade>9) 
+{ document.frm.data_desligamento.focus()} 
+} 
+function f_data_desligamento(){ 
+data_desligamento=document.frm.data_desligamento.value.length; 
+if (data_desligamento>9) 
+{ document.frm.observacoes.focus()} 
+} 
+function Mascara (formato, keypress, objeto){ 
+campo = eval (objeto); 
+// DATA 
+if (formato=='cnpj_emp'){ 
+separador1 = '.'; 
+separador2 = '/'; 
+separador3 = '-'; 
+conjunto1 = 2; 
+conjunto2 = 6; 
+conjunto3 = 10; 
+conjunto4 = 15; 
+if (campo.value.length == conjunto1){ 
+campo.value = campo.value + separador1; 
+} 
+if (campo.value.length == conjunto2){ 
+campo.value = campo.value + separador1; 
+} 
+if (campo.value.length == conjunto3){ 
+campo.value = campo.value + separador2; 
+} 
+if (campo.value.length == conjunto4){ 
+campo.value = campo.value + separador3; 
+} 
+} 
+if (formato=='cpf'){ 
+separador1 = '.'; 
+separador2 = '-'; 
+conjunto1 = 3; 
+conjunto2 = 7; 
+conjunto3 = 11; 
+if (campo.value.length == conjunto1){ 
+campo.value = campo.value + separador1; 
+} 
+if (campo.value.length == conjunto2){ 
+campo.value = campo.value + separador1; 
+} 
+if (campo.value.length == conjunto3){ 
+campo.value = campo.value + separador2; 
+}
+} 
+if (formato=='telefone'){ 
+separador1 = '-'; 
+conjunto1 = 4; 
+if (campo.value.length == conjunto1){ 
+campo.value = campo.value + separador1; 
+} 
+} 
+if (formato=='cep1'){ 
+separador1 = '.'; 
+separador2 = '-'; 
+conjunto1 = 2; 
+conjunto2 = 6; 
+if (campo.value.length == conjunto1){ 
+campo.value = campo.value + separador1; 
+} 
+if (campo.value.length == conjunto2){ 
+campo.value = campo.value + separador2; 
+} 
+} 
+if (formato=='data'){ 
+separador1 = '/'; 
+conjunto1 = 2; 
+conjunto2 = 5; 
+if (campo.value.length == conjunto1){ 
+campo.value = campo.value + separador1; 
+} 
+if (campo.value.length == conjunto2){ 
+campo.value = campo.value + separador1; 
+} 
+} 
+} 
+function nm()
+{
+    if (event.keyCode == 44) return true
+    if (event.keyCode == 47) return true
+    if (event.keyCode == 45) return true
+    if (event.keyCode == 48) return true
+    if (event.keyCode == 49) return true
+    if (event.keyCode == 50) return true
+    if (event.keyCode == 51) return true
+    if (event.keyCode == 52) return true
+    if (event.keyCode == 53) return true
+    if (event.keyCode == 54) return true
+    if (event.keyCode == 55) return true
+    if (event.keyCode == 56) return true
+    if (event.keyCode == 57) return true
+    return false
+}
+function onm()
+{
+    if (event.keyCode == 48) return true
+    if (event.keyCode == 49) return true
+    if (event.keyCode == 50) return true
+    if (event.keyCode == 51) return true
+    if (event.keyCode == 52) return true
+    if (event.keyCode == 53) return true
+    if (event.keyCode == 54) return true
+    if (event.keyCode == 55) return true
+    if (event.keyCode == 56) return true
+    if (event.keyCode == 57) return true
+    return false
+}
+function lt()
+
+{
+    if (event.keyCode == 34) return false
+    if (event.keyCode == 39) return false
+    return true
+}
+</script>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>TEOSYS</title>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+.style1 {
+	font-size: 23px;
+	
+	color: #FFFFFF;
+}
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 7px;
+	color: #333333;
+	text-align: center;
+}
+.style2 {color: #FFFFFF}
+a:link {
+	color: #333333;
+	text-decoration: none;
+}
+a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+a:hover {
+	color: #CCCC00;
+	text-decoration: underline;
+}
+a:active {
+	text-decoration: none;
+	text-align: left;
+}
+.style3 {color: #666666}
+-->
+</style></head>
+<body>
+<br/><br/>
+<table width="115" border="0" cellspacing="0" cellpadding="0" align="center">
+  <tr>
+    
+    <td width="115%" valign="top"><div align="center">
+	  
+
+	  <table width="115%" border="0" cellpadding="0" cellspacing="0">
+        <tr  bgcolor="#FF0000" height="20">
+        
+          <td width="28%"><div align="center"><font size="-2" color="#FFFFFF">MOEDA</font></div></td>
+          <td width="28%"><div align="center"><font size="-2" color="#FFFFFF">COMPRA</font></div></td>
+          <td width="28%"><div align="center"><font size="-2" color="#FFFFFF">VENDA</font></div></td>
+          <td width="16%"><div align="center"><font  size="-1" color="#FFFFFF"> </font></div></td>
+       </tr>
+      
+		
+        <tr    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  US DOLAR
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  3,87
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  4,08 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band1.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr  bgcolor="#00FFFF"    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  VTM DOLAR
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  3,87
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  4,30 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band2.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  EURO
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  4,32
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  4,49 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band3.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr  bgcolor="#00FFFF"    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  VTM EURO
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  4,27
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  4,74 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band4.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  LIBRA
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  5,55
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  5,80 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band5.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr  bgcolor="#00FFFF"    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  VTM LIBRA
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  5,47
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  6,06 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band6.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  ARGENTINA
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  0,18
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  0,30 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band7.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr  bgcolor="#00FFFF"    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  AUSTRALIA
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  2,83
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  3,03 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band8.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  CANADA
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  2,89
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  3,09 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band9.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr  bgcolor="#00FFFF"    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  CHILE
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  0,0052
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  0,0067 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band10.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  JAP&Atilde;O
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  0,031
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  0,041 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band11.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        <tr  bgcolor="#00FFFF"    height="20">
+          <td>
+		<div align="center">
+		 <font color="#000099" size="-1">
+		  SUI&Ccedil;A
+		 </font></div>
+		  </td>
+          <td><div align="center">
+		   <font color="#000099" size="-1">
+		  3,70
+		 </font></div>
+		   </td>
+          <td><div align="center">  <font color="#000099" size="-1">  4,23 </font>  <!-- formatnumber(vdm,2,-1,0,-1)   -->
+		 
+		  </div></td>
+         
+          <td><div align="center"><img width="18" height="10" src="http://200.222.80.66/teosys/bandeiras/band12.jpg" /></div></td>  <!-- aqui eu tenho que colocar o caminho de cada bandeira no banco de dados -->
+          </tr>
+		  
+        
+      </table>
+	 
+	  <p>&nbsp;</p>
+	  </div></td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#CCCC00"><div align="center"></div></td>
+  </tr>
+</table>
+
+</body>
+</html>

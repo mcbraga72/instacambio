@@ -1,0 +1,595 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="ctl00_Head1"><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" /><link href="/WebResource.axd?d=DA0zwQlm7GfYgj6HU2YMMgPu-AjmGy-OsvCeq6uMHDX9ycIwc5x7fwTT6LxE_AEI1sTLfWYP7nL_ARkoHQg19MZlBqXGPXwftlEXT7c-l7nBLt6ZYJ5L_H7f9hMPnNvoIkiGqAKk3RVApCGtqBZR6wP4iFrO7wW4y41qvPVtbXI1&t=635779217550742078" rel="stylesheet" type="text/css"  /><link href="/WebResource.axd?d=3Kp8qW-GXdr-hipB_MJF2iGTCuMLIJLaU8K9ILpxtcDajpLfldi4xGwaObPvYsXNk1KSfOGpSg8_b3X0AXcgbcZAeDX0bVsJJY0y9N4671lAp_x-0zxDmVauSEYGr9wW7xaVajZhF5TSf5sGsIm3Gns7QqKXLLjv9JzS_9ZBdC81&t=635779217550742078" rel="stylesheet" type="text/css"  /><script src="/WebResource.axd?d=Rj8LPDWffnOUSUVkOqWKEa8HCNyHZoQDMBmxtayaNOnsaq7IJAUqPBP2yyyOQVHpTTlQMAThPvfGOsFck-H9YwFlaMMKzuM4-Jg2kJGz86j9u2vXpBNYQiTAVgnWp7pqKgBXC0QRy51N_mop9-85TFDjic-MPvSWLm114rt22so1&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=8VTwwwXyfqyYWhB0Vs57r5c3d7PQqXNkUDJXecwCr1ya_hRX4Ptz7_xWSrlAuvmd7cmY0M70qhiIHODYM0UBJgUxGc-_Zfcz9ncO-NZxy3LaBa1H_r346hXb8CxypIavfqzC1Oha1UuwVFK7Wbmaoo8N5M9KXyU_XexiPgIxd0g1&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=EosHmwgEF3ud1azc6u3idl-j9RsXWX5LLLqj00TeQkKj7D1GT1P_4B5jnucfAPqunJ7z4iIaUMfk-AwtUtiIl2KP0vsdVQoh7n2FGO-XK4fVWC25rmLoWvfm8QKoIhrZULaZkRkgrzhktx_20HzV4aIfbmEnp7e9xwfqTfD_j4Aio5DfdOC0b3YPguaw7mh80&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=jy6rssFAiRST7RvHIk3Q94vO6YtujOlyYq79nYYyuIfBacr82Ew8dK97uSNYrdeJUV2QchIUFNkS4fOCQQZjKQ0wOe9ZmSCgCfPl598nMvRJGoLcPp1HHqvDFi5cCWj77b901lz9P4t6_mqiNkB77-oQZ1s9AvipkmGsM0moDyeEENkSiRPQ8kzRZFop8tAX0&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=uJAGNRH2emYMRNB5Q0fLanIOc4dRR-D4u3B9duvpimh3SgRHS2VfhA9H-EGIcl8FI8G9EPxv7H0K4G4ffVFWCxHrO0OAOYTRXisGIMxH1QetTE7d944Pt_9NJgjjx0F8KXm-qhuZhn3BHggG3Wqjc4QKq4_2eYuYFbkQuAw69buggJr5r73TQgdG_438vZrX0&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=sYB0LBxdERye0W6SrDS0Tf_mg1iYheY8vPCNvWlZuyXDIwdwzmNOblYB40EYs-W48Z72MLOfp7CKVdjt4n4ZeOFeK1rSdhOuPdks4q8819MTXWKnodTffI9ASggEIQWmWv_yBooQGccV0yqiM0VkWw4xjOfSgKYdVE4JtUIzMfqYhZ_q5Y1a2Bg6SwqdK-Q00&t=635779217550742078" type="text/javascript"></script><title>
+	Loja Torre Corretora - Moeda em Espécie
+</title>
+    <script type="text/javascript">
+        function calcTotal(ddl) {
+            var b = $(ddl).parent().parent();
+            var vlrTx = parseFloat(b.find(".precoProduto").text().replace(".", "").replace(",", "."));
+            var qtd = parseFloat($(ddl).val().replace(".", "").replace(",", "."));
+            b.find(".textBoxPrecoTotal").text("R$ " + (qtd * vlrTx).toLocaleString());
+        };
+
+        $(document).ready(function () {
+            /// <summary>Retira e coloca a opacidade do box em hover</summary>
+            $(".boxProduto").hover(function () {
+                $(".boxProduto").stop().animate({ opacity: "0.3" }, 'slow');
+                $(this).stop().animate({ opacity: "1" }, 'slow');
+            },
+            function () {
+                $(".boxProduto").stop().animate({ opacity: "1" }, 'slow');
+            })
+        });
+    </script>
+<link href="Styles/Site.css?v=1" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Site.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/Site.min.css" type="text/css" rel="stylesheet" /><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-45102916-1']);
+_gaq.push(['_trackPageview']);
+(function () {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+<body>
+    <!-- Google Code for Torre Corretora Conversion Page -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var google_conversion_id = 978335636;
+
+        var google_conversion_language = "en";
+
+        var google_conversion_format = "3";
+
+        var google_conversion_color = "ffffff";
+
+        var google_conversion_label = "uPvnCInVml0QlO_A0gM"; var google_conversion_value = 1.00; var google_conversion_currency = "BRL"; var google_remarketing_only = false;
+
+        /* ]]> */
+
+    </script>
+
+    <script type="text/javascript"
+        src="//www.googleadservices.com/pagead/conversion.js">
+
+    </script>
+
+    <noscript>
+        <div style="display: inline;">
+
+            <img height="1" width="1" style="border-style: none;" alt=""
+                src="//">">">">http://www.googleadservices.com/pagead/conversion/978335636/?value=1.00&amp;currency_code=BRL&amp;label=uPvnCInVml0QlO_A0gM&amp;guid=ON&amp;script=0"/>
+
+        </div>
+    </noscript>
+
+    <form method="post" action="./MoedaEspecie.aspx" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=g4dCqZ8AAAdZuL5RKg6IaY0HOYeKJmPAIDucxdPHOu8rU6pZctMLqnBkiOz6rg4y6Ln_957MmMzF1d5veVMVokUZkxyoQcGkdEp50kVYHGs1&amp;t=635802925220000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=oom77x5pMKON-1Rgq6Ged63yL15vDv2yH52i-8L4HBhJeJMVcKrBcZpiKJORd2d63ujZkcRhL5akhBBrvU1QIHcRWjOeNV9nw8sGQmavX4kuXDuwhunkuYmXn_e32g640&amp;t=23c9c237" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=NzriflTpdzLkMoLgz7jdwYqKGE6zP5zTBsuJBhr1m7cVtgLJ_8pIixyHlaAp5PniZCE8_snxIkgBeqPN5hWMTnMrIB1ISumqYAe4-ZgwBwGxy-HzIZZhuq0kh8xvHp9Kovna41TPjyqCnXpaWAcufA2&amp;t=23c9c237" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="D4A3113C" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="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" />
+</div>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-45102916-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <noscript>
+            <div style="display: inline;">
+                <img height="1" width="1" style="border-style: none;" alt="" src="//www.googleadservices.com/pagead/conversion/978335636/?value=1.00&amp;currency_code=BRL&amp;label=uPvnCInVml0QlO_A0gM&amp;guid=ON&amp;script=0" />
+            </div>
+        </noscript>
+        <span id="ctl00_WebExManager1"></span>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$MainContent$UpdatePanel1','','tctl00$MainContent$wucMenuDireita1$UpdatePanel1',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div class="tarjaTopo">
+            <div class="tarjaTopoEspacoCentralizado">
+                <span>Visite também, <a href="http://www.torrecorretora.com.br" target="_blank">www.torrecorretora.com.br</a></span>
+            </div>
+        </div>
+        <div class="espacoTopo">
+            <div class="espacoTopoCentralizado">
+                <a href="Default.aspx">
+                    <img id="ctl00_Image1" class="logoTopo" src="App_Themes/Default/Images/logo-topo.png" />
+                </a>
+                <div class="espacoTelefoneTopo">
+                    <span class="linha1">Câmbio Turismo</span>
+                    
+                    <span class="linha2">(11) 3102 2100</span>
+                </div>
+                <div class="espacoMenuTopo">
+                    <span class="espacoBoasVindas">
+                        Boa tarde,
+                        <label id="ctl00_ltUsuario">Visitante</label>
+                        .
+                        
+                        
+                        <div id="ctl00_divBoasVindas" style="display: inline;">
+                            <br />
+                            Clique <a href="https://torrecambio.primecase.com.br/MeusPedidos.aspx">aqui</a> para
+                        entrar ou <a href="https://torrecambio.primecase.com.br/Cadastrese.aspx">
+                            Cadastre-se</a>.
+                        </div>
+                    </span><a href="https://torrecambio.primecase.com.br/MinhaCesta.aspx">
+                        <div class="minhaCesta">
+                            <span class="textoNumeroItens">
+                                0
+                            </span>
+                            <span class="textoItens">
+                                itens
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="espacoCentralizado">
+            <div class="menuPrincipal">
+                <a href="/Default.aspx">
+                    <div class="botaoMenuPrincipal ">
+                        <span>Home</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/MoedaEspecie.aspx">
+                    <div class="botaoMenuPrincipal menuPrincipalSelecionado ">
+                        <span>Moedas em Espécie</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/CartaoMasterCard.aspx">
+                    <div class="botaoMenuPrincipal ">
+                        <span>Cartões MasterCard</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/CartaoVisa.aspx">
+                    <div class="botaoMenuPrincipal ">
+                        <span>Cartões Visa</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/NossosCartoes.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Nossos Cartões</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/Cadastrese.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Cadastre-se</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/MeusPedidos.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Meus Pedidos</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="espacoConteudo">
+            
+    <div id="ctl00_MainContent_UpdatePanel1">
+	
+            
+<div class="menuEsquerda">
+    <div id="ctl00_MainContent_wucMenuDireita1_UpdatePanel1">
+		
+            <div class="atendimentoOnline"
+                onclick="javascript:window.open('http://chat.etalker.com.br/?pk=Skboa','page','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=450');">
+            </div>
+        
+	</div>
+
+    <img src="../Images/delivery_1.png" alt="" style="padding-top: 5px;" />
+    
+
+    <div class="platinum">
+    </div>
+
+    <div class="botaoReceita"
+        onclick="javascript:window.open('https://www.edbv.receita.fazenda.gov.br/edbv-viajante/pages/selecionarAcao/selecionarAcao.jsf','page');">
+    </div>
+</div>
+
+            <div class="conteudoPagina" style="width: 834px; overflow: hidden;">
+                <div style="float: left;">
+                    <div class="tipoProduto" id="MoedaEspecie">
+                        <span>Moedas em Espécie</span>
+                        <div style="color: black; font-size: 11pt; font-weight: bold; float: right; margin-right: 50px;">
+                            Taxas válidas somente para compras realizadas através desta Loja Virtual
+                        </div>
+                    </div>
+                    <img src="Images/banner.png" alt="PROMOÇÂO" style="margin-right: 3px;" />
+                    
+                    
+                            <input type="hidden" name="ctl00$MainContent$rptProdutos$ctl00$hidIDTaxa" id="ctl00_MainContent_rptProdutos_ctl00_hidIDTaxa" value="11664" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto">
+                                    <img id="ctl00_MainContent_rptProdutos_ctl00_Image1" src="https://torrecambio.primecase.com.br/Images/Moeda/2.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Dólar Americano (USD)
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA
+                                        </span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl00_spanTaxa" class="precoProduto">
+                                            4,04000
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutos$ctl00$ddlQuantidade" id="ctl00_MainContent_rptProdutos_ctl00_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="500">500</option>
+		<option value="600">600</option>
+		<option value="700">700</option>
+		<option value="800">800</option>
+		<option value="900">900</option>
+		<option value="1000">1000</option>
+		<option value="1100">1100</option>
+		<option value="1200">1200</option>
+		<option value="1300">1300</option>
+		<option value="1400">1400</option>
+		<option value="1500">1500</option>
+		<option value="1600">1600</option>
+		<option value="1700">1700</option>
+		<option value="1800">1800</option>
+		<option value="1900">1900</option>
+		<option value="2000">2000</option>
+		<option value="2100">2100</option>
+		<option value="2200">2200</option>
+		<option value="2300">2300</option>
+		<option value="2400">2400</option>
+		<option value="2500">2500</option>
+		<option value="2600">2600</option>
+		<option value="2700">2700</option>
+		<option value="2800">2800</option>
+		<option value="2900">2900</option>
+		<option value="3000">3000</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL
+                                        </span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl00_txtTotalMoeda" class="textBoxPrecoTotal">R$ 2.020,00</span>
+                                    </div>
+                                    <div class="espacoBotaoComprar">
+                                        <input type="submit" name="ctl00$MainContent$rptProdutos$ctl00$btnComprar" value="" id="ctl00_MainContent_rptProdutos_ctl00_btnComprar" class="botaoComprar" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <input type="hidden" name="ctl00$MainContent$rptProdutos$ctl01$hidIDTaxa" id="ctl00_MainContent_rptProdutos_ctl01_hidIDTaxa" value="11671" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto">
+                                    <img id="ctl00_MainContent_rptProdutos_ctl01_Image1" src="https://torrecambio.primecase.com.br/Images/Moeda/4.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Euro (EUR)
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA
+                                        </span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl01_spanTaxa" class="precoProduto">
+                                            4,41000
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutos$ctl01$ddlQuantidade" id="ctl00_MainContent_rptProdutos_ctl01_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="300">300</option>
+		<option value="400">400</option>
+		<option value="500">500</option>
+		<option value="600">600</option>
+		<option value="700">700</option>
+		<option value="800">800</option>
+		<option value="900">900</option>
+		<option value="1000">1000</option>
+		<option value="1100">1100</option>
+		<option value="1200">1200</option>
+		<option value="1300">1300</option>
+		<option value="1400">1400</option>
+		<option value="1500">1500</option>
+		<option value="1600">1600</option>
+		<option value="1700">1700</option>
+		<option value="1800">1800</option>
+		<option value="1900">1900</option>
+		<option value="2000">2000</option>
+		<option value="2100">2100</option>
+		<option value="2200">2200</option>
+		<option value="2300">2300</option>
+		<option value="2400">2400</option>
+		<option value="2500">2500</option>
+		<option value="2600">2600</option>
+		<option value="2700">2700</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL
+                                        </span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl01_txtTotalMoeda" class="textBoxPrecoTotal">R$ 1.323,00</span>
+                                    </div>
+                                    <div class="espacoBotaoComprar">
+                                        <input type="submit" name="ctl00$MainContent$rptProdutos$ctl01$btnComprar" value="" id="ctl00_MainContent_rptProdutos_ctl01_btnComprar" class="botaoComprar" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <input type="hidden" name="ctl00$MainContent$rptProdutos$ctl02$hidIDTaxa" id="ctl00_MainContent_rptProdutos_ctl02_hidIDTaxa" value="11668" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto">
+                                    <img id="ctl00_MainContent_rptProdutos_ctl02_Image1" src="https://torrecambio.primecase.com.br/Images/Moeda/6.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Libra Esterlina (GBP)
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA
+                                        </span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl02_spanTaxa" class="precoProduto">
+                                            5,81000
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutos$ctl02$ddlQuantidade" id="ctl00_MainContent_rptProdutos_ctl02_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="200">200</option>
+		<option value="300">300</option>
+		<option value="400">400</option>
+		<option value="500">500</option>
+		<option value="600">600</option>
+		<option value="700">700</option>
+		<option value="800">800</option>
+		<option value="900">900</option>
+		<option value="1000">1000</option>
+		<option value="1100">1100</option>
+		<option value="1200">1200</option>
+		<option value="1300">1300</option>
+		<option value="1400">1400</option>
+		<option value="1500">1500</option>
+		<option value="1600">1600</option>
+		<option value="1700">1700</option>
+		<option value="1800">1800</option>
+		<option value="1900">1900</option>
+		<option value="2000">2000</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL
+                                        </span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl02_txtTotalMoeda" class="textBoxPrecoTotal">R$ 1.162,00</span>
+                                    </div>
+                                    <div class="espacoBotaoComprar">
+                                        <input type="submit" name="ctl00$MainContent$rptProdutos$ctl02$btnComprar" value="" id="ctl00_MainContent_rptProdutos_ctl02_btnComprar" class="botaoComprar" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <input type="hidden" name="ctl00$MainContent$rptProdutos$ctl03$hidIDTaxa" id="ctl00_MainContent_rptProdutos_ctl03_hidIDTaxa" value="11667" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto">
+                                    <img id="ctl00_MainContent_rptProdutos_ctl03_Image1" src="https://torrecambio.primecase.com.br/Images/Moeda/8.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Iene (JPY)
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA
+                                        </span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl03_spanTaxa" class="precoProduto">
+                                            0,03720
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutos$ctl03$ddlQuantidade" id="ctl00_MainContent_rptProdutos_ctl03_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="30000">30000</option>
+		<option value="60000">60000</option>
+		<option value="90000">90000</option>
+		<option value="120000">120000</option>
+		<option value="150000">150000</option>
+		<option value="180000">180000</option>
+		<option value="210000">210000</option>
+		<option value="240000">240000</option>
+		<option value="270000">270000</option>
+		<option value="300000">300000</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL
+                                        </span>
+                                        <span id="ctl00_MainContent_rptProdutos_ctl03_txtTotalMoeda" class="textBoxPrecoTotal">R$ 1.116,00</span>
+                                    </div>
+                                    <div class="espacoBotaoComprar">
+                                        <input type="submit" name="ctl00$MainContent$rptProdutos$ctl03$btnComprar" value="" id="ctl00_MainContent_rptProdutos_ctl03_btnComprar" class="botaoComprar" />
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image5" src="/Images/Moeda/MXN.jpg" />
+                        </div>
+                        <span class="nomeProduto">Peso Mexicano (MXN) 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button1" value="" id="ctl00_MainContent_Button1" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image2" src="/Images/Moeda/7.jpg" />
+                        </div>
+                        <span class="nomeProduto">Peso Argentino (ARS) 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button2" value="" id="ctl00_MainContent_Button2" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image6" src="/Images/Moeda/10.jpg" />
+                        </div>
+                        <span class="nomeProduto">Dólar Australiano (AUD) 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button5" value="" id="ctl00_MainContent_Button5" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image7" src="/Images/Moeda/11.jpg" />
+                        </div>
+                        <span class="nomeProduto">Dólar Neozelandês (NZD) 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button6" value="" id="ctl00_MainContent_Button6" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image8" src="/Images/Moeda/14.jpg" />
+                        </div>
+                        <span class="nomeProduto">Peso Chileno (CLP) 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button7" value="" id="ctl00_MainContent_Button7" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image9" src="/Images/Moeda/22.jpg" />
+                        </div>
+                        <span class="nomeProduto">Renmimbi Iuan (CNY) 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button8" value="" id="ctl00_MainContent_Button8" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+</div>
+
+        </div>
+        <div class="rodape">
+            <div class="tarjaRodape">
+                <div class="espacoCentralizado">
+                    <span>
+                        <a href="Default.aspx">Home</a> | <a href="NossosCartoes.aspx">Nossos Cartões</a> | <a href="CartaoVisa.aspx">Cartão Visa</a> | <a href="CartaoMasterCard.aspx">Cartão MasterCard</a> | <a href="MoedaEspecie.aspx" target="_blank">Moeda Espécie</a> | <a href="Cadastrese.aspx">Cadastre-se</a> | <a href="MeusPedidos.aspx">Meus Pedidos</a> | <a href="FaleConosco.aspx">Fale Conosco</a>
+                    </span>
+                </div>
+            </div>
+            <div class="espacoEndereco espacoCentralizado">
+                <span style="float: left; letter-spacing: -0.2px;">Torre Corretora de Câmbio Ltda | Rua Boa Vista, 63 - 8º andar - Centro | CEP: 01014-001 | São Paulo - SP
+                        <br />
+                    Fones: (11) 2842-9650 - Fax: (11) 3107-2610<br />
+                    <b>Copyright 2013 Torre Corretora - Todos os direitos reservados</b>
+                </span>
+
+            </div>
+            <div class="tarjaOuvidoria">
+                <div class="espacoCentralizado">
+                    <span><b>Ouvidoria:</b> 0800 770 5422 <a href="http://www.advicetech.com.br/Ouvidoria_Front/Paginas/RegistrarAtendimento/RegistrarAtendimento.aspx?CD_CHAVE=F54404F3-AC69-4724-91DC-D703FAA2D364
+"
+                        target="_blank">ou Acesse nosso sistema.</a><br />
+                        <b>E-mail:</b> <a href="mailto:ouvidoria@torrecorretora.com.br">ouvidoria@torrecorretora.com.br</a>
+                    </span>
+                    <span class="primecase">Desenvolvido por<br />
+                        <a href="http://www.primecase.com.br" target="_blank"><b>PRIMECASE Tecnologia</b></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

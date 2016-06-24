@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<meta name="language" content="pt-br" />
+<meta name="doc-rights" content="Public" />
+<meta name="resource-type" content="document" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta name="googlebot" content="ALL" />
+<meta name="distribution" content="Global" />
+<meta name="robots" content="all" />
+<meta name="google-site-verification" content="" />
+<meta name="rating" content="General" />
+<meta name="author" content="INVENTE COMUNICAÇÃO" />
+<meta name="title" content="Dourada" />
+<meta property="og:image" content="http://www.dourada.com.br/img/logo.png" />
+<meta name="url" content="http://www.dourada.com.br/" />
+<meta name="copyright" content="© DOURADA CORRETORA DE CÂMBIO 2013 • TODOS OS DIREITOS RESERVADOS" />
+<meta name="description" content="Corretora de Câmbio/ Casa de câmbio" />
+<meta name="keywords" content="Câmbio; dolar; euro, libra, vtm" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>Dourada</title>
+<link href="style/dourada.0.14.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="scripts/jquery.min.js"></script>
+<script type="text/javascript" src="scripts/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="scripts/jquery.cycle.2.min.js"></script>
+<script type="text/javascript">
+<!--
+jQuery(document).ready(function(){
+	arrumarcotacao();
+	arrumarfloatbanner();
+	$(window).resize(function() {
+		arrumarcotacao();
+		arrumarfloatbanner();
+	});
+	function arrumarcotacao() {
+		var w = $(window).width();
+		var h = $(window).height();
+		jQuery('.cotacaofundo').css('width',w);
+		jQuery('.cotacaofundo').css('height',h);
+		jQuery('.cotacao').css('left',(w/2)-157);
+		jQuery('.cotacao').css('top',(h/2)-307);	
+	}
+	function arrumarfloatbanner() {
+		var w = $(window).width();
+		var h = $(window).height();
+		jQuery('.fundoflutuante').css('width',w);
+		jQuery('.fundoflutuante').css('height',h);
+		w=(w/2)-(jQuery('.bannerflutuante').innerWidth()/2);
+		h=(h/2)-(jQuery('.bannerflutuante').innerHeight()/2);
+		jQuery('.bannerflutuante').css('left',w);
+		jQuery('.bannerflutuante').css('top',h);
+	}
+	
+	jQuery('a.restritalink').click(function() {
+		$('.restritaanima').toggle('slow');
+		return false;
+	});
+	
+	jQuery('.btn-cotacao').click(function() {
+		$('.cotacaofundo').show();
+		$('.cotacao').show();
+		return false;
+	});
+	jQuery('.cotacaofundo').click(function() {
+		$('.cotacaofundo').hide();
+		$('.cotacao').hide();
+		return false;
+	});
+	jQuery('.cotacaofechar').click(function() {
+		$('.cotacaofundo').hide();
+		$('.cotacao').hide();
+		return false;
+	});
+	jQuery('.btnprod').mouseover(function () {$('.listaprodutos').show();$('.listacadastro').hide();});
+	jQuery('.btnprodutos').mouseover(function () {$('.listaprodutos').show();$('.listacadastro').hide();});
+	jQuery('.listaprodutos')
+		.mouseover(function () {
+			$('.listaprodutos').show();
+			$('#lista').addClass('selec');
+			$('#lista2').addClass('selecionado');
+		})
+		.mouseout(function () {
+			$('.listaprodutos').hide();
+			$('#lista').removeClass('selec');
+			$('#lista2').removeClass('selecionado');
+		});
+		
+	jQuery('.btncada').mouseover(function () {$('.listaprodutos').hide();$('.listacadastro').show();});
+	jQuery('.btncadastro').mouseover(function () {$('.listaprodutos').hide();$('.listacadastro').show();});
+	jQuery('.listacadastro')
+		.mouseover(function () {
+			$('.listacadastro').show();
+			$('#lista3').addClass('selec');
+			$('#lista4').addClass('selecionado');
+		})
+		.mouseout(function () {
+			$('.liastacadastro').hide();
+			$('#lista3').removeClass('selec');
+			$('#lista4').removeClass('selecionado');
+		});
+	jQuery('a').mouseover(function () {$('.listaprodutos').hide();$('.listacadastro').hide();});
+	//jQuery('.listasensor').mouseover(function () {$('.listaprodutos').hide();$('.listacadastro').hide();});
+	jQuery('.whatsapp').click(function () {jQuery('.fundoflutuante').show(0);jQuery('.bannerflutuante').show(0);return false;});
+	
+	jQuery('.mostrarmenu').click(function() {
+		$('ul.menu-menor').toggle();
+		return false;
+	});
+	
+	
+	
+});
+
+function fecharbanner() { 
+	jQuery('.fundoflutuante').hide(0);
+	jQuery('.bannerflutuante').hide(0);
+	return false;
+}
+function checkMail(mail){
+	var er = new RegExp(/^[A-Za-z0-9_\-\.]+@[A-Za-z0-9_\-\.]{2,}\.[A-Za-z0-9]{2,}(\.[A-Za-z0-9])?/);
+	if(typeof(mail) == "string"){
+		if(er.test(mail)){ return true; }
+	}else if(typeof(mail) == "object"){
+		if(er.test(mail.value)){ 
+			return true; 
+		}
+	}else{
+		return false;
+	}
+}
+function checkRestrita() {
+	var error='';
+	var stopError=0;
+	var email=document.getElementById('restritalogin').value;
+	if (checkMail(email)) {		
+	} else if (document.getElementById('restritalogin').value=='') {
+		stopError=1;
+		error+='Por favor, verifique o campo Login!\n';
+	} else {
+		stopError=1;
+		error+='Por favor, verifique o campo Login!\n';
+	}
+	if (document.getElementById('restritasenha').value=='') {
+		stopError=1;
+		error+='Por favor, verifique o campo Senha!\n';
+	}
+	if (stopError==1) {
+		alert (error);
+		return false;
+	} else {
+		return true;	
+	}
+}
+function checkCotacao() {
+	var error='';
+	var stopError=0;
+	if ((document.getElementById('nomecotacao').value=='')&&(document.getElementById('nomecotacao').value!='Nome')) {
+		stopError=1;
+		error+='Por favor, verifique o campo Nome!\n';
+	}
+	var email=document.getElementById('emailcotacao').value;
+	if (checkMail(email)) {
+		
+	} else if (document.getElementById('emailcotacao').value=='') {
+		stopError=1;
+		error+='Por favor, verifique o campo Email!\n';
+	} else {
+		stopError=1;
+		error+='Por favor, verifique o campo Email!\n';
+	}
+	if (stopError==1) {
+		alert (error);
+		return false;
+	} else {
+		return true;	
+	}
+}
+//-->
+</script>
+</head>
+<body>
+
+<div class="restrita">
+<div id="restrita">
+<div class="restritaanima">
+  <form id="formrestrito" name="formrestrito" method="post" action="">
+    <div class="restrita-btn">
+    <input type="text" name="restritalogin" id="restritalogin" value="USU&Aacute;RIO" />
+    <input type="text" name="restritasenha" id="restritasenha" value="SENHA" />
+    <input type="submit" name="button" id="button" class="btn" value="Acessar" onclick="return checkRestrita()" />
+    </div>
+    <a href="">N&atilde;o &eacute; cadastrado?</a>
+    <a href="">Esqueceu sua senha?</a>
+  </form>
+</div>
+</div>
+</div>
+<div class="site">
+<div id="site">
+<div class="topo">
+<h1><a href="http://www.dourada.com.br/">Dourada</a></h1>
+
+<div class="telefone">
+<a href="tel:41 3322.0833"><span>41</span> 3322.0833</a>
+</div>
+<div class="mesa">
+MESA DE OPERAÇÕES</div>
+
+
+</div>
+
+<div class="menu">
+
+<ul class="opt">
+<li class="sensor"><a href="http://www.dourada.com.br/" title="HOME">HOME</a></li>
+<li class="sensor "><a href="?/a-dourada/" title="A DOURADA" class="">A DOURADA</a></li>
+<li id="lista" class="btnprod "><div id="lista2" class="btnprodutos ">SERVI&Ccedil;OS</div></li>
+<li id="lista3" class="btncada "><div id="lista4" class="btncadastro ">CADASTRO</div></li>
+
+<li class="sensor "><a href="?/parceiros/" title="PARCEIROS" class="">PARCEIROS</a></li>
+<li class="sensor "><a href="?/contato/" title="CONTATO" class="">CONTATO</a></li>
+<li class="face sensor"><a href="https://www.facebook.com/cambiodourada?fref=ts" target="_blank" title="FACEBOOK" class="facebook">FACEBOOK</a></li>
+<li class="face sensor"><a href="" title="WHATSAPP" class="whatsapp">WHATSAPP</a></li>
+</ul>
+
+
+<div class="menu-menor">
+<a href="" class="mostrarmenu"></a>
+</div>
+
+
+<ul class="menu-menor">
+<li><a href="http://www.dourada.com.br/" title="HOME">HOME</a></li>
+<li class="sensor "><a href="?/a-dourada/" title="A DOURADA" class="">A DOURADA</a></li>
+<li class=""><div class="">SERVI&Ccedil;OS</div></li>
+
+<ul>
+<li><a href="?/servico/4/remessas-internacionais/">REMESSAS INTERNACIONAIS</a></li>
+<li><a href="?/servico/1/moedas-em-especie/">MOEDAS EM ESPÉCIE</a></li>
+<li><a href="?/servico/2/rendimento-visa-travelmoney/">RENDIMENTO VISA TRAVELMONEY</a></li>
+<li><a href="?/servico/3/compra-de-cheques/">COMPRA DE CHEQUES</a></li>
+<li><a href="?/servico/5/remessa-expressa/">REMESSA EXPRESSA</a></li>
+<li><a href="?/servicos/7/intermediacao-de-cambio/">INTERMEDIAÇÃO DE CÂMBIO</a></li>
+<li><a href="?/servicos/8/assessoria-de-cambio-e-comex/">ASSESSORIA DE CÂMBIO E COMEX</a></li>
+<li><a href="?/servicos/9/performance-de-exportacao/">PERFORMANCE DE EXPORTAÇÃO</a></li>
+<li><a href="?/servicos/10/trade-finance/">TRADE FINANCE</a></li>
+<li><a href="?/servicos/12/delivery/">DELIVERY</a></li>
+</ul>
+
+<li class=""><div id="lista4" class="">CADASTRO</div></li>
+
+<ul>
+<li><a href="?/cadastro-pessoa-fisica/">Pessoa Fisica</a></li>
+<li><a href="?/cadastro-pessoa-juridica/">Pessoa Juridica</a></li>
+</ul>
+
+<li class="sensor "><a href="?/parceiros/" title="PARCEIROS" class="">PARCEIROS</a></li>
+<li class="sensor "><a href="?/contato/" title="CONTATO" class="">CONTATO</a></li>
+<li class="face sensor"><a href="https://www.facebook.com/cambiodourada?fref=ts" target="_blank" title="FACEBOOK" class="facebook">FACEBOOK</a></li>
+
+</ul>
+
+
+
+
+<div class="listacadastro">
+<ul>
+<li><a href="?/cadastro-pessoa-fisica/">Pessoa Fisica</a></li>
+<li><a href="?/cadastro-pessoa-juridica/">Pessoa Juridica</a></li>
+</ul>
+</div>
+
+
+<div class="listaprodutos">
+<div class="listaprodutos-bloco1">
+<div class="listaprodutos-bloco1-espaco">
+<div class="listaprodutos-bloco1-lista">
+<ul>
+<li><a href="?/servico/4/remessas-internacionais/" style="background-image:url('files/0b2b-icone-remessa.png');">REMESSAS INTERNACIONAIS</a></li>
+<li><a href="?/servico/1/moedas-em-especie/" style="background-image:url('files/f702-icone-moeda.png');">MOEDAS EM ESPÉCIE</a></li>
+<li><a href="?/servico/2/rendimento-visa-travelmoney/" style="background-image:url('files/6a7d-icone-rendimento.png');">RENDIMENTO VISA TRAVELMONEY</a></li>
+<li><a href="?/servico/3/compra-de-cheques/" style="background-image:url('files/ec78-icone-compra.png');">COMPRA DE CHEQUES</a></li>
+<li><a href="?/servico/5/remessa-expressa/" style="background-image:url('files/bce7-icone-remessa-expressa.png');">REMESSA EXPRESSA</a></li>
+</ul>
+<div class="limpar"></div>
+</div>
+
+</div>
+</div>
+<div class="listaprodutos-bloco2">
+<div class="listaprodutos-bloco1-espaco">
+<div class="listaprodutos-bloco2-lista">
+<ul>
+<li><a href="?/servicos/7/intermediacao-de-cambio/" style="background-image:url('files/144a-icone-intermediacao.png');">INTERMEDIAÇÃO DE CÂMBIO</a></li>
+<li><a href="?/servicos/8/assessoria-de-cambio-e-comex/" style="background-image:url('files/e1a7-icone-assessoria.png');">ASSESSORIA DE CÂMBIO E COMEX</a></li>
+<li><a href="?/servicos/9/performance-de-exportacao/" style="background-image:url('files/d9e1-icone-performance.png');">PERFORMANCE DE EXPORTAÇÃO</a></li>
+<li><a href="?/servicos/10/trade-finance/" style="background-image:url('files/3973-icone-trade.png');">TRADE FINANCE</a></li>
+<li><a href="?/servicos/12/delivery/" style="background-image:url('files/e371-icone-delivery.png');">DELIVERY</a></li>
+</ul>
+<div class="limpar"></div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+</div>
+
+<!--CONTEUDO-->
+
+<div class="cycle-interna">
+<div class="cycleinterna cycle-slideshow" data-cycle-fx="fade"  data-cycle-timeout=3000 data-cycle-slides="div">
+<div class="cycleinterna-item" style="background-image:url(files/4a81-banner_viagem-alt.jpg);"><img src="" /></div>
+</div>
+</div>
+<div class="homelinks2">
+<div class="homeitem"><a href="https://www3.bcb.gov.br/rex/vet/index.asp" target="_blank" class="link1">RANKING DO VET</a></div>
+<div class="homeitem"><a href="?/cotacao/" title="Cota&ccedil;&atilde;o" class="link2">COTA&Ccedil;&Otilde;ES</a></div>
+<div class="homeitem"><a href="https://cliente.cartoesrendimento.com.br/travel/Login.aspx" class="link3">CONSULTE SEU SALDO</a></div>
+</div>
+
+
+<div class="internatopo"></div>
+
+
+
+<div class="interna">
+<h2 class="dourada dourada2">Cotação Dourada</h2>
+<div class="breacrumb"><a href="http://www.dourada.com.br/">HOME</a> | <a href="javascript:window.history.back();">Voltar</a></div>
+
+<div class="limpar"></div>
+
+<div class="parceiros-interna">
+
+<div class="parceiros-interna-espaco" style="position:relative;">
+
+<p style="text-align: left;">Acompanhe a cota&ccedil;&atilde;o atualizada.<br />Realizada &agrave;s 11:34 hrs do dia 31/03/2016<br /><strong>Valores em reais j&aacute; com o IOF embutido, podendo sofrer altera&ccedil;&otilde;es no decorrer do dia.</strong><br /><br /><strong>Banco:</strong><br />Bradesco &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br />Ag&ecirc;ncia: 0426 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />Conta Corrente: 191.171-6 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;<br />CNPJ:76.641.497/0001-99<br />Dourada Corretora de C&acirc;mbio Ltda.&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td width="70%" align="left" valign="top" style="border-bottom:1px solid #eeeeee"><div style="font-size:18px; color:#9b9588; padding:5px;">Papel Moeda</div></td>
+    <td width="15%" align="center" valign="middle" style="border-bottom:1px solid #eeeeee"><div style="font-size:18px; color:#9b9588; padding:5px;">Compra R$</div></td>
+    <td width="15%" align="center" valign="middle" style="border-bottom:1px solid #eeeeee"><div style="font-size:18px; color:#9b9588; padding:5px;">Venda R$</div></td>
+  </tr>
+    <tr >
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/1d86-dolar.png" />
+		Dólar Americano</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">3,50 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">3,74 </td>
+  </tr>
+  <tr bgcolor="#f6f6f6">
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/3ce1-2_eur.jpg" />
+		Euro</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">4,00 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">4,25 </td>
+  </tr>
+  <tr >
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/9216-english.png" />
+		Libra Esterlina</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">5,00 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">5,38 </td>
+  </tr>
+  <tr bgcolor="#f6f6f6">
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/c35c-4_ars.jpg" />
+		Peso Argentino</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">0,00 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">0,33 </td>
+  </tr>
+  <tr >
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/a381-5_cad.jpg" />
+		Dolar Canadense</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">2,66 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">2,94 </td>
+  </tr>
+  <tr bgcolor="#f6f6f6">
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/1afc-6_jpy.jpg" />
+		Iene Japonês</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">0,0310 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">0,0345 </td>
+  </tr>
+  <tr >
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/d0ca-7_chf.jpg" />
+		Franco Suiço</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">3,60 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">3,98 </td>
+  </tr>
+  <tr bgcolor="#f6f6f6">
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/7dc9-8_aud.jpg" />
+		Dolar Australiano</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">2,60 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">2,94 </td>
+  </tr>
+  <tr >
+    <td align="left" valign="top" style="border:1px solid #eeeeee; padding:10px;">
+	    <img src="files/18b4-9_cpl.jpg" />
+		Peso Chileno</td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">0,0048 </td>
+    <td align="center" valign="middle" style="border:1px solid #eeeeee; padding:10px;">0,0064 </td>
+  </tr>
+</table>
+<br />
+
+<a href=""  class="btn-cotacao" style="float:right;"><img src="img/receba.png" /></a>
+
+<div class="limpar"></div>
+
+
+</div>
+<div class="limpar"></div>
+</div>
+
+</div>
+
+<div class="limpar"></div>
+
+<div class="homebloco1">
+
+<div class="hbloco1">
+<div class="hbloco1-espaco">
+<h2>OUVIDORIA</h2>
+<p>A Ouvidoria existe para dar o devido encaminhamento &agrave;s suas manifesta&ccedil;&otilde;es sobre os servi&ccedil;os prestados por esta Institui&ccedil;&atilde;o.<br /><br />O telefone da Ouvidoria &eacute; <strong><span>0800 770 5422</span></strong>.<br />Ou se preferir envie um e-mail para:<br /><a href="mailto:ouvidoria@dourada.com.br">ouvidoria@dourada.com.br</a></p></div>
+</div>
+<div class="hbloco1 hbloco2">
+<div class="hbloco1-espaco">
+<h2>ONDE ESTAMOS</h2>
+<p>Al. Dr. Carlos de Carvalho, 555 <br />10&ordm; andar Conj. 102 <br />CEP 80.430-180 - Centro<br />Curitiba - PR<br /><br />Para entrar em contato com setores espec&iacute;ficos, enviar uma mensagem ou ver o mapa de localiza&ccedil;&atilde;o, <a href="?/contato/">clique aqui</a>.<br /><br /></p></div>
+</div>
+
+</div>
+<div class="homebloco2"> <a href="?/guia-de-cambio-turismo/"><img src="img/imagem-home.png" width="335" height="270" /></a>
+</div>
+
+<div class="limpar"></div>
+
+<div class="parceirosrodape"> 
+
+<img src="files/2ba6-rodape1.jpg" /><img src="files/045e-rodape2.jpg" /></div>
+
+<div class="parceirosrodape2"> <a href="mailto:sac@dourada.com.br"><img src="img/rodape3.jpg" /></a></div>
+
+<div class="limpar"></div>
+<!--CONTEUDO-->
+</div>
+</div>
+<div class="rodape">
+<div id="rodape">
+
+<div class="copyright">
+© DOURADA CORRETORA DE CÂMBIO 2013 • TODOS OS DIREITOS RESERVADOS</div>
+<div class="invente">
+<span>Desenvolvido por</span> <a href="http://www.inventecomunicacao.com.br/" target="_blank">Invente Comunica&ccedil;&atilde;o</a>
+</div>
+
+</div>
+</div>
+
+<div class="cotacaofundo">
+</div>
+<div class="cotacao" style="position:fixed">
+<a href="" class="cotacaofechar">X</a>
+  <form action="" method="post" enctype="multipart/form-data" name="form3" id="form3">
+
+<table width="230" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td height="100" align="left" valign="top"></td>
+      </tr>
+      <tr>
+        <td align="left" valign="top">
+          <input type="text" name="nomecotacao" id="nomecotacao" value="Nome"  onFocus="if (this.value=='Nome') { this.value='' }" onBlur="if(this.value=='') { this.value='Nome' }" class="padrao" />
+        </td>
+      </tr>
+      <tr>
+        <td height="15" align="left" valign="top">
+        </td>
+      </tr>
+      <tr>
+        <td align="left" valign="top"><input type="text" name="emailcotacao" id="emailcotacao" class="padrao" value="E-mail" onFocus="if (this.value=='E-mail') { this.value='' }" onBlur="if(this.value=='') { this.value='E-mail' }" /></td>
+        </tr>
+      <tr>
+        <td height="5" align="left" valign="top">
+        </td>
+      </tr>
+      <tr>
+        <td align="left" valign="top"> <input name="hiddenFieldcotacao" type="hidden" id="hiddenFieldcotacao" value="envio" />
+          <br />
+
+    <input type="submit" name="button2" id="button2" value="Enviar" class="enviar" onclick="return checkCotacao()" />
+    <input type="reset" name="button2" id="button2" value="Limpar" class="enviar2" />
+    </td>
+      </tr>
+      
+    </table>
+    
+    </form>
+
+</div>
+
+
+<div style="display:none">
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 984797545;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/984797545/?value=0&amp;guid=ON&amp;script=0"/>
+</div>
+</noscript>
+</div>
+
+
+<script type="text/javascript">var _gaq = _gaq || [];_gaq.push(['_setAccount', 'UA-16265571-2']); _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+
+
+
+    <div class="fundoflutuante" onClick="fecharbanner();"></div>
+    <div class="bannerflutuante">
+    <div class="bannerflutuanteespaco">
+    <div class="bannerflutuanteimagem"><img src="img/janela.jpg" width="699" height="479" onClick="fecharbanner();" /></div>
+    </div>
+    </div>
+
+
+</body>
+</html>

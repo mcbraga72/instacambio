@@ -1,0 +1,466 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="ctl00_Head1"><meta http-equiv="X-UA-Compatible" content="IE=10" /><meta name="SKYPE_TOOLBAR" content="SKYPE_TOOLBAR_PARSER_COMPATIBLE" /><link href="/WebResource.axd?d=DA0zwQlm7GfYgj6HU2YMMgPu-AjmGy-OsvCeq6uMHDX9ycIwc5x7fwTT6LxE_AEI1sTLfWYP7nL_ARkoHQg19MZlBqXGPXwftlEXT7c-l7nBLt6ZYJ5L_H7f9hMPnNvoIkiGqAKk3RVApCGtqBZR6wP4iFrO7wW4y41qvPVtbXI1&t=635779217550742078" rel="stylesheet" type="text/css"  /><link href="/WebResource.axd?d=3Kp8qW-GXdr-hipB_MJF2iGTCuMLIJLaU8K9ILpxtcDajpLfldi4xGwaObPvYsXNk1KSfOGpSg8_b3X0AXcgbcZAeDX0bVsJJY0y9N4671lAp_x-0zxDmVauSEYGr9wW7xaVajZhF5TSf5sGsIm3Gns7QqKXLLjv9JzS_9ZBdC81&t=635779217550742078" rel="stylesheet" type="text/css"  /><script src="/WebResource.axd?d=Rj8LPDWffnOUSUVkOqWKEa8HCNyHZoQDMBmxtayaNOnsaq7IJAUqPBP2yyyOQVHpTTlQMAThPvfGOsFck-H9YwFlaMMKzuM4-Jg2kJGz86j9u2vXpBNYQiTAVgnWp7pqKgBXC0QRy51N_mop9-85TFDjic-MPvSWLm114rt22so1&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=8VTwwwXyfqyYWhB0Vs57r5c3d7PQqXNkUDJXecwCr1ya_hRX4Ptz7_xWSrlAuvmd7cmY0M70qhiIHODYM0UBJgUxGc-_Zfcz9ncO-NZxy3LaBa1H_r346hXb8CxypIavfqzC1Oha1UuwVFK7Wbmaoo8N5M9KXyU_XexiPgIxd0g1&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=EosHmwgEF3ud1azc6u3idl-j9RsXWX5LLLqj00TeQkKj7D1GT1P_4B5jnucfAPqunJ7z4iIaUMfk-AwtUtiIl2KP0vsdVQoh7n2FGO-XK4fVWC25rmLoWvfm8QKoIhrZULaZkRkgrzhktx_20HzV4aIfbmEnp7e9xwfqTfD_j4Aio5DfdOC0b3YPguaw7mh80&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=jy6rssFAiRST7RvHIk3Q94vO6YtujOlyYq79nYYyuIfBacr82Ew8dK97uSNYrdeJUV2QchIUFNkS4fOCQQZjKQ0wOe9ZmSCgCfPl598nMvRJGoLcPp1HHqvDFi5cCWj77b901lz9P4t6_mqiNkB77-oQZ1s9AvipkmGsM0moDyeEENkSiRPQ8kzRZFop8tAX0&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=uJAGNRH2emYMRNB5Q0fLanIOc4dRR-D4u3B9duvpimh3SgRHS2VfhA9H-EGIcl8FI8G9EPxv7H0K4G4ffVFWCxHrO0OAOYTRXisGIMxH1QetTE7d944Pt_9NJgjjx0F8KXm-qhuZhn3BHggG3Wqjc4QKq4_2eYuYFbkQuAw69buggJr5r73TQgdG_438vZrX0&t=635779217550742078" type="text/javascript"></script><script src="/WebResource.axd?d=sYB0LBxdERye0W6SrDS0Tf_mg1iYheY8vPCNvWlZuyXDIwdwzmNOblYB40EYs-W48Z72MLOfp7CKVdjt4n4ZeOFeK1rSdhOuPdks4q8819MTXWKnodTffI9ASggEIQWmWv_yBooQGccV0yqiM0VkWw4xjOfSgKYdVE4JtUIzMfqYhZ_q5Y1a2Bg6SwqdK-Q00&t=635779217550742078" type="text/javascript"></script><title>
+	Loja Torre Corretora - Cartões Visa
+</title>
+    <script type="text/javascript">
+        function calcTotal(ddl) {
+            var b = $(ddl).parent().parent();
+            var vlrTx = parseFloat(b.find(".precoProduto").text().replace(".", "").replace(",", "."));
+            var qtd = parseFloat($(ddl).val().replace(".", "").replace(",", "."));
+            b.find(".textBoxPrecoTotal").text("R$ " + (qtd * vlrTx).toLocaleString());
+        };
+
+        $(document).ready(function () {
+            /// <summary>Retira e coloca a opacidade do box em hover</summary>
+            $(".boxProduto").hover(function () {
+                $(".boxProduto").stop().animate({ opacity: "0.3" }, 'slow');
+                $(this).stop().animate({ opacity: "1" }, 'slow');
+            },
+            function () {
+                $(".boxProduto").stop().animate({ opacity: "1" }, 'slow');
+            })
+        });
+    </script>
+<link href="Styles/Site.css?v=1" rel="stylesheet" type="text/css" /><link href="App_Themes/Default/Site.css" type="text/css" rel="stylesheet" /><link href="App_Themes/Default/Site.min.css" type="text/css" rel="stylesheet" /><script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-45102916-1']);
+_gaq.push(['_trackPageview']);
+(function () {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+</head>
+<body>
+    <!-- Google Code for Torre Corretora Conversion Page -->
+    <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var google_conversion_id = 978335636;
+
+        var google_conversion_language = "en";
+
+        var google_conversion_format = "3";
+
+        var google_conversion_color = "ffffff";
+
+        var google_conversion_label = "uPvnCInVml0QlO_A0gM"; var google_conversion_value = 1.00; var google_conversion_currency = "BRL"; var google_remarketing_only = false;
+
+        /* ]]> */
+
+    </script>
+
+    <script type="text/javascript"
+        src="//www.googleadservices.com/pagead/conversion.js">
+
+    </script>
+
+    <noscript>
+        <div style="display: inline;">
+
+            <img height="1" width="1" style="border-style: none;" alt=""
+                src="//">">">">http://www.googleadservices.com/pagead/conversion/978335636/?value=1.00&amp;currency_code=BRL&amp;label=uPvnCInVml0QlO_A0gM&amp;guid=ON&amp;script=0"/>
+
+        </div>
+    </noscript>
+
+    <form method="post" action="./CartaoVisa.aspx" id="aspnetForm">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTgwNjA4NjI1NA9kFgJmD2QWAgIDD2QWDGYPDxYCHgRDQ0dBBQ1VQS00NTEwMjkxNi0xZGQCAw8WAh4EVGV4dAUKQm9hIHRhcmRlLGQCBA8WAh4JaW5uZXJodG1sBQlWaXNpdGFudGVkAggPFgIfAQUBMGQCCQ8WAh8BBQVpdGVuc2QCCg9kFgICAQ9kFgJmD2QWAgIDDxYCHgtfIUl0ZW1Db3VudAIDFgZmD2QWDAIDDw8WAh4ISW1hZ2VVcmwFOGh0dHBzOi8vdG9ycmVjYW1iaW8ucHJpbWVjYXNlLmNvbS5ici9JbWFnZXMvTW9lZGEvMTUuanBnZGQCBA8VAShWaXNhIFRyYXZlbCBNb25leSAoVVNEKSBEw7NsYXIgQW1lcmljYW5vZAIHD2QWAmYPFQEHNCwwMzAwMGQCCw8QDxYCHgtfIURhdGFCb3VuZGdkDxYPZgIBAgICAwIEAgUCBgIHAggCCQIKAgsCDAINAg4WDxAFAzIwMAUDMjAwZxAFAzQwMAUDNDAwZxAFAzYwMAUDNjAwZxAFAzgwMAUDODAwZxAFBDEwMDAFBDEwMDBnEAUEMTIwMAUEMTIwMGcQBQQxNDAwBQQxNDAwZxAFBDE2MDAFBDE2MDBnEAUEMTgwMAUEMTgwMGcQBQQyMDAwBQQyMDAwZxAFBDIyMDAFBDIyMDBnEAUEMjQwMAUEMjQwMGcQBQQyNjAwBQQyNjAwZxAFBDI4MDAFBDI4MDBnEAUEMzAwMAUEMzAwMGdkZAIPDw8WAh8BBQlSJCA4MDYsMDBkZAIRDw8WAh4PQ29tbWFuZEFyZ3VtZW50BQUxMTY2NmRkAgEPZBYMAgMPDxYCHwQFOGh0dHBzOi8vdG9ycmVjYW1iaW8ucHJpbWVjYXNlLmNvbS5ici9JbWFnZXMvTW9lZGEvMTYuanBnZGQCBA8VARxWaXNhIFRyYXZlbCBNb25leSAoRVVSKSBFdXJvZAIHD2QWAmYPFQEHNCwzOTAwMGQCCw8QDxYCHwVnZA8WDWYCAQICAgMCBAIFAgYCBwIIAgkCCgILAgwWDRAFAzIwMAUDMjAwZxAFAzQwMAUDNDAwZxAFAzYwMAUDNjAwZxAFAzgwMAUDODAwZxAFBDEwMDAFBDEwMDBnEAUEMTIwMAUEMTIwMGcQBQQxNDAwBQQxNDAwZxAFBDE2MDAFBDE2MDBnEAUEMTgwMAUEMTgwMGcQBQQyMDAwBQQyMDAwZxAFBDIyMDAFBDIyMDBnEAUEMjQwMAUEMjQwMGcQBQQyNjAwBQQyNjAwZ2RkAg8PDxYCHwEFCVIkIDg3OCwwMGRkAhEPDxYCHwYFBTExNjczZGQCAg9kFgwCAw8PFgIfBAU4aHR0cHM6Ly90b3JyZWNhbWJpby5wcmltZWNhc2UuY29tLmJyL0ltYWdlcy9Nb2VkYS8xOS5qcGdkZAIEDxUBJ1Zpc2EgVHJhdmVsIE1vbmV5IChHQlApIExpYnJhIEVzdGVybGluYWQCBw9kFgJmDxUBBzUsNzUwMDBkAgsPEA8WAh8FZ2QPFgpmAgECAgIDAgQCBQIGAgcCCAIJFgoQBQMyMDAFAzIwMGcQBQM0MDAFAzQwMGcQBQM2MDAFAzYwMGcQBQM4MDAFAzgwMGcQBQQxMDAwBQQxMDAwZxAFBDEyMDAFBDEyMDBnEAUEMTQwMAUEMTQwMGcQBQQxNjAwBQQxNjAwZxAFBDE4MDAFBDE4MDBnEAUEMjAwMAUEMjAwMGdkZAIPDw8WAh8BBQtSJCAxLjE1MCwwMGRkAhEPDxYCHwYFBTExNjY5ZGRkxUcQxIeW1aA2FV6Lh4RXuwsklw296MTPh9e62yyA4Io=" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/WebResource.axd?d=g4dCqZ8AAAdZuL5RKg6IaY0HOYeKJmPAIDucxdPHOu8rU6pZctMLqnBkiOz6rg4y6Ln_957MmMzF1d5veVMVokUZkxyoQcGkdEp50kVYHGs1&amp;t=635802925220000000" type="text/javascript"></script>
+
+
+<script src="/ScriptResource.axd?d=oom77x5pMKON-1Rgq6Ged63yL15vDv2yH52i-8L4HBhJeJMVcKrBcZpiKJORd2d63ujZkcRhL5akhBBrvU1QIHcRWjOeNV9nw8sGQmavX4kuXDuwhunkuYmXn_e32g640&amp;t=23c9c237" type="text/javascript"></script>
+<script src="/ScriptResource.axd?d=NzriflTpdzLkMoLgz7jdwYqKGE6zP5zTBsuJBhr1m7cVtgLJ_8pIixyHlaAp5PniZCE8_snxIkgBeqPN5hWMTnMrIB1ISumqYAe4-ZgwBwGxy-HzIZZhuq0kh8xvHp9Kovna41TPjyqCnXpaWAcufA2&amp;t=23c9c237" type="text/javascript"></script>
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="99000270" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdADD7f+B38Tu0++vHZx3c7keUNWLQ4EgPD5Ong5dKqqoLkcAQzsyI5WL6TWmnPD15DnEHWplTZHDZZElYFFXZukfr8S+OD6Xp1ZQNtclTcrcrU05rmk1y91XnIpSIIw8aOQRXJbjXfPW+W9Pxlvu7cCaq3MyJ7TuscbPa/hC/V+5/5bo7vqyNhH53EtdEmi7eB6b8yuke9JUMcbEQ7CAAQtmGwPlIDMg6yr+92o7eLqeFGS5oR50WoLntkLW43GPjvheJjSTFw2QeeZ2+vb7sTqpFe2IwDiYD+8YlF60QmappME2VToGf+/DFG0pcq6CIIJuxABfDNNGtwlS4Yge7miYOhMtvzYrtFCTiAor89w/t25Y2NA+UvhkXwnJZk99AxqQR3HYWNd09Z0+pxBBWu0GjmrjKWL+oSnsOGuIFzuvvTDrW9yp9KibxC769JiCCiSFh3DCbIWszRdlKO6QhyFIQwn+GtySWTHuyhRWJ4AiLIqz3YZsP2YM/1CWODnQNo4qIY91b4JVz4No69nP4LpMTGLJbqBPNVdaQhZxXcugB6y1BicGi/yDrkW3acdk1DKeAUm/EwQhVPYnCsssamdiV6wXIs2n+MNBKUCIhb6aHGQLQWoqLkvXYv6Vbe8/qE0GBAMUn9iSIqvzG5Cu1fVV/JM7fjsOk+eOvdwkjRdx2iLHFDcm6/kkfS10WYeuAFgSKmjRdZ2FPfnpE0mrX4OQJ4YcQTw/tXAg7hMyMQUDgnw8Y8GyoGg5IfwBZssAYxTHtv0gn0WZOr/sVkyaxArqxZRzHkR4UaDAGdhsEbjxB3xDmUnvMMcxkLp7EZ0bOTrTmMKjRaaQOSNRavKOe9ZtkxEc2SDb+AwIEyHqm94QC0cgDsyCkN6GHc+isrVKjXcaSBBDHBb1/hsWPSJeE4jmS6jc2iugPxIwNVm+RwQaf1gYNfwGZDPEkX2YrYgp2N8+jfmv3RqDl2ueGcTsFDIP3ZnRw46O7QZTMy145hUtOQdvKVDAtnNKRlTDPJlSiD4fBReN0JH0MVqGhNY3rIBn1qVHxE94JSclwU/fOWarXRQ==" />
+</div>
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-45102916-1', 'auto');
+            ga('send', 'pageview');
+
+        </script>
+        <noscript>
+            <div style="display: inline;">
+                <img height="1" width="1" style="border-style: none;" alt="" src="//www.googleadservices.com/pagead/conversion/978335636/?value=1.00&amp;currency_code=BRL&amp;label=uPvnCInVml0QlO_A0gM&amp;guid=ON&amp;script=0" />
+            </div>
+        </noscript>
+        <span id="ctl00_WebExManager1"></span>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ScriptManager1', 'aspnetForm', ['tctl00$MainContent$UpdatePanel1','','tctl00$MainContent$wucMenuDireita1$UpdatePanel1',''], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+        <div class="tarjaTopo">
+            <div class="tarjaTopoEspacoCentralizado">
+                <span>Visite também, <a href="http://www.torrecorretora.com.br" target="_blank">www.torrecorretora.com.br</a></span>
+            </div>
+        </div>
+        <div class="espacoTopo">
+            <div class="espacoTopoCentralizado">
+                <a href="Default.aspx">
+                    <img id="ctl00_Image1" class="logoTopo" src="App_Themes/Default/Images/logo-topo.png" />
+                </a>
+                <div class="espacoTelefoneTopo">
+                    <span class="linha1">Câmbio Turismo</span>
+                    
+                    <span class="linha2">(11) 3102 2100</span>
+                </div>
+                <div class="espacoMenuTopo">
+                    <span class="espacoBoasVindas">
+                        Boa tarde,
+                        <label id="ctl00_ltUsuario">Visitante</label>
+                        .
+                        
+                        
+                        <div id="ctl00_divBoasVindas" style="display: inline;">
+                            <br />
+                            Clique <a href="https://torrecambio.primecase.com.br/MeusPedidos.aspx">aqui</a> para
+                        entrar ou <a href="https://torrecambio.primecase.com.br/Cadastrese.aspx">
+                            Cadastre-se</a>.
+                        </div>
+                    </span><a href="https://torrecambio.primecase.com.br/MinhaCesta.aspx">
+                        <div class="minhaCesta">
+                            <span class="textoNumeroItens">
+                                0
+                            </span>
+                            <span class="textoItens">
+                                itens
+                            </span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="espacoCentralizado">
+            <div class="menuPrincipal">
+                <a href="/Default.aspx">
+                    <div class="botaoMenuPrincipal ">
+                        <span>Home</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/MoedaEspecie.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Moedas em Espécie</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/CartaoMasterCard.aspx">
+                    <div class="botaoMenuPrincipal ">
+                        <span>Cartões MasterCard</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/CartaoVisa.aspx">
+                    <div class="botaoMenuPrincipal menuPrincipalSelecionado">
+                        <span>Cartões Visa</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/NossosCartoes.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Nossos Cartões</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/Cadastrese.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Cadastre-se</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+                <img src="Images/menu-principal-separador.jpg" class="separador" />
+                <a href="/MeusPedidos.aspx">
+                    <div class="botaoMenuPrincipal  ">
+                        <span>Meus Pedidos</span>
+                        <div class="abaMenuPrincipal"></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="espacoConteudo">
+            
+    <div id="ctl00_MainContent_UpdatePanel1">
+	
+            
+<div class="menuEsquerda">
+    <div id="ctl00_MainContent_wucMenuDireita1_UpdatePanel1">
+		
+            <div class="atendimentoOnline"
+                onclick="javascript:window.open('http://chat.etalker.com.br/?pk=Skboa','page','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=400,height=450');">
+            </div>
+        
+	</div>
+
+    <img src="../Images/delivery_1.png" alt="" style="padding-top: 5px;" />
+    
+
+    <div class="platinum">
+    </div>
+
+    <div class="botaoReceita"
+        onclick="javascript:window.open('https://www.edbv.receita.fazenda.gov.br/edbv-viajante/pages/selecionarAcao/selecionarAcao.jsf','page');">
+    </div>
+</div>
+
+            <div class="conteudoPagina" style="width: 834px; overflow: hidden;">
+                <div style="float: left; clear: left; margin: 0px auto 0px auto;">
+                    <div class="tipoProduto" id="TravelMoney">
+                        <span>Cartões Visa TravelMoney</span>
+                        <div style="color: black; font-size: 11pt; font-weight: bold; float: right; margin-right: 15px;">
+                            <center>Taxas válidas somente para compras realizadas através desta Loja Virtual</center>
+                        </div>
+                    </div>
+                    <img src="Images/banner.png" alt="PROMOÇÂO" style="margin-right: 3px;" />
+                    
+                            <input type="hidden" name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl00$hidIDTaxa" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl00_hidIDTaxa" value="11666" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto" style="margin-top: 12px;">
+                                    <img id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl00_imgMoeda" src="https://torrecambio.primecase.com.br/Images/Moeda/15.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Visa Travel Money (USD) Dólar Americano
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA</span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl00_spanTaxa" class="precoProduto">
+                                            4,03000
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl00$ddlQuantidade" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl00_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="200">200</option>
+		<option value="400">400</option>
+		<option value="600">600</option>
+		<option value="800">800</option>
+		<option value="1000">1000</option>
+		<option value="1200">1200</option>
+		<option value="1400">1400</option>
+		<option value="1600">1600</option>
+		<option value="1800">1800</option>
+		<option value="2000">2000</option>
+		<option value="2200">2200</option>
+		<option value="2400">2400</option>
+		<option value="2600">2600</option>
+		<option value="2800">2800</option>
+		<option value="3000">3000</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL</span>
+                                        <span id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl00_txtTotalCartao" class="textBoxPrecoTotal" style="font-weight: normal !important;">R$ 806,00</span>
+                                    </div>
+                                    <input type="submit" name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl00$btnComprarCartao" value="" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl00_btnComprarCartao" class="botaoComprar" />
+                                </div>
+                            </div>
+                        
+                            <input type="hidden" name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl01$hidIDTaxa" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl01_hidIDTaxa" value="11673" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto" style="margin-top: 12px;">
+                                    <img id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl01_imgMoeda" src="https://torrecambio.primecase.com.br/Images/Moeda/16.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Visa Travel Money (EUR) Euro
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA</span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl01_spanTaxa" class="precoProduto">
+                                            4,39000
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl01$ddlQuantidade" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl01_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="200">200</option>
+		<option value="400">400</option>
+		<option value="600">600</option>
+		<option value="800">800</option>
+		<option value="1000">1000</option>
+		<option value="1200">1200</option>
+		<option value="1400">1400</option>
+		<option value="1600">1600</option>
+		<option value="1800">1800</option>
+		<option value="2000">2000</option>
+		<option value="2200">2200</option>
+		<option value="2400">2400</option>
+		<option value="2600">2600</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL</span>
+                                        <span id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl01_txtTotalCartao" class="textBoxPrecoTotal" style="font-weight: normal !important;">R$ 878,00</span>
+                                    </div>
+                                    <input type="submit" name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl01$btnComprarCartao" value="" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl01_btnComprarCartao" class="botaoComprar" />
+                                </div>
+                            </div>
+                        
+                            <input type="hidden" name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl02$hidIDTaxa" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl02_hidIDTaxa" value="11669" />
+                            <div class="boxProduto">
+                                <div class="imagemProduto" style="margin-top: 12px;">
+                                    <img id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl02_imgMoeda" src="https://torrecambio.primecase.com.br/Images/Moeda/19.jpg" />
+                                </div>
+                                <span class="nomeProduto">
+                                    Visa Travel Money (GBP) Libra Esterlina
+                                </span>
+                                <div class="espacoDetalhesProduto">
+                                    <div class="espacoPrecoProduto">
+                                        <span class="textoTaxaProduto">
+                                            TAXA</span>
+                                        <span class="cifraoPrecoProduto">R$&nbsp</span>
+                                        <span id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl02_spanTaxa" class="precoProduto">
+                                            5,75000
+                                        </span>
+                                    </div>
+                                    <div class="espacoQuantidadeProduto">
+                                        <span class="textoQuantidadeProduto">
+                                            QUANTIDADE</span>
+                                        <select name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl02$ddlQuantidade" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl02_ddlQuantidade" class="dropDownListQuantidade" onChange="calcTotal(this);" style="width:70px;">
+		<option value="200">200</option>
+		<option value="400">400</option>
+		<option value="600">600</option>
+		<option value="800">800</option>
+		<option value="1000">1000</option>
+		<option value="1200">1200</option>
+		<option value="1400">1400</option>
+		<option value="1600">1600</option>
+		<option value="1800">1800</option>
+		<option value="2000">2000</option>
+
+	</select>
+                                    </div>
+                                    <div class="espacoPrecoTotal">
+                                        <span class="textoPrecoTotal">
+                                            TOTAL</span>
+                                        <span id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl02_txtTotalCartao" class="textBoxPrecoTotal" style="font-weight: normal !important;">R$ 1.150,00</span>
+                                    </div>
+                                    <input type="submit" name="ctl00$MainContent$rptProdutosCartaoTravelMoney$ctl02$btnComprarCartao" value="" id="ctl00_MainContent_rptProdutosCartaoTravelMoney_ctl02_btnComprarCartao" class="botaoComprar" />
+                                </div>
+                            </div>
+                        
+
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image10" src="/Images/Moeda/17.jpg" />
+                        </div>
+                        <span class="nomeProduto">Visa Travel Money (ARS) Peso Argentino 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button9" value="" id="ctl00_MainContent_Button9" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image11" src="/Images/Moeda/20.jpg" />
+                        </div>
+                        <span class="nomeProduto">Visa Travel Money (CAD) Dólar Canadense 
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button10" value="" id="ctl00_MainContent_Button10" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="boxProduto">
+                        <div class="imagemProduto">
+                            <img id="ctl00_MainContent_Image12" src="/Images/Moeda/18.jpg" />
+                        </div>
+                        <span class="nomeProduto">Visa Travel Money (AUD) Dólar Australiano
+                        </span>
+                        <div class="espacoDetalhesProduto">
+                            <div class="espacoBotaoComprar">
+                                <input type="submit" name="ctl00$MainContent$Button11" value="" id="ctl00_MainContent_Button11" class="botaoConsultar" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+</div>
+
+        </div>
+        <div class="rodape">
+            <div class="tarjaRodape">
+                <div class="espacoCentralizado">
+                    <span>
+                        <a href="Default.aspx">Home</a> | <a href="NossosCartoes.aspx">Nossos Cartões</a> | <a href="CartaoVisa.aspx">Cartão Visa</a> | <a href="CartaoMasterCard.aspx">Cartão MasterCard</a> | <a href="MoedaEspecie.aspx" target="_blank">Moeda Espécie</a> | <a href="Cadastrese.aspx">Cadastre-se</a> | <a href="MeusPedidos.aspx">Meus Pedidos</a> | <a href="FaleConosco.aspx">Fale Conosco</a>
+                    </span>
+                </div>
+            </div>
+            <div class="espacoEndereco espacoCentralizado">
+                <span style="float: left; letter-spacing: -0.2px;">Torre Corretora de Câmbio Ltda | Rua Boa Vista, 63 - 8º andar - Centro | CEP: 01014-001 | São Paulo - SP
+                        <br />
+                    Fones: (11) 2842-9650 - Fax: (11) 3107-2610<br />
+                    <b>Copyright 2013 Torre Corretora - Todos os direitos reservados</b>
+                </span>
+
+            </div>
+            <div class="tarjaOuvidoria">
+                <div class="espacoCentralizado">
+                    <span><b>Ouvidoria:</b> 0800 770 5422 <a href="http://www.advicetech.com.br/Ouvidoria_Front/Paginas/RegistrarAtendimento/RegistrarAtendimento.aspx?CD_CHAVE=F54404F3-AC69-4724-91DC-D703FAA2D364
+"
+                        target="_blank">ou Acesse nosso sistema.</a><br />
+                        <b>E-mail:</b> <a href="mailto:ouvidoria@torrecorretora.com.br">ouvidoria@torrecorretora.com.br</a>
+                    </span>
+                    <span class="primecase">Desenvolvido por<br />
+                        <a href="http://www.primecase.com.br" target="_blank"><b>PRIMECASE Tecnologia</b></a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

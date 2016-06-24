@@ -1,0 +1,892 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>
+	Loja Virtual | Cambionet
+</title><link href="Styles/style.css" rel="stylesheet" type="text/css" /><link href="Styles/skin.css" rel="stylesheet" type="text/css" />
+<link href="/lojavirtual/WebResource.axd?d=Sd3__7nVzc2ptCFezIe1GH1PpHwBOAqwPTJQS2VoDEEPLC3zBIyorJXMp7guSAhJFW2f1VSQhBk5qYdIiRJhUWBpecLjwyj-f7mhf_258IptFQ54JPfiZBOe-WAyJKxVqzjohAV7LdZ42fibcfmYiw2&amp;t=635838925884513820" type="text/css" rel="stylesheet" class="Telerik_stylesheet" /></head>
+<body>
+    <form method="post" action="Carga.aspx" onsubmit="javascript:return WebForm_OnSubmit();" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="RadScriptManager1_TSM" id="RadScriptManager1_TSM" value="" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="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" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/lojavirtual/WebResource.axd?d=Kd98EDXAoRkjIURTBrG7nmOXiYPe6y84QKeccwffBzlVpo7wW5IbZzVM_8A5m5CA2bMO0wGI4AsTlVGDy2XdXsqFI3lAL3uuQ2usOXoF8G01&amp;t=635586524020000000" type="text/javascript"></script>
+
+
+<script src="/lojavirtual/ScriptResource.axd?d=4AvDPuebNs10511RxAn0-pFuqzpMejFxk4d_9JTM-8SKrwilOsqyTwLbxwTRFsUkDJQl-Uv0_ToHHxQ-2wJnPnCkAYQUs0OBCe9WkNHjtekBQzQJNudbKCtOKEoWPR6ItgtE6ut9bDUYGd5e46PGUpDUdXNoYK-h7oqGJsgUfu41&amp;t=fffffffffe82416f" type="text/javascript"></script>
+<script src="/lojavirtual/Telerik.Web.UI.WebResource.axd?_TSM_HiddenField_=RadScriptManager1_TSM&amp;compress=1&amp;_TSM_CombinedScripts_=%3b%3bSystem.Web.Extensions%2c+Version%3d4.0.0.0%2c+Culture%3dneutral%2c+PublicKeyToken%3d31bf3856ad364e35%3apt-BR%3a88fd0407-24cf-4abd-9df5-22f81b2bc835%3aea597d4b%3ab25378d2%3bTelerik.Web.UI%2c+Version%3d2012.2.607.40%2c+Culture%3dneutral%2c+PublicKeyToken%3d121fae78165ba3d4%3apt-BR%3a08ccafd1-fc13-48c0-b85b-a439ce2f6884%3a16e4e7cd%3ab7778d6c%3ae085fe68" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side framework failed to load.');
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="F7B2D49C" />
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="/wEdAA+WBoUOz43pTsSULt25J5OUpjdDJu+JfPE1f7C7B+0BEUkWVVLTtWhMf1FTZvy9og1a5s3rRYx/jlTpeGrOAN+8BgLJANIQPRF2jzd2ztU8as1iIkAuq2b2MdLSPCuGmLTfHSdvroeojqEMakn3r5vyfBJy1fLSv2X/h8/rBUUV3mkAixWMzXugZ4Nz06kbl4CU1JbStSlTfG4zBRzCUpsRYdGHZf3xNFjOUGays7c+DPr1q4nkoWwIWobnuRkUEqM835eHhIYsRcYdWKkRe9eaJqBDdayl+gC/2uaPpFUhk4V9CikfKhTyApD0xzcRYvPAt2Sj3NVsnxhBqXhrDW35yi+TRomQ0ALFerCmHKMPfQ==" />
+</div>
+    <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$RadScriptManager1', 'form1', ['tctl00$ContentPlaceHolder1$UpdatePanelUSD','ContentPlaceHolder1_UpdatePanelUSD','tctl00$ContentPlaceHolder1$UpdatePanelEUR','ContentPlaceHolder1_UpdatePanelEUR','tctl00$ContentPlaceHolder1$UpdatePanelGBP','ContentPlaceHolder1_UpdatePanelGBP','tctl00$ContentPlaceHolder1$UpdatePanelAUD','ContentPlaceHolder1_UpdatePanelAUD','tctl00$ContentPlaceHolder1$UpdatePanelCAD','ContentPlaceHolder1_UpdatePanelCAD','tctl00$ContentPlaceHolder1$UpdatePanelVTD','ContentPlaceHolder1_UpdatePanelVTD','tctl00$ContentPlaceHolder1$UpdatePanelVTE','ContentPlaceHolder1_UpdatePanelVTE','tctl00$ContentPlaceHolder1$UpdatePanelVTG','ContentPlaceHolder1_UpdatePanelVTG','tctl00$ContentPlaceHolder1$UpdatePanelVTC','ContentPlaceHolder1_UpdatePanelVTC','tctl00$ContentPlaceHolder1$UpdatePanelVTAUD','ContentPlaceHolder1_UpdatePanelVTAUD'], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+    <div id="master">
+        <div id="topo_geral" class="posicao">
+            <div class="logo posicao">
+                <img id="imgLogo" src="Imagens/logo.png" />
+            </div>
+            <div class="login_logout posicao">
+                <div id="pnlLogin" class="login posicao">
+	
+                    <div class="btn_cadastro posicao">
+                        <a id="btnRegistro" href="javascript:__doPostBack(&#39;ctl00$btnRegistro&#39;,&#39;&#39;)"><img id="Image1" class="posicao" src="Imagens/ico-register.png" style="border: none;" /><span id="Label1" class="posicao" style="margin-left: 2px; margin-top: 3px;">Registro</span></a>
+                    </div>
+                    <div class="btn_login posicao">
+                        <a id="btnLogin" href="javascript:__doPostBack(&#39;ctl00$btnLogin&#39;,&#39;&#39;)"><img id="Image2" class="posicao" src="Imagens/ico-login.png" style="border: none;" /><span id="Label2" class="posicao" style="margin-left: 2px; margin-top: 3px;">Entrar</span></a>
+                    </div>
+                
+</div>
+                
+                <div class="carrinho posicao">
+                    <a id="btnCarrinho" ImageUrl="~/Imagens/ico-cart.png" href="javascript:__doPostBack(&#39;ctl00$btnCarrinho&#39;,&#39;&#39;)"><img id="Image3" class="posicao" src="Imagens/ico-cart.png" style="border: none;" /><span id="lblQtd" class="posicao" style="margin-left: 4px;
+                            margin-top: 3px;">(1)</span></a>
+                </div>
+            </div>
+        </div>
+        <div id="conteudo_geral" class="posicao">
+            <div id="box_cont_topo" class="posicao">
+            </div>
+            <div id="box_cont_meio" class="posicao">
+                
+    <div class="posicao titulo">
+        VENDA DE CARTÕES E PAPEL MOEDA
+    </div>
+    <div id="ContentPlaceHolder1_pnlPasso1">
+	
+
+        <input type="hidden" name="ctl00$ContentPlaceHolder1$hdfMoeda" id="ContentPlaceHolder1_hdfMoeda" value="DolarAustralianoEspecie" />
+        <div class="titulo_tipo_produto posicao">
+            MOEDA EM ESPÉCIE
+        </div>
+        <div class="box_especie posicao">
+            
+            <div class="box_carga posicao">
+                <span id="ContentPlaceHolder1_UpdatePanelUSD">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/USD.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaDolarEspecie">DOLARES AMERICANOS</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator6" class="rfv" style="display:none;">*</span>
+                                <!-- 2012.2.607.40 --><span id="ctl00_ContentPlaceHolder1_rntQtdDolarEspecie_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdDolarEspecie" name="ctl00$ContentPlaceHolder1$rntQtdDolarEspecie" class="riTextBox riEnabled numeric_rad" value="200,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdDolarEspecie_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdDolarEspecie_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaDolarEspecie">R$ 3,78</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalDolarEsecie">R$ 756,00</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarDolarEspecie" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarDolarEspecie&quot;, &quot;&quot;, true, &quot;ValidarDolarEspecie&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao">
+                <span id="ContentPlaceHolder1_UpdatePanelEUR">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/EUR.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaEuroEspecie">EUROS</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator7" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdEuroEspecie_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdEuroEspecie" name="ctl00$ContentPlaceHolder1$rntQtdEuroEspecie" class="riTextBox riEnabled numeric_rad" value="200,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdEuroEspecie_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdEuroEspecie_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaEuroEspecie">R$ 4,31</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalEuroEspecie">R$ 862,00</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarEuroEspecie" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarEuroEspecie&quot;, &quot;&quot;, true, &quot;ValidarEuroEspecie&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao" style="margin-right: 0">
+                <span id="ContentPlaceHolder1_UpdatePanelGBP">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/GBP.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaLibraEspecie">LIBRAS ESTERLINAS</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator8" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdLibraEspecie_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdLibraEspecie" name="ctl00$ContentPlaceHolder1$rntQtdLibraEspecie" class="riTextBox riEnabled numeric_rad" value="100,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdLibraEspecie_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdLibraEspecie_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaLibraEspecie">R$ 5,53</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalLibraEsecie">R$ 553,00</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarLibraEspecie" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarLibraEspecie&quot;, &quot;&quot;, true, &quot;ValidarLibraEspecie&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao">
+                <span id="ContentPlaceHolder1_UpdatePanelAUD">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/AUD.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaDolarAustralianoEspecie">DOLARES AUSTRALIANOS</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator3" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdDolarAustralianoEspecie_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdDolarAustralianoEspecie" name="ctl00$ContentPlaceHolder1$rntQtdDolarAustralianoEspecie" class="riTextBox riEnabled numeric_rad" value="200,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdDolarAustralianoEspecie_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdDolarAustralianoEspecie_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaDolarAustralianoEspecie">R$ 2,98</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalDolarAustralianoEspecie">R$ 596,00</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarDolarAustralianoEspecie" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarDolarAustralianoEspecie&quot;, &quot;&quot;, true, &quot;ValidarDolarAustralianoEspecie&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao" style="margin-right: 0">
+                <span id="ContentPlaceHolder1_UpdatePanelCAD">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/CAD.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaDolarCanadenseEspecie">DOLAR CANADENSES</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator5" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdDolarCanadenseEspecie_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdDolarCanadenseEspecie" name="ctl00$ContentPlaceHolder1$rntQtdDolarCanadenseEspecie" class="riTextBox riEnabled numeric_rad" value="200,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdDolarCanadenseEspecie_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdDolarCanadenseEspecie_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaDolarCanadenseEspecie">R$ 2,99</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalDolarCanadenseEspecie">R$ 598,00</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarDolarCanadenseEspecie" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarDolarCanadenseEspecie&quot;, &quot;&quot;, true, &quot;ValidarDolarCanadenseEspecie&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+        </div>
+        <span style="font-size: 13px; font-weight: bold;">*Para outras moedas, favor consultar a nossa Central de Atendimentos (051)3017-5300</span>
+        <div class="titulo_tipo_produto posicao">
+            CARTÕES
+        </div>
+        <div class="box_cartao posicao">
+            
+            <div class="box_carga posicao">
+                <span id="ContentPlaceHolder1_UpdatePanelVTD">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/VTUSD.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaDolar">CARTÃO DOLAR</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_rfvValorDolar" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdDolar_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdDolar" name="ctl00$ContentPlaceHolder1$rntQtdDolar" class="riTextBox riEnabled numeric_rad" value="25,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdDolar_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdDolar_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaDolar">R$ 3,73</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalDolar">R$ 93,25</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarDolar" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarDolar&quot;, &quot;&quot;, true, &quot;ValidarDolar&quot;, &quot;&quot;, false, true))">
+                        <div class="btn_geral" style="margin-top: 5px;">
+                            <div class="btn_e posicao">
+                            </div>
+                            <div class="btn_m posicao" style="width: 80px;">
+                                Comprar
+                            </div>
+                            <div class="btn_d posicao">
+                            </div>
+                        </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao">
+                <span id="ContentPlaceHolder1_UpdatePanelVTE">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/VTEUR.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaEuro">CARTAO EURO</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator1" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdEuro_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdEuro" name="ctl00$ContentPlaceHolder1$rntQtdEuro" class="riTextBox riEnabled numeric_rad" value="25,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdEuro_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdEuro_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaEuro">R$ 4,28</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalEuro">R$ 107,00</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarEuro" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarEuro&quot;, &quot;&quot;, true, &quot;ValidarEuro&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao" style="margin-right: 0">
+                <span id="ContentPlaceHolder1_UpdatePanelVTG">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/VTGBP.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaLibra">CARTAO LIBRAS ESTERLINAS</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator2" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdLibra_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdLibra" name="ctl00$ContentPlaceHolder1$rntQtdLibra" class="riTextBox riEnabled numeric_rad" value="25,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdLibra_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdLibra_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaLibra">R$ 5,45</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalLibra">R$ 136,25</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarLibra" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarLibra&quot;, &quot;&quot;, true, &quot;ValidarLibra&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+
+            
+            <div class="box_carga posicao">
+                <span id="ContentPlaceHolder1_UpdatePanelVTC">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/VTCAD.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaDolarCanadense">CARTAO DOLAR CANADENSE</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator4" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdDolarCanadense_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdDolarCanadense" name="ctl00$ContentPlaceHolder1$rntQtdDolarCanadense" class="riTextBox riEnabled numeric_rad" value="25,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdDolarCanadense_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdDolarCanadense_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaDolarCanadence">R$ 2,93</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalDolarCanadence">R$ 73,25</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarDolarCanadense" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarDolarCanadense&quot;, &quot;&quot;, true, &quot;ValidarDolarCanadense&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+
+            
+            <div class="box_carga posicao" style="margin-left: 0">
+                <span id="ContentPlaceHolder1_UpdatePanelVTAUD">
+                        <div class="img_titulo_carga posicao">
+                            <div class="img_carga posicao">
+                                <img src="Imagens/VTAUD.jpg" alt="" title="" />
+                            </div>
+                            <div class="titulo_carga posicao">
+                                <span id="ContentPlaceHolder1_lblTipoMoedaAustraliano">CARTÃO DOLARES AUSTRALIANOS </span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Quantidade
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_RequiredFieldValidator9" class="rfv" style="display:none;">*</span>
+                                <span id="ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano_wrapper" class="riSingle RadInput RadInput_Default" style="width:80px;"><input id="ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano" name="ctl00$ContentPlaceHolder1$rntQtdDolarAustraliano" class="riTextBox riEnabled numeric_rad" value="25,00" type="text" /><input id="ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano_ClientState" name="ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano_ClientState" type="hidden" /></span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Taxa de Câmbio
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTaxaDolarAustraliano">R$ 2,91</span>
+                            </div>
+                        </div>
+                        <div class="linha_carga posicao">
+                            <div class="linha_carga_left posicao">
+                                Total
+                            </div>
+                            <div class="linha_carga_right posicao">
+                                <span id="ContentPlaceHolder1_lblTotalDolarAustraliano">R$ 72,75</span>
+                            </div>
+                        </div>
+                        <div class="box_detalhe_bottom posicao">
+                            <a id="ContentPlaceHolder1_btnComprarDolarAustraliano" href="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$ContentPlaceHolder1$btnComprarDolarAustraliano&quot;, &quot;&quot;, true, &quot;ValidarDolarAustraliano&quot;, &quot;&quot;, false, true))">
+                    <div class="btn_geral" style="margin-top: 5px;">
+                        <div class="btn_e posicao">
+                        </div>
+                        <div class="btn_m posicao" style="width: 80px;">
+                            Comprar
+                        </div>
+                        <div class="btn_d posicao">
+                        </div>
+                    </div>
+                            </a>
+                        </div>
+                    </span>
+            </div>
+        </div>
+
+
+
+        <div class="texto posicao">
+            Mesmo com saldo igual a zero, seu Cartão ainda é válido (até a data de vencimento
+            no cartão). Se você é titular de um Cartão, você pode recarregá-lo aqui quantas
+            vezes você quiser, desde que dentro dos limites e das restrições de seu Cartão.
+        </div>
+        <div class="box_taxas posicao">
+            <table cellpadding="0" cellspacing="0" border="0" class="tabela_geral posicao">
+                <tr class="tr_topo">
+                    <td class="td_topo" style="width: 62%">Limites
+                    </td>
+                    <td class="td_topo" style="width: 8%; text-align: right;">US $
+                    </td>
+                    <td class="td_topo" style="width: 8%; text-align: right;">EU €
+                    </td>
+                    <td class="td_topo" style="width: 8%; text-align: right;">GB £
+                    </td>
+                    <td class="td_topo" style="width: 8%; text-align: right;">ARS $
+                    </td>
+                    <td class="td_topo" style="width: 8%; text-align: right;">CAD $ </td>
+                    <td class="td_topo" style="width: 8%; text-align: right;">AUD $ </td>
+                </tr>
+                <tr class="tr_claro">
+                    <td class="td_cont" style="border-left: solid 1px #ccc;">Quantia mínima de carga ou recarga no Cartão
+                    </td>
+                    <td class="td_cont" style="text-align: right;">$100
+                    </td>
+                    <td class="td_cont" style="text-align: right;">€100
+                    </td>
+                    <td class="td_cont" style="text-align: right;">£100
+                    </td>
+                    <td class="td_cont" style="text-align: right;">$400
+                    </td>
+                    <td class="td_cont" style="text-align: right;">$100 </td>
+                    <td class="td_cont" style="text-align: right;">$100 </td>
+                </tr>
+                <tr class="tr_claro">
+                    <td class="td_cont" style="border-left: solid 1px #ccc;">Quantia máxima de carga e saldo máximo permitido em seu Cartão a qualquer momento
+                    </td>
+                    <td class="td_cont" style="text-align: right;">$20.000
+                    </td>
+                    <td class="td_cont" style="text-align: right;">€20.000
+                    </td>
+                    <td class="td_cont" style="text-align: right;">£20.000
+                    </td>
+                    <td class="td_cont" style="text-align: right;">$80.000
+                    </td>
+                    <td class="td_cont" style="text-align: right;">$20.000 </td>
+                    <td class="td_cont" style="text-align: right;">$20.000 </td>
+                </tr>
+                <tr class="tr_claro">
+                    <td class="td_cont" style="border-left: solid 1px #ccc;">Cartão Adicional interligado com os mesmos fundos
+                    </td>
+                    <td class="td_cont" style="text-align: right;">4
+                    </td>
+                    <td class="td_cont" style="text-align: right;">4
+                    </td>
+                    <td class="td_cont" style="text-align: right;">4
+                    </td>
+                    <td class="td_cont" style="text-align: right;">4
+                    </td>
+                    <td class="td_cont" style="text-align: right;">4 </td>
+                    <td class="td_cont" style="text-align: right;">4 </td>
+                </tr>
+
+            </table>
+        </div>
+        <div class="legenda posicao">
+            * Alguns caixas eletrônicos e estabelecimentos comerciais podem cobrar uma tarifa
+            adicional ou estabelecer seus próprios limites. Por favor, confirme as tarifas ou
+            limites aplicáveis antes de fazer saques ou compras.<br />
+            ** Valor máximo que poderá ser carregado em seu cartão pré-pago por nós emitido
+            durante qualquer período de doze (12) meses.
+        </div>
+    
+</div>
+
+            </div>
+            <div id="box_cont_bottom" class="posicao">
+            </div>
+        </div>
+        <div id="rodape_geral" class="posicao">
+            Cambionet - Todos direitos reservados
+        </div>
+    </div>
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("ContentPlaceHolder1_RequiredFieldValidator6"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator7"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator8"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator3"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator5"), document.getElementById("ContentPlaceHolder1_rfvValorDolar"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator1"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator2"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator4"), document.getElementById("ContentPlaceHolder1_RequiredFieldValidator9"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var ContentPlaceHolder1_RequiredFieldValidator6 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator6"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator6");
+ContentPlaceHolder1_RequiredFieldValidator6.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdDolarEspecie";
+ContentPlaceHolder1_RequiredFieldValidator6.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator6.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator6.validationGroup = "ValidarDolarEspecie";
+ContentPlaceHolder1_RequiredFieldValidator6.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator6.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator7 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator7"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator7");
+ContentPlaceHolder1_RequiredFieldValidator7.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdEuroEspecie";
+ContentPlaceHolder1_RequiredFieldValidator7.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator7.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator7.validationGroup = "ValidarEuroEspecie";
+ContentPlaceHolder1_RequiredFieldValidator7.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator7.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator8 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator8"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator8");
+ContentPlaceHolder1_RequiredFieldValidator8.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdLibraEspecie";
+ContentPlaceHolder1_RequiredFieldValidator8.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator8.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator8.validationGroup = "ValidarLibraEspecie";
+ContentPlaceHolder1_RequiredFieldValidator8.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator8.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator3 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator3"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator3");
+ContentPlaceHolder1_RequiredFieldValidator3.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdLibraEspecie";
+ContentPlaceHolder1_RequiredFieldValidator3.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator3.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator3.validationGroup = "ValidarDolarAustralianoEspecie";
+ContentPlaceHolder1_RequiredFieldValidator3.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator3.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator5 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator5"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator5");
+ContentPlaceHolder1_RequiredFieldValidator5.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdLibraEspecie";
+ContentPlaceHolder1_RequiredFieldValidator5.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator5.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator5.validationGroup = "ValidarDolarCanadenseEspecie";
+ContentPlaceHolder1_RequiredFieldValidator5.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator5.initialvalue = "";
+var ContentPlaceHolder1_rfvValorDolar = document.all ? document.all["ContentPlaceHolder1_rfvValorDolar"] : document.getElementById("ContentPlaceHolder1_rfvValorDolar");
+ContentPlaceHolder1_rfvValorDolar.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdDolar";
+ContentPlaceHolder1_rfvValorDolar.focusOnError = "t";
+ContentPlaceHolder1_rfvValorDolar.display = "Dynamic";
+ContentPlaceHolder1_rfvValorDolar.validationGroup = "ValidarDolar";
+ContentPlaceHolder1_rfvValorDolar.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_rfvValorDolar.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator1 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator1"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator1");
+ContentPlaceHolder1_RequiredFieldValidator1.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdEuro";
+ContentPlaceHolder1_RequiredFieldValidator1.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator1.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator1.validationGroup = "ValidarEuro";
+ContentPlaceHolder1_RequiredFieldValidator1.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator1.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator2 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator2"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator2");
+ContentPlaceHolder1_RequiredFieldValidator2.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdLibra";
+ContentPlaceHolder1_RequiredFieldValidator2.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator2.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator2.validationGroup = "ValidarLibra";
+ContentPlaceHolder1_RequiredFieldValidator2.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator2.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator4 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator4"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator4");
+ContentPlaceHolder1_RequiredFieldValidator4.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdDolarCanadense";
+ContentPlaceHolder1_RequiredFieldValidator4.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator4.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator4.validationGroup = "ValidarDolarCanadense";
+ContentPlaceHolder1_RequiredFieldValidator4.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator4.initialvalue = "";
+var ContentPlaceHolder1_RequiredFieldValidator9 = document.all ? document.all["ContentPlaceHolder1_RequiredFieldValidator9"] : document.getElementById("ContentPlaceHolder1_RequiredFieldValidator9");
+ContentPlaceHolder1_RequiredFieldValidator9.controltovalidate = "ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano";
+ContentPlaceHolder1_RequiredFieldValidator9.focusOnError = "t";
+ContentPlaceHolder1_RequiredFieldValidator9.display = "Dynamic";
+ContentPlaceHolder1_RequiredFieldValidator9.validationGroup = "ValidarDolarAustraliano";
+ContentPlaceHolder1_RequiredFieldValidator9.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+ContentPlaceHolder1_RequiredFieldValidator9.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator6').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator6'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"200,00","_focused":false,"_initialValueAsText":"200","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdDolarEspecie\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarDolarEspecie","_validationText":"200","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdDolarEspecie_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdDolarEspecie"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator7').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator7'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"200,00","_focused":false,"_initialValueAsText":"200","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdEuroEspecie\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarEuroEspecie","_validationText":"200","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdEuroEspecie_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdEuroEspecie"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator8').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator8'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"100,00","_focused":false,"_initialValueAsText":"100","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdLibraEspecie\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarLibraEspecie","_validationText":"100","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdLibraEspecie_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdLibraEspecie"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator3').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator3'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"200,00","_focused":false,"_initialValueAsText":"200","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdDolarAustralianoEspecie\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarDolarAustralianoEspecie","_validationText":"200","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdDolarAustralianoEspecie_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdDolarAustralianoEspecie"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator5').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator5'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"200,00","_focused":false,"_initialValueAsText":"200","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdDolarCanadenseEspecie\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarDolarCanadenseEspecie","_validationText":"200","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdDolarCanadenseEspecie_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdDolarCanadenseEspecie"));
+});
+
+document.getElementById('ContentPlaceHolder1_rfvValorDolar').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_rfvValorDolar'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"25,00","_focused":false,"_initialValueAsText":"25","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdDolar\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarDolar","_validationText":"25","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdDolar_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdDolar"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator1').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator1'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"25,00","_focused":false,"_initialValueAsText":"25","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdEuro\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarEuro","_validationText":"25","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdEuro_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdEuro"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator2').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator2'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"25,00","_focused":false,"_initialValueAsText":"25","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdLibra\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarLibra","_validationText":"25","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdLibra_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdLibra"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator4').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator4'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"25,00","_focused":false,"_initialValueAsText":"25","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdDolarCanadense\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarDolarCanadence","_validationText":"25","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdDolarCanadense_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdDolarCanadense"));
+});
+
+document.getElementById('ContentPlaceHolder1_RequiredFieldValidator9').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('ContentPlaceHolder1_RequiredFieldValidator9'));
+}
+Sys.Application.add_init(function() {
+    $create(Telerik.Web.UI.RadNumericTextBox, {"_displayText":"25,00","_focused":false,"_initialValueAsText":"25","_postBackEventReferenceScript":"setTimeout(\"__doPostBack(\\\u0027ctl00$ContentPlaceHolder1$rntQtdDolarAustraliano\\\u0027,\\\u0027\\\u0027)\", 0)","_skin":"Default","_validationGroup":"ValidarDolarAustraliano","_validationText":"25","autoPostBack":true,"clientStateFieldID":"ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano_ClientState","enabled":true,"incrementSettings":{InterceptArrowKeys:true,InterceptMouseWheel:true,Step:1},"numberFormat":{"DecimalDigits":2,"DecimalSeparator":",","CultureNativeDecimalSeparator":",","GroupSeparator":".","GroupSizes":3,"NegativePattern":"-n","NegativeSign":"-","PositivePattern":"n","AllowRounding":true,"KeepNotRoundedValue":false,"KeepTrailingZerosOnFocus":false,"NumericPlaceHolder":"n"},"styles":{HoveredStyle: ["width:80px;", "riTextBox riHover numeric_rad"],InvalidStyle: ["width:80px;", "riTextBox riError numeric_rad"],DisabledStyle: ["width:80px;", "riTextBox riDisabled numeric_rad"],FocusedStyle: ["width:80px;", "riTextBox riFocused numeric_rad"],EmptyMessageStyle: ["width:80px;", "riTextBox riEmpty numeric_rad"],ReadOnlyStyle: ["width:80px;", "riTextBox riRead numeric_rad"],EnabledStyle: ["width:80px;", "riTextBox riEnabled numeric_rad"],NegativeStyle: ["width:80px;", "riTextBox riNegative numeric_rad"]}}, null, null, $get("ctl00_ContentPlaceHolder1_rntQtdDolarAustraliano"));
+});
+//]]>
+</script>
+</form>
+</body>
+</html>

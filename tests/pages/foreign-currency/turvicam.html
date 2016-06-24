@@ -1,0 +1,1521 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="iso-8859-1">
+		<title>Turvicam - Turismo, viagens e câmbio</title>
+        <link rel="shortcut icon" href="imagens/turvicam.ico">
+	    <link href="css/geral.css" rel="stylesheet" type="text/css">
+    		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script type="text/javascript" src="js/jquery-1.3.2.js" /></script>
+		<!--<script type="text/javascript" src="js/jquery-1.5.js" /></script>-->
+
+        <script type="text/javascript" src="admin/js/jquery.meio.mask.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            // call setMask function on the document.ready event
+            jQuery(function($) {
+                $('input[type="text"]').setMask();
+            });
+        </script>
+		<script type="text/JavaScript" src="admin/js/calendar.js"></script>
+        <script type="text/JavaScript" src="admin/js/calendar-pt-br.js"></script>
+        <script type="text/JavaScript" src="admin/js/calendar-setup.js"></script>
+
+		<script type="text/javascript" src="js/jquery.cycle.all.js" /></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#banner_pacote ul').cycle({
+					fx: 'scrollRight',
+					randomizeEffects: false, 
+					speed: 1000,
+					sync: true,
+					timeout: 4000
+				});
+			});
+			$(function(){
+				$('#banner ul').cycle({
+					fx: 'scrollRight',
+					randomizeEffects: false, 
+					speed: 1000,
+					sync: true,
+					timeout: 4000
+				});
+			});
+        // timeouts per slide (in seconds) 
+			function calculateTimeout(currElement, nextElement, opts, isForward) { 
+				var index = opts.currSlide; 
+				if (index<4) {timeout = 4000} else {timeout = 4000}
+				if (index==2) {document.getElementById('gif1').src='imagens/banner.gif'}
+				return timeout; 
+			} 
+	    </script>
+		<script>
+            $(function(){
+                $('#fotos ul').cycle({
+                    fx: 'none, none, none, none, none, none, none, none, none, scrollRight, scrollRight, scrollRight, scrollRight, none, none, none, turnUp',
+                    randomizeEffects: false, 
+                    speed: 500,
+                    sync: true,
+                    timeout: 200
+                });
+    /* fx
+    blindX, blindY, blindZ, cover, curtainX, curtainY, fade, fadeZoom, growX, growY, scrollUp, scrollDown, scrollLeft, scrollRight, scrollHorz, scrollVert, shuffle, slideX, slideY, toss, turnUp, turnDown, turnLeft, turnRight, uncover, wipe, zoom
+    */
+            });
+        </script>
+
+		<script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+        
+          ga('create', 'UA-58982210-1', 'auto');
+          ga('send', 'pageview');
+        
+        </script>
+        <script>
+			function maximize() {  
+			  moveTo(-4,-4);  
+			  resizeTo(screen.availWidth + 8, screen.availHeight + 8);  
+			}
+  		</script>
+		<style type="text/css">
+			@font-face {font-family: "Arial Black"; src: url("fonts/ariblk.ttf");}	
+			@font-face {font-family: "PFBeauSansPro-Black"; src: url("fonts/PFBeauSansPro-Black.ttf");}	
+			@font-face {font-family: "PFBeauSansPro-Bold"; src: url("fonts/PFBeauSansPro-Bold.ttf");}	
+/*
+***********************************************************/
+		</style>
+	</head>
+
+	<body onclick="hidePublicidade();">
+<meta charset="iso-8859-1">
+<style type="text/css">
+	#fundo_cabecalho {height: 161px; margin: 0 auto; 
+	background-image: url('imagens/fundo_cabecalho.jpg');
+	background-color: #fff; background-repeat: repeat-x;}
+	#usuarios_top {Display: none;}
+	#cabecalho {width: 960px; height: 161px; margin: 0 auto; border: 0 solid #fff;}	
+	#cabecalho #logo {width: 362px; height: 77px/*124px*/; padding: 28px 8px 0; float: left; /*background-color: #999;*/}
+	#cabecalho #banner_pacotes {background-color: none; width: 320px; height: 115px/*124px*/; padding: 0; float: left; text-align: center; /*background-color: #999;*/}
+	#cabecalho #usuarios {background-color: none; width: 261px; height: 87px; padding-top: 28px; float: right; text-align: center; color: #285484; /*background-color: #CFF;*/ display: block;}
+	#cabecalho #usuarios a {color: #285484; text-decoration: none;}
+	#cabecalho #usuarios a:hover {text-decoration: underline;}
+	#cabecalho #botao_menu {display: none; background-color: none;}
+    #sombra {top: 0; /*width: 3200px; */height: 9px; background-image: url(imagens/sombra1.png); position: relative; z-index: 100; background-repeat: repeat-x;}
+</style>
+
+    <div id="usuarios_top">
+		<table width="100%" border="0" cellpadding="0" cellspacing="0">
+			<tr>
+        			<td align="left" valign="middle">
+	        		    <span><strong>Seja bem-vindo!</strong></span>
+                    </td>
+        			<td align="right" valign="middle">
+			            <span><a href="index.php?pagina=login" target="_self">Faça login ou cadastre-se</a></span>
+                    </td>
+			</tr>
+		</table>
+    </div>       
+<div id="fundo_cabecalho">
+	<div id="cabecalho" onmouseleave="hideSubMenu();">
+		<div id="logo" onmousemove="hideSubMenu();">
+			<a href="index.php" target="_self"><img src="imagens/nova-logo.png" width="100%" alt="Logo Turvicam" /></a>
+		</div>       
+		<div id="banner_pacotes" onmousemove="hideSubMenu();">
+			<a href="index.php?pagina=pacotes" target="_self"><img src="imagens/pacotes.gif" width="100%" alt="Pacotes" /></a>
+		</div>       
+		<div id="usuarios">
+				<span class="font1">Seja bem-vindo!<br /></span>
+				<span class="font2"><a href="index.php?pagina=login" target="_self">Faça login ou cadastre-se</a></span>
+			<span><a style="margin: 10px 0 30px; display: block;" href="index.php?pagina=compraonline" target="_self"><img src="imagens/carteira.png" /></a></span>
+		</div>       
+		<div id="botao_menu">
+        	<img class="menu" src="imagens/menu.png" onclick="showMenuMobile();" />
+            <a href="index.php?pagina=compraonline" target="_self">
+            	<img class="carteira" src="imagens/carteira.png" />
+            </a>
+        </div>
+<meta charset="iso-8859-1">
+<script type="text/javascript">
+	function showSubMenu() {
+		$("#menu_servicos").slideDown(300);
+	}
+	function hideSubMenu() {
+		$("#menu_servicos").slideUp(300);
+	}
+</script>
+<script type="text/javascript">
+	function showMenuMobile() {
+		if( $('#menu_mobile').is(':visible') ) {
+			$("#menu_mobile").slideUp(300);
+		} else {
+			$("#menu_mobile").slideDown(300);
+		}
+	}
+	function hideMenuMobile() {
+		$("#menu_mobile").slideUp(300);
+	}
+</script>
+<style type="text/css">
+	#menu_cambio {cursor: default; width: 960px; height: 36px; margin-top: 0; float: left; /*background-color: #9FF;*/}
+	#menu_cambio a {color: #333333; text-decoration: none;}
+	#menu_cambio a:hover {text-decoration: underline;}
+	#menu_cambio td {font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: normal; text-align: center; vertical-align: top; padding-top: 13px; height: 34px; color: #333333;}
+	.font_menu1 {font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; color: #333333; margin-right: 0;}
+	.font_menu2 {font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; font-weight: normal; color: #333333; margin-right: 27px;}
+	.link_menu1 {font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-weight: normal; color: #333333;}
+	.link_menu2 {font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; font-weight: normal; color: #333333;}
+
+	.parcerias {margin: 0 27px;}
+	.compraonline {margin-right: 27px;}
+	.institucional {margin-right: 27px;}
+	.faleconosco {margin-right: 0;}
+	
+	#menu_servicos {top: 160px; margin-left: 4px; width: 951px; height: 48px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; font-weight: normal; color: #666; background-image: url(imagens/menu_servicos2.png); position: absolute; z-index: 200; display: none; text-align: center;}
+	#menu_servicos ul {margin-top: 14px; margin-left: 42px;}
+	#menu_servicos li {cursor: default; float: left;}
+	#menu_servicos li a {color: #333333; text-decoration: none;}
+	#menu_servicos li a:hover {text-decoration: underline;}
+
+	.paddingMenu {padding-right: 75px;}
+	.paddingSubMenu {padding-right: 57px;}
+
+	#menu_mobile {display: none;}
+
+	.font_bold {font-weight: bold; color: #333333;}
+</style>
+<div id="menu_cambio">
+    <table style="margin: 0 auto;" border="0" cellspacing="0" cellpadding="0" bgcolor="">
+        <tr>
+            <td class="paddingMenu" style="" onmousemove="showSubMenu();" onmouseclick="showSubMenu();" onmouseover="showSubMenu();">
+                <span class="">SERVIÇOS</span>
+            </td>
+            <td class="paddingMenu" onmousemove="hideSubMenu();">
+                                    <a href="index.php?pagina=parcerias" target="_self"><span>PARCERIAS</span></a>
+                            </td>
+            <td class="paddingMenu" onmousemove="hideSubMenu();">
+                                    <a href="index.php?pagina=compraonline" target="_self"><span>COMPRA ONLINE</span></a>
+                            </td>
+            <td class="paddingMenu" onmousemove="hideSubMenu();">
+                                    <a href="index.php?pagina=institucional" target="_self"><span>INSTITUCIONAL</span></a>
+                            </td>
+            <td onmousemove="hideSubMenu();">
+                                    <a href="index.php?pagina=faleconosco" target="_self"><span>FALE CONOSCO</span></a>
+                            </td>
+
+        </tr>
+    </table>
+</div>
+<div id="menu_servicos">
+    <ul>
+        <li class="paddingSubMenu">
+                            <a href="index.php?pagina=cartaoprepagointernacional" target="_self">CARTÃO PRÉ-PAGO INTERNACIONAL</a>
+                    </li>
+        <li class="paddingSubMenu">
+                            <a href="index.php?pagina=seguroviagem" target="_self">SEGURO VIAGEM</a>
+                    </li>
+        <li class="paddingSubMenu">
+                            <a href="index.php?pagina=moneygram" target="_self">MONEYGRAM</a>
+                    </li>
+        <li>
+                            <a href="index.php?pagina=moedaestrangeira" target="_self">MOEDA ESTRANGEIRA</a>
+                    </li>
+    </ul>
+</div>
+<div id="menu_mobile">
+	<ul>
+		<li class="arialblack">SERVIÇOS</li>
+		<li class="arial">&nbsp;&nbsp;<a href="index.php?pagina=cartaoprepagointernacional" target="_self">Cartão pré-pago internacional</a></li>
+		<li class="arial">&nbsp;&nbsp;<a href="index.php?pagina=seguroviagem" target="_self">Seguro viagem</a></li>
+		<li class="arial">&nbsp;&nbsp;<a href="index.php?pagina=moneygram" target="_self">Moneygram</a></li>
+		<li class="arial">&nbsp;&nbsp;<a href="index.php?pagina=moedaestrangeira" target="_self">Moeda estrangeira</a></li>
+		<li class="arialblack"><a href="index.php?pagina=parcerias" target="_self">PARCERIAS</a></li>
+		<li class="arialblack"><a href="index.php?pagina=compraonline" target="_self">COMPRA ON-LINE</a></li>
+		<li class="arialblack"><a href="index.php?pagina=institucional" target="_self">INSTITUCIONAL</a></li>
+		<li class="arialblack"><a href="index.php?pagina=faleconosco" target="_self">FALE CONOSCO</a></li>
+    </ul>
+</div>
+<!--
+-->
+	</div>
+</div>                
+<div id="sombra"></div>                
+	    <div id="fundo_principal" onmousemove="hideSubMenu();">
+    	    <div id="principal">
+<meta charset="iso-8859-1">
+<style type="text/css">
+	* {margin: 0; padding: 0;}
+	ul {list-style: none; }
+	.banner {width: 692px; height: 275px;}
+	.azulclaro {color: #0099FF;}
+	.azulescuro1 {font-family: 'Arial Black', Gadget, sans-serif; color: #2A5686; display: block;}
+	.azulescuro2 {font-family: 'Arial Black', Gadget, sans-serif; color: #2A5686;}
+</style>
+<meta charset="iso-8859-1">
+<application android:hardwareAccelerated="true">
+        <form name="reiniciar" id="reiniciar" action="index.php" method="post">
+            <input type="hidden" name="publicidade_anterior" id="publicidade_anterior" value="50">
+        </form>
+
+        <script>
+            var refreshIntervalId = setInterval(function() {
+                hidePublicidade(2);
+                //window.location.href = 'index.php';
+                var refreshIntervalId = setInterval(function() {
+//						$("#publicidade").slideUp(1000);
+//						document.getElementById("ytplayer").src="about:blank";
+//						clearInterval(refreshIntervalId);
+	                    document.reiniciar.submit();
+                }, 1000);
+            }, 20000);
+        </script>
+<script>
+	function showPublicidade() {
+		$("#publicidade").slideDown(1000);
+	}
+	function hidePublicidade(quantos) {
+		$("#publicidade").slideUp(1000);
+		if(document.getElementById("ytplayer")) {
+			document.getElementById("ytplayer").src="about:blank";
+			if(quantos>1) 
+				document.reiniciar.submit();
+		}
+		clearInterval(refreshIntervalId);
+	}
+</script>
+<style type="text/css">
+	#publicidade {
+		margin-top: -150px; 
+		margin-left: -1px; 
+		width: 941px; 
+		height: 850px; 
+		background-image: url(imagens/publicidade/a-turvicam-te-leva-para-bonito-no-mato-grosso-do-sul-imperdivel.png); 
+		background-position: center; 
+		background-size: 100%; background-repeat: no-repeat;
+		position: absolute; 
+		z-index: 9999;
+	}
+</style>
+<div id="publicidade">
+</div>
+<!--
+<div style="" id="publicidade">
+    <img src="imagens/publicidade/banner-turvicam-do-formosa.png" />
+</div>
+<div style="margin-left: 70px; top: 76px;" id="publicidade">
+    <img src="imagens/ofertasdehoje.png" />
+</div>
+
+<div id="publicidade">
+    <img src="imagens/ciriodenazare.png" />
+    <img class="fechar" src="imagens/fechar.jpg" onclick="hidePublicidade();" />
+</div>
+<div style="margin-left: 162px;" id="publicidade">
+    <img src="imagens/banner-horarios-natal.png" />/div>
+<div style="margin-left: 162px;" id="publicidade">
+    <img src="imagens/banner-ano-novo.png" />
+</div>
+    <div style="width: 742px; height: 490px;" id="publicidade">
+        <img src="imagens/banner_dolares_em_oferta_2.png" />
+    </div>
+<!--
+    <div style="width: 867px; height: 777px;" id="publicidade">
+-->
+        <!--<img src="imagens/banner_turvicam_no_aeroporto.png" />-->
+<!--
+        <img src="imagens/banner-seguro-viagem.png" />
+    </div>
+-->
+<!--
+    <a style="margin: 0; padding: 0; display: block;" href="index.php?pagina=passagensonline" target="_self">
+        <img style="margin: 0; padding: 0; display: block;" src="imagens/banner_passagensonline.gif" />
+    </a>
+-->        
+			
+<!--<div id="banner_home">-->
+<!-- Link Swiper's CSS -->
+<meta charset="iso-8859-1">
+<link rel="stylesheet" href="css/swiper.min.css">
+<!-- Demo styles -->
+<style>
+	#banner {width: 960px; height: 275px; margin-top: 0; margin-left: 0; padding: 0; float: left; overflow: hidden; position: absolute; z-index: 80;}
+	#banner-mobile {display: none;}
+	#banner-tablet {display: none;}
+/*html, body {position: relative; height: 100%;}
+body {background: #eee; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; color:#000; margin: 0; padding: 0;}
+*/
+	.swiper-container {width: 692px; height: 275px; margin-left: 0; margin-right: 0;}
+	.swiper-slide {text-align: center; font-size: 18px; background: #fff;
+					/* Center slide text vertically */
+ 					/*display: -webkit-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; -webkit-justify-content: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; -webkit-align-items: center; align-items: center;*/}
+</style>
+    <div id="banner">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=compraonline" target="_self">
+                        <img src="imagens/banners/banner-1.jpg" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=compraonline" target="_self">
+                        <img src="imagens/banners/banner-2.jpg" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagens/banners/banner-3.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=seguroviagem" target="_self">
+                        <img src="imagens/banners/banner-4.jpg" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=cartaoprepagointernacional" target="_self">
+                        <img src="imagens/banners/banner-5.jpg" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagens/banners/banner-6.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagens/banners/banner-7.jpg" />
+                </div>
+                <div class="swiper-slide">
+                    <img src="imagens/banners/banner-8.jpg" />
+                </div>
+            </div>
+            <!-- Add Pagination 
+            <div class="swiper-pagination"></div>
+            -->
+            <!-- Add Arrows
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+             -->
+        </div>
+    </div>
+    <div id="banner-mobile">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=compraonline" target="_self">
+                        <div id="swiper-conteudo"><img src="imagens/banners/banner-1_mobile.jpg" /></div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=compraonline" target="_self">
+ 	                   	<div id="swiper-conteudo"><img src="imagens/banners/banner-2_mobile.jpg" /></div>
+            	    </a>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-3_mobile.jpg" /></div>
+                </div>
+                <div class="swiper-slide">
+	                <a href="index.php?pagina=seguroviagem" target="_self">
+    	                <div id="swiper-conteudo"><img src="imagens/banners/banner-4_mobile.jpg" /></div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=cartaoprepagointernacional" target="_self">
+	                    <div id="swiper-conteudo"><img src="imagens/banners/banner-5_mobile.jpg" /></div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-6_mobile.jpg" /></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-7_mobile.jpg" /></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-8_mobile.jpg" /></div>
+                </div>
+            </div>
+            <!-- Add Pagination 
+            <div class="swiper-pagination"></div>
+            -->
+            <!-- Add Arrows
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+             -->
+        </div>
+    </div>
+    <div id="banner-tablet">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=compraonline" target="_self">
+                        <div id="swiper-conteudo"><img src="imagens/banners/banner-1_tablet.jpg" /></div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=compraonline" target="_self">
+ 	                   	<div id="swiper-conteudo"><img src="imagens/banners/banner-2_tablet.jpg" /></div>
+            	    </a>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-3_tablet.jpg" /></div>
+                </div>
+                <div class="swiper-slide">
+	                <a href="index.php?pagina=seguroviagem" target="_self">
+    	                <div id="swiper-conteudo"><img src="imagens/banners/banner-4_tablet.jpg" /></div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="index.php?pagina=cartaoprepagointernacional" target="_self">
+	                    <div id="swiper-conteudo"><img src="imagens/banners/banner-5_tablet.jpg" /></div>
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-6_tablet.jpg" /></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-7_tablet.jpg" /></div>
+                </div>
+                <div class="swiper-slide">
+                    <div id="swiper-conteudo"><img src="imagens/banners/banner-8_tablet.jpg" /></div>
+                </div>
+            </div>
+            <!-- Add Pagination 
+            <div class="swiper-pagination"></div>
+            -->
+            <!-- Add Arrows
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+             -->
+        </div>
+    </div>
+ <!-- Swiper JS -->
+<script src="js/swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		nextButton: '.swiper-button-next',
+		prevButton: '.swiper-button-prev',
+		slidesPerView: 1,
+		paginationClickable: true,
+		spaceBetween: 0,
+		loop: true,
+		autoplay: 4500,
+		speed: 1000,
+		controlInverse: false,
+		autoplayDisableOnInteraction: false
+	});
+</script>
+<script>
+	function oi() {
+		alert("Oi");
+	}
+	function widthBannerTablet() {
+		var myWidth = 0, myHeight = 0, newHeightMobile = 0, newHeightTablet = 0;
+		if( typeof( window.innerWidth ) == 'number' ) {
+			//Non-IE
+			myWidth = window.innerWidth;
+			myHeight = window.innerHeight;
+		} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+			//IE 6+ in 'standards compliant mode'
+			myWidth = document.documentElement.clientWidth;
+			myHeight = document.documentElement.clientHeight;
+		} else if( document.body && ( document.body.clientWidth || document.body.clientHeight ) ) {
+			//IE 4 compatible
+			myWidth = document.body.clientWidth;
+			myHeight = document.body.clientHeight;
+		}
+		newHeightMobile = parseInt(parseInt(360) * 391 / 412);
+		newHeightTablet = parseInt(parseInt(myWidth) * 275 / 800);
+
+		document.getElementById("banner-mobile").style.height = newHeightMobile+"px";
+		document.getElementById("banner-tablet").style.height = newHeightTablet+"px";
+		/*alert("width: "+myWidth+" px\nheight: "+myHeight+" px\nnew height: "+newHeight+" px");
+		alert("new height: "+newHeight+" px");*/
+	}
+</script>
+<script>widthBannerTablet();</script>
+<meta charset="iso-8859-1">
+<script type="text/javascript">
+	function trocarMoeda(id) {
+		$(document).ready(function(){
+			$('#flag_moeda').load('mostraMoeda.php?id='+$('#moedas').val()+'&tipo=0');
+			$('#cotacao').load('mostraMoeda.php?id='+$('#moedas').val()+'&tipo=1');
+			calculaTotal();
+		});
+	}
+</script>
+<script type="text/javascript">
+	function calculaTotal() {
+		$(document).ready(function(){
+			//alert('calculaTotal.php?id='+$('#moedas').val()+'&valor='+$('#valor').val());
+			  $('#total_real').load('calculaTotal.php?id='+$('#moedas').val()+'&valor='+$('#valor').val());
+		});
+	}
+</script>
+<script type="text/javascript">
+	function comprarMoeda() {
+		location.href='index.php?pagina=compraonline&adicionar='+$('#moedas').val()+'&valor='+$('#valor').val();
+	}
+	function comprarOnline(moeda) {
+		location.href='index.php?pagina=compraonline&adicionar='+moeda+'&valor=0';
+	}
+</script>
+<style type="text/css">
+	@font-face {font-family: "Arial Black"; src: url("fonts/ariblk.ttf");}	
+	#compraronline {top: 0; width: 222px; height: 235px; background-image: url(imagens/fundo_compraonline.png); color: #fff; margin-top: 0; margin-right: 0; padding: 20px 30px 20px 70px; display: block; position: relative; float: right; z-index: 81; /*left: 638px;*/}
+	#compraronline .titulo {font-family: 'Arial Black', Gadget, sans-serif; font-weight: bold; font-size: 22px; color: #FFFF00;}
+	#compraronline .texto {color: #FFF; font-family: Arial, Helvetica, sans-serif; font-weight: normao; font-size: 14px; padding-top: 3px; display: block;}
+	#compraronline .comprar {cursor: pointer; width: 90px;}
+	#compraronline select {font-family: Arial, Helvetica, sans-serif; margin: 8px 0; padding: 5px 3px; width: 224px;}
+	#compraronline input {font-family: Arial, Helvetica, sans-serif; margin: 8px 0; padding: 5px 4px; width: 216px;}
+	#flag_moeda {display: block; float:left; padding-right: 6px;}
+	.label_valor {display: none;}
+</style>
+<div id="compraronline">
+	<span class="titulo">Compra Online<br /></span>
+	<div id="select_moeda">
+		<span class="texto">Escolha a moeda, verifique a<br />cotação e digite o valor desejado.</span>
+		<select id="moedas" onchange="trocarMoeda(this.Value)">
+				<option value="1">D&oacute;lar americano  (Em espécie)</option>
+				<option value="2">Euro (Em espécie)</option>
+				<option value="8">Libra esterlina (Em espécie)</option>
+				<option value="3">D&oacute;lar australiano (Em espécie)</option>
+				<option value="4">D&oacute;lar canadense (Em espécie)</option>
+				<option value="5">D&oacute;lar neozeland&ecirc;s (Em espécie)</option>
+				<option value="6">Franco su&iacute;&ccedil;o (Em espécie)</option>
+				<option value="7">Iene japon&ecirc;s (Em espécie)</option>
+				<option value="9">Peso argentino (Em espécie)</option>
+				<option value="10">Peso chileno (Em espécie)</option>
+				<option value="25">MoneyGram (Transf. internacional)</option>
+				<option value="16">D&oacute;lar americano (Pre-pago)</option>
+				<option value="17">Euro (Pre-pago)</option>
+				<option value="18">Libra esterlina (Pre-pago)</option>
+				<option value="28">Dólar australiano (Pre-pago)</option>
+				<option value="29">Dólar canadense (Pre-pago)</option>
+				<option value="30">Dólar neozelandês (Pre-pago)</option>
+		
+		</select>    
+		<div id="flag_moeda"></div>
+		<span class="texto">Cotação: R$ <span id="cotacao">0,00</span></span>
+	</div>
+	<div id="input_valor">
+		<label class="label_valor" for="valor">Digite o valor desejado</label>
+		<input type="text" id="valor" alt="decimal2" value="0,00" onkeyup="calculaTotal();" />
+		<span class="texto">Total: R$ <span id="total_real">0,00</span></span>
+	</div>
+	<div id="botao_comprar">
+		<input class="comprar" type="button" id="comprar" value="Comprar" onclick="comprarMoeda();" />
+    </div>
+	<script>trocarMoeda('1');</script>
+</div>
+<!--</div>-->
+<div id="centro">
+<meta charset="iso-8859-1">
+<style type="text/css">
+	#cotacaodemoedas {width: 288px; font-family: Arial, Helvetica, sans-serif; margin-top: 0; margin-right: 0; margin-left: 30px; padding-top: 30px; float: left;}
+	#cotacaodemoedas .titulo {width: 410px; font-family: 'Arial Black', Gadget, sans-serif; font-size: 22px; float: left;}
+	#cotacaodemoedas .texto {width: 410px; font-family: Arial, Helvetica, sans-serif; font-weight: normal; font-size: 14px; display: block;}
+	#cotacaodemoedas table {width: 410px;}
+	.cab {font-size: 14px;}
+	.linha_moeda {height: 26px;}
+	.thumb {height: 17px;}
+	.moeda {font-size: 12px; padding: 5px 3px;}
+	.valor {font-size: 14px; font-weight: bold;}
+	.linha_tipo {height: 28px;}
+	.tipo {padding-left: 10px; font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; color: #ffcc00;}
+	.iof {padding-left: 5px; font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; color: #ffffff;}
+	#linha_a {width: 410px; height: 9px; background-image: url(imagens/linha_cotacao_a_background.jpg); background-repeat: repeat-x;}
+	#linha_b {width: 410px; height: 9px; background-image: url(imagens/linha_cotacao_b_background.jpg); background-repeat: repeat-x;}
+	.atualizadoporturvicam {font-family: Arial, Helvetica, sans-serif; font-size: 14px; display: block; float: left;}
+	.impressao {cursor: pointer; font-size: 12px; float: right;}
+	.impressao:hover {text-decoration: underline;}
+	.impressora {height: 18px;}
+	.seta {height: 14px;}
+	.botaocomprar {width: 41px; cursor: pointer; padding: 0 5px;}
+</style>
+<div id="cotacaodemoedas">
+    <span class="titulo">
+        <span class="azulescuro2"><span class="azulclaro">Cotação</span> de moedas</span>
+    </span>
+    <span class="texto">Em espécie ou nos cartões pré-pagos internacionais</span>
+    <!--<img src="imagens/linha_cotacao_a.jpg" />-->
+    <div id="linha_a"></div>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr class="cab">
+            <td style="padding: 10px 0; background-color: #fff;" align="center" colspan="2">MOEDA</td>
+            <td style="background-color: #dfe6ed;" align="left">&nbsp;COMPRA</td>
+            <td style="background-color: #fff;" align="left" colspan="2">&nbsp;&nbsp;VENDA</td>
+            <td style="background-color: #dfe6ed;" align="left"><span class="carteira">&nbsp;CARTEIRA&nbsp;</span></td>
+        </tr>
+
+                <tr>
+                    <td class="linha_tipo" colspan="6" valign="center" align="left" style="background-color: #2A5686;">
+                        <span class="tipo">Em espécie</span>
+                                        
+                    </td>
+                </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_b3405fe551.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">D&oacute;lar americano </td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$3,50&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$3,75</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: D&oacute;lar americano  (Em espécie)" onclick="comprarOnline(1);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_9ae6480486.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">Euro</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$4,00&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #f5f8fa;">&nbsp;&nbsp;R$4,23</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Euro (Em espécie)" onclick="comprarOnline(2);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_a77b17218d.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">Libra esterlina</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$5,04&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$5,58</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Libra esterlina (Em espécie)" onclick="comprarOnline(8);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_a74724ce4d.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">D&oacute;lar australiano</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$2,46&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #f5f8fa;">&nbsp;&nbsp;R$2,88</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: D&oacute;lar australiano (Em espécie)" onclick="comprarOnline(3);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_0f6311eda8.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">D&oacute;lar canadense</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$2,71&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$3,06</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: D&oacute;lar canadense (Em espécie)" onclick="comprarOnline(4);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_847a68a1de.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">D&oacute;lar neozeland&ecirc;s</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$2,30&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #f5f8fa;">&nbsp;&nbsp;R$2,68</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: D&oacute;lar neozeland&ecirc;s (Em espécie)" onclick="comprarOnline(5);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_6b1df85054.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">Franco su&iacute;&ccedil;o</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$3,22&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$3,86</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Franco su&iacute;&ccedil;o (Em espécie)" onclick="comprarOnline(6);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_d8d78c5318.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">Iene japon&ecirc;s</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$0,032&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: black; background-color: #f5f8fa;">&nbsp;&nbsp;R$0,036</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                                    </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Iene japon&ecirc;s (Em espécie)" onclick="comprarOnline(7);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_06b40a17ed.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">Peso argentino</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$0,20&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: black; background-color: #ddebff;">&nbsp;&nbsp;R$0,28</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                                    </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Peso argentino (Em espécie)" onclick="comprarOnline(9);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_9f923f396f.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">Peso chileno</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$0,0049&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: black; background-color: #f5f8fa;">&nbsp;&nbsp;R$0,0060</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                                    </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Peso chileno (Em espécie)" onclick="comprarOnline(10);">
+                </td>
+            </tr>
+                <tr>
+                    <td class="linha_tipo" colspan="6" valign="center" align="left" style="background-color: #2A5686;">
+                        <span class="tipo">Transferência internacional</span>
+                                        
+                    </td>
+                </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_44f120a6de.png" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">MoneyGram</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$3,35&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$3,71</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: MoneyGram (Transf. internacional)" onclick="comprarOnline(25);">
+                </td>
+            </tr>
+                <tr>
+                    <td class="linha_tipo" colspan="6" valign="center" align="left" style="background-color: #2A5686;">
+                        <span class="tipo">Cartão pré-pago internacional</span>
+                                        
+                            <span class="iof">(IOF: 6,38%)</span>
+                                        
+                    </td>
+                </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_gh35a876d2.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">D&oacute;lar americano</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$3,19&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #f5f8fa;">&nbsp;&nbsp;R$3,74</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: D&oacute;lar americano (Pre-pago)" onclick="comprarOnline(16);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_a6d32e841b.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">Euro</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$3,60&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$4,24</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Euro (Pre-pago)" onclick="comprarOnline(17);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_d77b172he0.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">Libra esterlina</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$4,55&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #f5f8fa;">&nbsp;&nbsp;R$5,43</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Libra esterlina (Pre-pago)" onclick="comprarOnline(18);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_b74724be4d.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">Dólar australiano</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$2,30&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$2,76</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Dólar australiano (Pre-pago)" onclick="comprarOnline(28);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #f5f8fa; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_106311eda8.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #f5f8fa;">Dólar canadense</td>
+                <td valign="center" align="left" class="valor" style="background-color: #ddebff;">&nbsp;&nbsp;R$2,45&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #f5f8fa;">&nbsp;&nbsp;R$2,93</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #f5f8fa;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #ddebff; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Dólar canadense (Pre-pago)" onclick="comprarOnline(29);">
+                </td>
+            </tr>
+            <tr class="linha_moeda">
+                <td valign="center" align="center" style="background-color: #ddebff; padding: 0 1px;">
+                    <img class="thumb" src="imagens/moedas/tb_abc7a68a1de.jpg" />
+                </td>
+                <td valign="center" align="left" class="moeda" style="background-color: #ddebff;">Dólar neozelandês</td>
+                <td valign="center" align="left" class="valor" style="background-color: #c2d5ed;">&nbsp;&nbsp;R$2,15&nbsp;</td>
+                <td valign="center" align="left" class="valor" style="color: green; background-color: #ddebff;">&nbsp;&nbsp;R$2,57</td>
+                <td valign="middle" align="center" style="padding-left: 5px; background-color: #ddebff;">
+                    <img class='seta' src='imagens/seta_pra_cima2.png'>                </td>
+                <td valign="center" align="center" style="background-color: #c2d5ed; font-size: 14px; font-weight: bold;">
+                    <img class="botaocomprar" src="imagens/comprarmoeda.png" title="Comprar online: Dólar neozelandês (Pre-pago)" onclick="comprarOnline(30);">
+                </td>
+            </tr>
+		
+    </table>
+    <div id="linha_a"></div>
+    <!--<img src="imagens/linha_cotacao_b.jpg" />-->
+    <table style="margin-bottom: 40px;" width="410" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td align="left">
+                <span class="atualizadoporturvicam">
+                    Atualizado por Turvicam.
+                </span>    
+            </td>                    
+            <td align="right" valign="top">
+    <span class="impressao" onclick="window.open('cotacao.php','','width=860 height=600 left=130 top=100');" title="Versão para impressão">
+        <img class="impressora" src="imagens/impressora.png" />
+    </span>
+            </td>
+        </tr>
+    </table>
+</div>
+<meta charset="iso-8859-1">
+<style type="text/css">
+	.tabela {display: block;}
+	.tabela_mobile {display: none;}
+	#comofunciona {width: 460px; padding-top: 30px; margin-bottom: 30px; margin-right: 30px; float: right; /*background-color: #9FF;*/ font-size: 13px; color: #333; display: block;}
+	#comofunciona .titulo {width: 440px; padding-bottom: 20px; font-size: 22px; display: block;}
+	#funciona_sep {background-image: url(imagens/funciona_sep.jpg); background-position: center; background-repeat: no-repeat; width: 34px; height: 200px; float: left; background-color: #CFF;}
+	#funciona1 {background-image: url(imagens/funciona1.jpg); background-position: top; background-repeat: no-repeat;	 width: 160px; margin-left: 0; padding-top: 134px; float: left;}
+	#funciona2 {background-image: url(imagens/funciona2.jpg); background-position: top; background-repeat: no-repeat; width: 171px; margin-left: 10px; padding-top: 134px; float: left;}
+	#funciona3 {background-image: url(imagens/funciona3.jpg); background-position: top; background-repeat: no-repeat; width: 165px; margin-left: 10px; padding-top: 134px; float: left;}
+	.imagem {width: 170px;}
+	.title {width: 130px; font-family: 'PFBeauSansPro-Bold'; font-size: 19px; color: #1e4679; text-align: left; line-height: 110%;padding-left: 8px;}
+	.desc {padding-left: 7px; font-size: 12px;}
+	.sep {padding: 14px;}
+</style>
+<div id="comofunciona">
+    <span class="titulo">
+        <span class="azulescuro1">Como <span class="azulclaro">funciona</span> a compra online?</span>
+    </span>
+    <table class="tabela" style="width: 100%; font-size: 13px;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="imagem" align="right" valign="top">
+                <img width="100%" src="imagens/comofunciona1.png" />
+            </td>
+            <td class="title" align="left" valign="top">
+				Você<br>define os<br>valores,...            </td>
+            <td class="desc" align="left" valign="top">
+                Você seleciona a moeda, vê a cotação, escolhe a quantia que deseja e diz como quer pagar.            </td>
+        </tr>
+        <tr>
+            <td class="sep" colspan="3" align="center">
+                <img src="imagens/comofunciona_sep.png" />
+            </td>
+        </tr>
+        <tr>
+            <td class="imagem" align="right" valign="top">
+                <img width="100%" src="imagens/comofunciona2.png" />
+            </td>
+            <td class="title" align="left" valign="top">
+				...acerta os<br>detalhes pelo<br>telefone,...</span>
+            </td>
+            <td class="desc" align="left" valign="top">
+                O pessoal da turvicam vai entrar em contato com você para completar a operação.            </td>
+        </tr>
+        <tr>
+            <td class="sep" colspan="3" align="center">
+                <img src="imagens/comofunciona_sep.png" />
+            </td>
+        </tr>
+        <tr>
+            <td class="imagem" align="right" valign="top">
+                <img width="100%" src="imagens/comofunciona3.png" />
+            </td>
+            <td class="title" align="left" valign="top">
+				...e recebe<br>a moeda<br>onde preferir.            </td>
+            <td class="desc" align="left" valign="top">
+                Você recebe a quantia onde escolheu: na residência, no trabalho ou na nossa loja.            </td>
+        </tr>
+    </table>
+    <table class="tabela_mobile" style="width: 100%;font-size: 14px;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td width="55%" align="right" valign="top">
+                <img class="imagem" src="imagens/comofunciona1.png" />
+            </td>
+            <td width="45%" style="padding-left: 10px;" align="left" valign="top">
+				<span class="title">Você<br>define os<br>valores,...</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 10px;" align="center">
+                Você seleciona a moeda, vê a cotação, escolhe a quantia que deseja e diz como quer pagar.            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 10px;" colspan="0" align="center">
+                <img class="sep" src="imagens/comofunciona_sep.png" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">
+                <img class="imagem" src="imagens/comofunciona2.png" />
+            </td>
+            <td style="padding-left: 10px;" align="left" valign="top">
+				<span class="title">...acerta os<br>detalhes pelo<br>telefone,...</span>
+            </td>
+		</tr>
+        <tr>
+            <td colspan="2" valign="top" style="padding: 10px;" align="center">
+                O pessoal da turvicam vai entrar em contato com você para completar a operação.            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 10px;" colspan="0" align="center">
+                <img class="sep" src="imagens/comofunciona_sep.png" />
+            </td>
+        </tr>
+        <tr>
+            <td align="right" valign="top">
+                <img class="imagem" src="imagens/comofunciona3.png" />
+            </td>
+            <td style="padding-left: 10px;" align="left" valign="top">
+				<span class="title">...e recebe<br>a moeda<br>onde preferir.</span>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" valign="top" style="padding: 10px;" align="center">
+                Você recebe a quantia onde escolheu: na residência, no trabalho ou na nossa loja.            </td>
+        </tr>
+    </table>
+</div>
+<meta charset="iso-8859-1">
+<script type="text/javascript">
+	function habilitaLegenda(i) {
+		if (i==0) {
+			document.getElementById('legenda1').style.display = 'none';
+			document.getElementById('legenda2').style.display = 'none';
+			document.getElementById('legenda3').style.display = 'none';
+		}
+		if (i==1) {
+			document.getElementById('legenda1').style.display = 'block';
+			document.getElementById('legenda2').style.display = 'none';
+			document.getElementById('legenda3').style.display = 'none';
+		}
+		if (i==2) {
+			document.getElementById('legenda1').style.display = 'none';
+			document.getElementById('legenda2').style.display = 'block';
+			document.getElementById('legenda3').style.display = 'none';
+		}
+		if (i==3) {
+			document.getElementById('legenda1').style.display = 'none';
+			document.getElementById('legenda2').style.display = 'none';
+			document.getElementById('legenda3').style.display = 'block';
+		}
+	}
+</script>
+<style type="text/css">
+	#redessociais_mobile {display: none;}
+	#redessociais {width: 460px; float: right; margin-right: 30px; margin-bottom: 40px;redessociais_mobile}
+	#redessociais .titulo {width: 440px; padding: 0 0 10px; font-size: 22px; display: block;}
+	#redessociais table {width: 460px;}
+	.twitter {width: 460px; float: none; position: relative; z-index: 99;}
+</style>
+<div id="redessociais_mobile">
+    <span class="titulo_mobile">
+    	<span class='azulescuro1'>Navegue <span class='azulclaro'>conosco</span> nas redes sociais</span>
+    </span>
+    <table width="100%" style="font-size: 14px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
+        <tr><td style="background-color: #33ccff;" align="center">
+        	<a href="http://twitter.com/turvicam" target="_blank">
+            	<img src="imagens/redessociais/logo_twitter.png">
+            </a>
+        </td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td align="center">
+	<!-- Twitter -->
+    <div class="twitter_mobile"> 
+	    <a class="twitter-timeline" href="https://twitter.com/turvicam" data-width="100%" data-widget-id="318953337699569665">Tweets de @turvicam</a>
+    	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr><td style="background-color: #3b5998;" align="center">
+        	<a href="http://facebook.com/turvicam" target="_blank">
+		        <img src="imagens/redessociais/logo_facebook.png">
+        	</a>
+        </td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td align="center">
+				<div id="facebook_mobile">
+                    <!-- Facebook -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div id="facebook" style="margin-top: 20px; margin-left: 0;" class="fb-like-box" data-href="http://www.facebook.com/turvicam" data-colorscheme="light" data-show-faces="true" data-width="320" data-height="300" data-header="true" data-stream="false" data-show-border="true"></div>
+				</div>
+				<div id="facebook_tablet">
+                    <!-- Facebook -->
+                    <div id="fb-root"></div>
+                    <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));</script>
+                    <div id="facebook" style="margin-top: 20px; margin-left: 0;" class="fb-like-box" data-href="http://www.facebook.com/turvicam" data-colorscheme="light" data-show-faces="true" data-width="500" data-height="300" data-header="true" data-stream="false" data-show-border="true"></div>
+				</div>
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr><td style="background-color: #254242;" align="center"><img src="imagens/redessociais/logo_whatsapp.png"></td></tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td>
+                <table width="500" class="tabela_whatsapp" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td width="500" align="center">
+                            <strong>Fale com nossas lojas<br>pelo WhatsApp:</strong>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td style="padding-top: 10px;" class="lojas_whatsapp" align="center">
+Presidente Vargas                            </td>
+                        </tr>
+                    	    <tr>
+                        	    <td align="center">
+Câmbio: <span style='font-family: Arial Black;'>+55 (91) 98286-0151</span>	                            </td>
+    	                    </tr>
+        	                <tr>
+            	                <td align="center">
+Turismo: <span style='font-family: Arial Black;'>+55 (91) 98286-0149</span>                    	        </td>
+                        	</tr>
+                        <tr>
+                            <td style="padding-top: 10px;" class="lojas_whatsapp" align="center">
+Soft Inn                            </td>
+                        </tr>
+	                        <tr>
+    	                        <td align="center">
+<span style='font-family: Arial Black;'>+55 (91) 98286-0147</span>            	                </td>
+                	        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;" class="lojas_whatsapp" align="center">
+Aeroporto                            </td>
+                        </tr>
+	                        <tr>
+    	                        <td align="center">
+<span style='font-family: Arial Black;'>+55 (91) 98286-0150</span>            	                </td>
+                	        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;" class="lojas_whatsapp" align="center">
+Formosa                            </td>
+                        </tr>
+	                        <tr>
+    	                        <td align="center">
+<span style='font-family: Arial Black;'>+55 (91) 98286-0146</span>            	                </td>
+                	        </tr>
+                        <tr>
+                            <td style="padding-top: 10px;" class="lojas_whatsapp" align="center">
+Grão-Pará                            </td>
+                        </tr>
+	                        <tr>
+    	                        <td align="center">
+<span style='font-family: Arial Black;'>+55 (91) 98286-0148</span>            	                </td>
+                	        </tr>
+                    <tr><td>&nbsp;</td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+
+</div>                                            
+<div id="redessociais">
+    <span class="titulo">
+		<span style="padding-bottom: 7px;" class="azulescuro1">Navegue <span class="azulclaro">conosco</span> nas redes sociais</span>
+	</span>
+    <table width="100%" style="font-size: 14px; margin-bottom: 20px;" cellpadding="0" cellspacing="0">
+        <tr>
+            <td style="background-color: #fff;">
+                <div style="width: 100%; height: 70px; margin-bottom: 30px; padding: 0; text-align: left; display: block; position: relative; float: left;">
+                    <div style="width: 100%; float: left; display: block; position: absolute; z-index: 100;"> 
+                        <a style="margin-left: 20px;" href="http://facebook.com/turvicam" target="_blank"><img src="imagens/redessociais/facebook.png" width="70" onmousemove="habilitaLegenda(1);" /></a>&nbsp;&nbsp;
+                        <a href="http://twitter.com/turvicam" target="_blank"><img style="margin-top: 15px;" src="imagens/redessociais/twitter.png" width="70" onmousemove="habilitaLegenda(2);" /></a>
+                        <img style="margin: 15px 0 0 8px;" src="imagens/redessociais/whatsapp.png" width="70" onmousemove="habilitaLegenda(3);" />
+                    </div>
+                    <a href="http://facebook.com/turvicam" target="_blank"><img id="legenda1" style="display: none; top: -50px; left: 0; position: absolute; z-index: 101;" src="imagens/redessociais/visitenosnofacebook.png" /></a>
+                    <a href="http://twitter.com/turvicam" target="_blank"><img id="legenda2" style="display: none; top: -50px; left: 80px; position: absolute; z-index: 102;" src="imagens/redessociais/leianosnotwitter.png" /></a>
+<!--
+                    <img id="legenda3" style="display: none; top: -67px; left: 140px; position: absolute; z-index: 102;" src="imagens/redessociais/faleconosconowhatsapp.png" /></a>
+-->
+                    <div id="legenda3" style="display: none; top: -243px; left: 103px; width: 222px; min-height: 67px; position: absolute; z-index: 102;">
+                        <div style="width: 222px; float: left; background-image: url(imagens/redessociais/faleconosconowhatsapp1.png); background-repeat: no-repeat; height: 13px;">&nbsp;</div>
+                        <div style="width: 222px; float: left; background-image: url(imagens/redessociais/faleconosconowhatsapp2.png); background-repeat: repeat-y;"
+?>
+                            <table style="float: left; width: 212px;font-family: Arial; font-size: 14px; color: #3e3a3a;" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td align="center">
+                                        <strong>Fale conosco no WhatsApp</strong>
+                                    </td>
+                                </tr>
+               	                    <tr>
+           	                            <td style="padding-top: 6px;" align="center">
+Presidente Vargas<br />   	                                    </td>
+                                    </tr>
+				                        <tr>
+    	        			                <td align="center">
+Câmbio <strong>+55 (91) 98286-0151</strong>				                            </td>
+            				            </tr>
+	                        			<tr>
+				                            <td align="center">
+Turismo <strong>+55 (91) 98286-0149</strong>            	            			    </td>
+			    	                    </tr>
+               	                    <tr>
+           	                            <td style="padding-top: 6px;" align="center">
+Soft Inn<br />   	                                    </td>
+                                    </tr>
+    	                                <tr>
+	                                        <td align="center">
+<strong>+55 (91) 98286-0147</strong>            	                            </td>
+                	                    </tr>
+               	                    <tr>
+           	                            <td style="padding-top: 6px;" align="center">
+Aeroporto<br />   	                                    </td>
+                                    </tr>
+    	                                <tr>
+	                                        <td align="center">
+<strong>+55 (91) 98286-0150</strong>            	                            </td>
+                	                    </tr>
+               	                    <tr>
+           	                            <td style="padding-top: 6px;" align="center">
+Formosa<br />   	                                    </td>
+                                    </tr>
+    	                                <tr>
+	                                        <td align="center">
+<strong>+55 (91) 98286-0146</strong>            	                            </td>
+                	                    </tr>
+               	                    <tr>
+           	                            <td style="padding-top: 6px;" align="center">
+Grão-Pará<br />   	                                    </td>
+                                    </tr>
+    	                                <tr>
+	                                        <td align="center">
+<strong>+55 (91) 98286-0148</strong>            	                            </td>
+                	                    </tr>
+                            </table>
+                        </div>
+                        <div style="width: 222px; float: left; background-image: url(imagens/redessociais/faleconosconowhatsapp3.png); background-repeat: no-repeat; height: 40px;">&nbsp;</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td align="center">
+	<!-- Twitter -->
+    <div class="twitter"> 
+	    <a class="twitter-timeline"  href="https://twitter.com/turvicam"  data-widget-id="318953337699569665">Tweets de @turvicam</a>
+    	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+    </div>
+
+            </td>
+        </tr>
+        <tr><td>&nbsp;</td></tr>
+        <tr>
+            <td align="center">
+	<!-- Facebook -->
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+    fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="facebook" style="margin-top: 20px; margin-left: 0;" class="fb-like-box" data-href="http://www.facebook.com/turvicam" data-colorscheme="light" data-show-faces="true" data-width="460" data-height="300" data-header="true" data-stream="false" data-show-border="true"></div>
+
+            </td>
+        </tr>
+    </table>
+
+
+</div>                                            
+</div>
+<!--			<div style="clear:both"></div>-->
+<script>showPublicidade();</script>
+			</div>
+        </div>
+<meta charset="iso-8859-1">
+<script type="text/javascript">
+	function submitNews(){
+		document.form1.submit();
+	}
+</script>
+<script src="js/placeholder.js" type="text/javascript"></script>
+<script>
+	$(function(){
+		$(".nome").placeholder();
+		$(".email").placeholder();
+	});
+</script>
+<style type="text/css">
+	#fundo_newsletter {margin: 0 auto; background-color: #009BCC; clear: both;} 
+	#newsletter {height: 50px; width: 960px; margin: 0 auto; border: 0 solid #FFF; padding: 14px 0; display: block;}
+	#newsletter img {margin: 0 20px 0 110px; float: left;}
+	#newsletter #opcoes {font-family: Arial, Helvetica, sans-serif; font-size: 14px; color: #fff; padding: 5px 0 0; margin: 0; width: 490px; float: left;}
+	#newsletter #opcoes .nome_news {width: 200px; font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; font-weight: bold; color: #666; display: block; padding: 2px 10px; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 0; margin-right: 20px; float: left;}
+	#newsletter #opcoes .email_news {width: 200px; font-family: "Arial Black", Gadget, sans-serif; font-size: 14px; font-weight: bold; color: #666; display: block; padding: 2px 10px; border-radius:5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: 0; margin-right: 20px; float: left;}
+	.texto_direita {margin: 7px 0 0 30px; width: 210px; float: left;}
+	.texto_esquerda {margin: 7px 0 0; float: left;}
+	.ok {margin: 5px 0 0; float: left;}
+</style>
+<div id="fundo_newsletter">
+	<div id="newsletter">
+        <img style="img_newsletter" src="imagens/assinenossanewsletter.jpg" />
+        <form name="newsletter" method="post" action="index.php#newsletter">
+<!--
+            <div id="nome_news">
+            </div>
+            <div id="email_news">
+            </div>
+-->
+			<div id="opcoes">
+                <input class="nome_news" name="nome_news" type="text" placeholder="Nome" value="" />
+                <input class="email_news" name="email_news" type="text" placeholder="E-mail" value="" />
+                <span class="texto_direita">Desejo receber no meu email:</span>
+                <span class="texto_esquerda">
+                	<input type="checkbox" name="cambio_news" checked="checked" />&nbsp;Cotações&nbsp;&nbsp;&nbsp;
+                </span> 
+                <span class="texto_esquerda">
+                	<input type="checkbox" name="turismo_news" checked="checked" />&nbsp;Pacotes de Turismo
+                </span>
+			</div>
+            <input class="ok" name="ok" type="image" src="imagens/ok.jpg" onclick="document.newsletter.submit();" />
+        </form>
+	</div>    
+</div>      
+<div style="clear:both"></div>
+<meta charset="iso-8859-1">
+<style type="text/css">
+	#fundo_rodape {background-color: #003366; margin: 0 auto;}
+	#rodape {width: 960px; font-family: Arial, Helvetica, sans-serif; font-size: 14px; padding: 20px 0; margin: 0 auto; color: #fff; display: block;}
+	#rodape #colunas {width: 960px; float: left; text-align: center; color: white; display: block;}
+	#rodape #colunas td {width: 320px; text-align: center; vertical-align: top;}
+	#rodape #coluna_mobile {display: none;}
+	#rodape #colunas_tablet {display: none;}
+	#rodape a {font-weight: bold; color: #FFF; text-decoration: none;}
+	#rodape a:hover {font-weight: bold; color: #FFF; text-decoration: underline;}
+</style>
+<div id="fundo_rodape" onmousemove="hideSubMenu();">
+    <div id="rodape">
+		<table id="colunas" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+            	<td>
+                </td>
+            	<td style="padding-bottom: 10px;">
+                    <a href="index.php" target="_self">
+                        <img class="turvicam" src="imagens/logo_rodape_turvicam.com.br.png">
+                    </a>
+                </td>
+            	<td>
+                </td>
+			</tr>
+			<tr>
+            	<td>
+					<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Presidente Vargas</span><br /><br />Av. Presidente Vargas, 636/640.<br />
+Campina. Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5454'>+55 (91) 3201-5454</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0151'>+55 (91) 98286-0151</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: cambio@turvicam.com.br'>cambio@turvicam.com.br</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: reservas@turvicam.com.br'>reservas@turvicam.com.br</a></strong><br />Whatsapp câmbio: <strong>+55 (91) 98286-0151</strong><br />Whatsapp turismo: <strong>+55 (91) 98286-0149</strong><br />De segunda a sexta<br />
+das 8h00 às 18h30<br />
+Nos sábados<br />
+das 8h00 às 16h00.<br /><br />                </td>
+            	<td>
+					<span>Turvicam - Turismo, Viagens e Câmbio Ltda - EPP.<br>Todos os direitos reservados.</span>                
+                    <br>
+                    <br>
+                    <br>
+                    <a href="http://www.ourominas.com/" target="_blank">
+                        <img class="omgrupo" src="imagens/ourominas.png" />
+                    </a>
+                </td>
+            	<td>
+					<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>	Turvicam Aeroporto</span><br /><br />Av. Júlio César, s/nº , loja 26, térreo.<br />
+Aeroporto Internacional de Belém.<br />
+Val-de-Cans. Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5455'>+55 (91) 3201-5455</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0150 '>+55 (91) 98286-0150 </a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99295-0851 '>+55 (91) 99295-0851 </a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: aeroporto@turvicam.com.br'>aeroporto@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0150</strong><br />Segunda a Sábado de 0h00 às 24h00.<br />
+Domingos das 8h00 às 24h00.<br /><br />                </td>
+			</tr>
+			<tr>
+            	<td>
+					<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Soft Inn</span><br /><br />Av. Gentil Bittencourt, 85.<br />
+No hall do hotel Soft Inn.<br />
+Batista Campos. Belém, Pará.<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3223-2154'>+55 (91) 3223-2154</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5488'>+55 (91) 3201-5488</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5489'>+55 (91) 3201-5489</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0147'>+55 (91) 98286-0147</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99231-6698'>+55 (91) 99231-6698</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: softinn@turvicam.com.br'>softinn@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0147</strong><br />De segunda a sexta<br />
+das 8h00 às 18h00<br />
+Nos sábados<br />
+das 8h00 às 13h00.<br /><br />                </td>
+            	<td>
+        		    <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Formosa</span><br /><br />Rod. Augusto Montenegro, Km 07, S/N.<br />
+Loja 15 na galeria do Formosa<br />
+Parque Verde, Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5490'>+55 (91) 3201-5490</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0146'>+55 (91) 98286-0146</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99202-6567'>+55 (91) 99202-6567</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99182-1972'>+55 (91) 99182-1972</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: formosa@turvicam.com.br'>formosa@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0146</strong><br />De segunda a sábado<br />
+das 9h00 às 20h00<br />
+<br /><br />             	
+                </td>
+            	<td>
+        		    <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Grão-Pará</span><br /><br />Shopping Bosque Grão-Pará<br />
+Av. Centenário, bairro Cristal<br />
+Loja 63 - térreo<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5499'>+55 (91) 3201-5499</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0148'>+55 (91) 98286-0148</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99250-0145'>+55 (91) 99250-0145</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: graopara@turvicam.com.br'>graopara@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0148</strong><br />De segunda a sábado<br />
+das 10h00 às 22h00<br />
+Nos domingos<br />
+das 14h00 às 22h00<br /><br />                </td>
+			</tr>
+		</table>
+		<div id="coluna_mobile">
+			<br>
+            <a href="index.php" target="_self">
+            	<img class="turvicam" src="imagens/logo_rodape_turvicam.com.br.png" />
+            </a>
+            <br>
+            <br>
+            <span style="margin: 0 auto; width: 250px; display: table; text-align: center;">
+				Turvicam - Turismo, Viagens e Câmbio Ltda - EPP.<br>Todos os direitos reservados.
+            </span>
+            <br>
+            <br>
+		</div>
+		<div id="coluna_mobile">
+            <br>
+            <a href="http://www.ourominas.com/" target="_blank">
+            	<img class="omgrupo" src="imagens/ourominas.png" />
+            </a>
+            <br>
+            <br>
+            <br>
+		</div>
+		<div id="coluna_mobile">
+             <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Presidente Vargas</span><br /><br />Av. Presidente Vargas, 636/640.<br />
+Campina. Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5454'>+55 (91) 3201-5454</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0151'>+55 (91) 98286-0151</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: cambio@turvicam.com.br'>cambio@turvicam.com.br</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: reservas@turvicam.com.br'>reservas@turvicam.com.br</a></strong><br />Whatsapp câmbio: <strong>+55 (91) 98286-0151</strong><br />Whatsapp turismo: <strong>+55 (91) 98286-0149</strong><br />De segunda a sexta<br />
+das 8h00 às 18h30<br />
+Nos sábados<br />
+das 8h00 às 16h00.<br /><br />		</div>
+		<div id="coluna_mobile">
+             <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Soft Inn</span><br /><br />Av. Gentil Bittencourt, 85.<br />
+No hall do hotel Soft Inn.<br />
+Batista Campos. Belém, Pará.<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3223-2154'>+55 (91) 3223-2154</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5488'>+55 (91) 3201-5488</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5489'>+55 (91) 3201-5489</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0147'>+55 (91) 98286-0147</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99231-6698'>+55 (91) 99231-6698</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: softinn@turvicam.com.br'>softinn@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0147</strong><br />De segunda a sexta<br />
+das 8h00 às 18h00<br />
+Nos sábados<br />
+das 8h00 às 13h00.<br /><br />		</div>
+		<div id="coluna_mobile">
+			<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>	Turvicam Aeroporto</span><br /><br />Av. Júlio César, s/nº , loja 26, térreo.<br />
+Aeroporto Internacional de Belém.<br />
+Val-de-Cans. Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5455'>+55 (91) 3201-5455</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0150 '>+55 (91) 98286-0150 </a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99295-0851 '>+55 (91) 99295-0851 </a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: aeroporto@turvicam.com.br'>aeroporto@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0150</strong><br />Segunda a Sábado de 0h00 às 24h00.<br />
+Domingos das 8h00 às 24h00.<br /><br />		</div>
+		<div id="coluna_mobile">
+            <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Formosa</span><br /><br />Rod. Augusto Montenegro, Km 07, S/N.<br />
+Loja 15 na galeria do Formosa<br />
+Parque Verde, Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5490'>+55 (91) 3201-5490</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0146'>+55 (91) 98286-0146</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99202-6567'>+55 (91) 99202-6567</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99182-1972'>+55 (91) 99182-1972</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: formosa@turvicam.com.br'>formosa@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0146</strong><br />De segunda a sábado<br />
+das 9h00 às 20h00<br />
+<br /><br />		</div>
+		<div id="coluna_mobile">
+            <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Grão-Pará</span><br /><br />Shopping Bosque Grão-Pará<br />
+Av. Centenário, bairro Cristal<br />
+Loja 63 - térreo<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5499'>+55 (91) 3201-5499</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0148'>+55 (91) 98286-0148</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99250-0145'>+55 (91) 99250-0145</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: graopara@turvicam.com.br'>graopara@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0148</strong><br />De segunda a sábado<br />
+das 10h00 às 22h00<br />
+Nos domingos<br />
+das 14h00 às 22h00<br /><br />		</div>
+		<table id="colunas_tablet" cellpadding="0" cellspacing="0" border="0">
+			<tr>
+            	<td>
+                </td>
+            	<td style="padding-bottom: 10px;">
+                    <a href="index.php" target="_self">
+                        <img class="turvicam" src="imagens/logo_rodape_turvicam.com.br.png">
+                    </a>
+                </td>
+			</tr>
+			<tr>
+            	<td valign="top">
+					<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Presidente Vargas</span><br /><br />Av. Presidente Vargas, 636/640.<br />
+Campina. Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5454'>+55 (91) 3201-5454</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0151'>+55 (91) 98286-0151</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: cambio@turvicam.com.br'>cambio@turvicam.com.br</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: reservas@turvicam.com.br'>reservas@turvicam.com.br</a></strong><br />Whatsapp câmbio: <strong>+55 (91) 98286-0151</strong><br />Whatsapp turismo: <strong>+55 (91) 98286-0149</strong><br />De segunda a sexta<br />
+das 8h00 às 18h30<br />
+Nos sábados<br />
+das 8h00 às 16h00.<br /><br />                </td>
+            	<td valign="top">
+					<span>Turvicam - Turismo, Viagens e Câmbio Ltda - EPP.<br>Todos os direitos reservados.</span>                
+                    <br>
+                    <br>
+                    <br>
+                    <a href="http://www.ourominas.com/" target="_blank">
+                        <img class="omgrupo" src="imagens/ourominas.png" />
+                    </a>
+                </td>
+			</tr>
+			<tr>
+            	<td valign="top">
+					<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Soft Inn</span><br /><br />Av. Gentil Bittencourt, 85.<br />
+No hall do hotel Soft Inn.<br />
+Batista Campos. Belém, Pará.<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3223-2154'>+55 (91) 3223-2154</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5488'>+55 (91) 3201-5488</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5489'>+55 (91) 3201-5489</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0147'>+55 (91) 98286-0147</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99231-6698'>+55 (91) 99231-6698</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: softinn@turvicam.com.br'>softinn@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0147</strong><br />De segunda a sexta<br />
+das 8h00 às 18h00<br />
+Nos sábados<br />
+das 8h00 às 13h00.<br /><br />                </td>
+            	<td valign="top">
+        		    <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>	Turvicam Aeroporto</span><br /><br />Av. Júlio César, s/nº , loja 26, térreo.<br />
+Aeroporto Internacional de Belém.<br />
+Val-de-Cans. Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5455'>+55 (91) 3201-5455</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0150 '>+55 (91) 98286-0150 </a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99295-0851 '>+55 (91) 99295-0851 </a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: aeroporto@turvicam.com.br'>aeroporto@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0150</strong><br />Segunda a Sábado de 0h00 às 24h00.<br />
+Domingos das 8h00 às 24h00.<br /><br />                </td>
+			</tr>
+			<tr>
+            	<td valign="top">
+					<span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Formosa</span><br /><br />Rod. Augusto Montenegro, Km 07, S/N.<br />
+Loja 15 na galeria do Formosa<br />
+Parque Verde, Belém, Pará<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5490'>+55 (91) 3201-5490</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0146'>+55 (91) 98286-0146</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99202-6567'>+55 (91) 99202-6567</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99182-1972'>+55 (91) 99182-1972</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: formosa@turvicam.com.br'>formosa@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0146</strong><br />De segunda a sábado<br />
+das 9h00 às 20h00<br />
+<br /><br />                </td>
+            	<td valign="top">
+        		    <span style='font-family: Arial Black; font-size: 14px; color: #FFFF99;'>Turvicam Grão-Pará</span><br /><br />Shopping Bosque Grão-Pará<br />
+Av. Centenário, bairro Cristal<br />
+Loja 63 - térreo<br />Fone: <strong><a style='color: #FFFFFF;' href='tel: +55 (91) 3201-5499'>+55 (91) 3201-5499</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 98286-0148'>+55 (91) 98286-0148</a></strong><br /><strong><a style='color: #FFFFFF;' href='tel: +55 (91) 99250-0145'>+55 (91) 99250-0145</a></strong><br /><strong><a style='color: #FFFFFF;' href='mailto: graopara@turvicam.com.br'>graopara@turvicam.com.br</a></strong><br />Whatsapp: <strong>+55 (91) 98286-0148</strong><br />De segunda a sábado<br />
+das 10h00 às 22h00<br />
+Nos domingos<br />
+das 14h00 às 22h00<br /><br />                </td>
+			</tr>
+		</table>
+        <div style="clear: both;"</div>
+  </div>      
+</div>
+	</body>
+</html>
