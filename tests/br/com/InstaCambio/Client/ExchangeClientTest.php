@@ -6,7 +6,7 @@ use br\com\InstaCambio\Model\CurrencyCard;
 use br\com\InstaCambio\Model\ExchangeOffice;
 use br\com\InstaCambio\Model\ExchangeOfficeConfig;
 use br\com\InstaCambio\Model\ForeignCurrency;
-use br\com\InstaCambio\Stub\Goutte\StubGoutteClient;
+use br\com\InstaCambio\Stub\StubClient;
 use Psr\Http\Message\ResponseInterface;
 
 class ExchangeClientTest extends \PHPUnit_Framework_TestCase
@@ -93,7 +93,7 @@ class ExchangeClientTest extends \PHPUnit_Framework_TestCase
         $exchangeOfficeProduct = ExchangeOfficeConfig::getProductByType($exchangeOffice, ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT);
         $response = $this->exchangeClient->send($exchangeOffice, $exchangeOfficeProduct);
 
-        $content = file_get_contents(StubGoutteClient::ROOT_DIR_TESTS_PAGES . DS . 'foreign-currency' . DS . $nickname . '.html');
+        $content = file_get_contents(StubClient::ROOT_DIR_TESTS_PAGES . DS . 'foreign-currency' . DS . $nickname . '.html');
         $this->assertEquals($content, $response->getBody()->getContents());
         $this->assertEquals(200, $response->getStatusCode());
     }

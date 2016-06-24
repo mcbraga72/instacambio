@@ -161,6 +161,7 @@ class RestApplication
     }
 
     /**
+     * @param array $args
      * @return array
      */
     public function getStates($args = [])

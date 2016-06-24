@@ -2,8 +2,8 @@
 
 namespace br\com\InstaCambio\Client;
 
-use br\com\InstaCambio\Stub\Goutte\StubFilePaths;
-use br\com\InstaCambio\Stub\Goutte\StubGoutteClient;
+use br\com\InstaCambio\Stub\StubFilePaths;
+use br\com\InstaCambio\Stub\StubClient;
 use GuzzleHttp\Psr7\Response;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -13,7 +13,7 @@ class AbstractLocalStubClient implements InstaCambioClient
 
     public function request($httpMethod, $uri)
     {
-        $client = new StubGoutteClient();
+        $client = new StubClient();
         return $client->request($httpMethod, $uri);
     }
 
@@ -25,7 +25,7 @@ class AbstractLocalStubClient implements InstaCambioClient
      */
     public function send($request, $options = [])
     {
-        $pagesPath = StubGoutteClient::ROOT_DIR_TESTS_PAGES . DS;
+        $pagesPath = StubClient::ROOT_DIR_TESTS_PAGES . DS;
         $url = strval($request->getUri());
         $stubFilePaths = new StubFilePaths();
         $filePaths = $stubFilePaths->filePaths;

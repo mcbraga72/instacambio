@@ -1,6 +1,6 @@
 <?php
 
-namespace br\com\InstaCambio\Stub\Goutte;
+namespace br\com\InstaCambio\Stub;
 
 class StubFilePaths
 {

@@ -9,7 +9,7 @@ use br\com\InstaCambio\Model\ExchangeOfficeConfig;
 use br\com\InstaCambio\Model\ExchangeRate;
 use br\com\InstaCambio\Model\ExchangeScrapeResult;
 use br\com\InstaCambio\Model\Money;
-use br\com\InstaCambio\Stub\Goutte\StubGoutteClient;
+use br\com\InstaCambio\Stub\StubClient;
 use MongoDB\Collection;
 
 class ScrapeTaskTest extends \PHPUnit_Framework_TestCase
@@ -181,10 +181,10 @@ class ScrapeTaskTest extends \PHPUnit_Framework_TestCase
         $this->logsDirPath = $this->directory->root() . DS . 'logs';
         mkdir($this->logsDirPath);
 
-        copy(StubGoutteClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'threeav.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'threeav' . ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT . '.html');
-        copy(StubGoutteClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'threeav.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'threeav' . ExchangeOfficeConfig::CURRENCY_CARD_PRODUCT . '.html');
-        copy(StubGoutteClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'prime-cash.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'prime-cash' . ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT . '.html');
-        copy(StubGoutteClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'fast-money.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'fast-money' . ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT . '.html');
+        copy(StubClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'threeav.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'threeav' . ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT . '.html');
+        copy(StubClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'threeav.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'threeav' . ExchangeOfficeConfig::CURRENCY_CARD_PRODUCT . '.html');
+        copy(StubClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'prime-cash.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'prime-cash' . ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT . '.html');
+        copy(StubClient::ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES . DS . 'fast-money.html', $this->pagesDirPath . DS . $this->lastDirOfThePages . DS . 'fast-money' . ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT . '.html');
 
         $this->collection = DatabaseClientBuilder::create('test')->selectCollection('exchangeRates');
         $this->collection->drop();

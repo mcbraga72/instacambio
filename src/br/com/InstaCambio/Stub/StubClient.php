@@ -1,10 +1,10 @@
 <?php
 
-namespace br\com\InstaCambio\Stub\Goutte;
+namespace br\com\InstaCambio\Stub;
 
 use Symfony\Component\DomCrawler\Crawler;
 
-class StubGoutteClient
+class StubClient
 {
     const ROOT_DIR_TESTS_PAGES = ROOT_DIR . DS . 'tests' . DS . 'pages';
     const ROOT_DIR_TESTS_FOREIGN_CURRENCY_PAGES = self::ROOT_DIR_TESTS_PAGES . DS . 'foreign-currency';

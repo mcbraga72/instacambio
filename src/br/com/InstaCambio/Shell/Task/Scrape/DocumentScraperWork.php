@@ -9,9 +9,6 @@ use br\com\InstaCambio\Model\ExchangeScrapeResult;
 use br\com\InstaCambio\Scraper\ExchangeScraper;
 use Monolog\Logger;
 
-/**
- * @property ScrapeWorker $worker
- */
 class DocumentScraperWork
 {
     /**

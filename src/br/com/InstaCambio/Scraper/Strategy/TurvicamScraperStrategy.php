@@ -3,7 +3,6 @@
 namespace br\com\InstaCambio\Scraper\Strategy;
 
 use br\com\InstaCambio\Model\ExchangeDocument;
-use br\com\InstaCambio\Model\ExchangeOffice;
 use br\com\InstaCambio\Model\ExchangeOfficeConfig;
 use br\com\InstaCambio\Model\Money;
 use Symfony\Component\DomCrawler\Crawler;
@@ -19,14 +18,14 @@ class TurvicamScraperStrategy implements ScraperStrategy
     public function scrape(ExchangeDocument $exchangeDocument)
     {
         if ($exchangeDocument->productType() === ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT) {
-            $moneys = $this->scrapeForeignCurrencies($exchangeDocument, $exchangeDocument->getExchangeOffice());
+            $moneys = $this->scrapeForeignCurrencies($exchangeDocument);
         } else {
-            $moneys = $this->scrapeCurrencyCards($exchangeDocument, $exchangeDocument->getExchangeOffice());
+            $moneys = $this->scrapeCurrencyCards($exchangeDocument);
         }
         return $moneys;
     }
 
-    private function scrapeForeignCurrencies(ExchangeDocument $exchangeDocument, ExchangeOffice $exchangeOffice)
+    private function scrapeForeignCurrencies(ExchangeDocument $exchangeDocument)
     {
         $product = ExchangeOfficeConfig::getProductByType($exchangeDocument->getExchangeOffice(), $exchangeDocument->productType());
         $crawler = $exchangeDocument->getCrawler();
@@ -53,7 +52,7 @@ class TurvicamScraperStrategy implements ScraperStrategy
         return $moneys;
     }
 
-    private function scrapeCurrencyCards(ExchangeDocument $exchangeDocument, ExchangeOffice $exchangeOffice)
+    private function scrapeCurrencyCards(ExchangeDocument $exchangeDocument)
     {
         $product = ExchangeOfficeConfig::getProductByType($exchangeDocument->getExchangeOffice(), $exchangeDocument->productType());
         $crawler = $exchangeDocument->getCrawler();

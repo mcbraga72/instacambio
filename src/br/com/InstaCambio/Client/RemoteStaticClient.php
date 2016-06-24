@@ -2,7 +2,6 @@
 
 namespace br\com\InstaCambio\Client;
 
-use Goutte\Client;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\TransferException;
 use Psr\Http\Message\RequestInterface;
@@ -15,11 +14,13 @@ class RemoteStaticClient implements InstaCambioClient
      * @param string $httpMethod
      * @param string $uri
      * @return Crawler
+     * @throws \Exception
+     * @deprecated Method of package require refactoring
      */
     public function request($httpMethod, $uri)
     {
-        $client = new Client();
-        return $client->request($httpMethod, $uri);
+        throw new \Exception('Method not implemented.');
+        return new Crawler();
     }
 
     /**
