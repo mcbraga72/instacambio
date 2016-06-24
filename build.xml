@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="prepare-prod-env" name="WebService instaCâmbio">
+    <!-- ============================================  -->
+    <!-- DEFAULT TARGET                                -->
+    <!-- Prepare production environment                -->
+    <!-- ============================================  -->
+    <target name="prepare-prod-env">
+        <echo msg="Preparing production environment..."/>
+
+        <copy file="app-production.ini" tofile="app.ini" overwrite="true"/>
+
+        <echo msg="Production environment prepared!"/>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Prepare development environment               -->
+    <!-- ============================================  -->
+    <target name="prepare-dev-env">
+        <echo msg="Preparing development environment..."/>
+
+        <copy file="app-development.ini" tofile="app.ini" overwrite="true"/>
+
+        <echo msg="Development environment prepared!"/>
+    </target>
+</project>

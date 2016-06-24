@@ -32,7 +32,8 @@ $configuration = [
             'charset' => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
-        ]
+        ],
+        'debugMode' => $parsedConfiguration['debugMode'],
     ],
 ];
 $container = new Container($configuration);
@@ -50,12 +51,8 @@ $container['serializer'] = function () {
     $normalizer = new GetSetMethodNormalizer();
     return new Serializer([$normalizer], [new JsonEncoder()]);
 };
-$container['webServiceRestApplication'] = function () {
-    $filename = __DIR__ . DS . 'debug_mode';
-    $debugMode = false;
-    if (file_exists($filename)) {
-        $debugMode = (boolean)file_get_contents($filename);
-    }
+$container['webServiceRestApplication'] = function ($container) {
+    $debugMode = (boolean)$container['settings']['debugMode'];
     $restApplication = new RestApplication($debugMode);
     return $restApplication;
 };
@@ -135,7 +132,6 @@ $app->get('/v1/currencies/{city}', function (Request $request, Response $respons
     $restApplication = $this->webServiceRestApplication;
     $args['productType'] = 'foreignCurrency';
     $currencies = $restApplication->getCurrencies($args);
-
 
     /* @var $serializer Serializer */
     $serializer = $this->serializer;
