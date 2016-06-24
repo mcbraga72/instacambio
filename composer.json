@@ -12,10 +12,6 @@
       "email": "mcbraga@hotmail.com"
     }
   ],
-  "require-dev": {
-    "phpunit/phpunit": "^4.8",
-    "mikey179/vfsStream": "^1.6"
-  },
   "require": {
     "slim/slim": "^3.0",
     "slim/http-cache": "^0.3.0",
@@ -29,10 +25,13 @@
     "mongodb/mongodb": "^1.0",
     "phpmailer/phpmailer": "^5.2",
     "phing/phing": "2.*",
-    "illuminate/database": "~5.1",
+    "illuminate/database": "v4.2.*",
     "guzzlehttp/guzzle": "^6.2",
     "symfony/dom-crawler": "^3.1",
-    "symfony/css-selector": "^3.1"
+    "symfony/css-selector": "^3.1",
+    "anahkiasen/rocketeer": "^2.2",
+    "phpunit/phpunit": "^4.8",
+    "mikey179/vfsStream": "^1.6"
   },
   "autoload": {
     "psr-4": {
