@@ -17,7 +17,7 @@ use Symfony\Component\Serializer\Serializer;
 
 require dirname(__FILE__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'bootstrap.php';
 
-$parsedConfiguration = parse_ini_file(dirname(ROOT_DIR) . DIRECTORY_SEPARATOR . 'app.ini');
+$parsedConfiguration = parse_ini_file(ROOT_DIR . DIRECTORY_SEPARATOR . 'app.ini');
 $configuration = [
     'settings' => [
         // Slim Settings

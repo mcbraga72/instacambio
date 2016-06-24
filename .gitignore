@@ -55,3 +55,5 @@ tmp/not-scraper/
 tmp/pages/
 tmp/scraper/
 /vendor/
+/.rocketeer/logs/
+/app.ini
