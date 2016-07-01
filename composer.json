@@ -37,5 +37,16 @@
     "psr-4": {
       "br\\com\\InstaCambio\\": "src/br/com/InstaCambio/"
     }
+  },
+  "scripts": {
+    "buildDevEnv": "vendor/bin/phing prepare-dev-env",
+    "test": "vendor/bin/phpunit",
+    "integratedUnitTest": "vendor/bin/phpunit --group integratedUnitTest",
+    "heavyTest": "vendor/bin/phpunit --group heavyTest",
+    "allTests": [
+      "@test",
+      "@heavyTest",
+      "@integratedUnitTest"
+    ]
   }
 }
