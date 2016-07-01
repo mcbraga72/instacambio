@@ -11,12 +11,12 @@ $ cd webservice/
 ```
 
 ### Instale as dependências.
-``` bash
+```
 $ composer install
 ```
 
 ### Construa o projeto.
-``` shell
+```
 $ vendor/bin/phing prepare-dev-env
 ```
 
@@ -25,6 +25,9 @@ $ vendor/bin/phing prepare-dev-env
 
 
 ### Executando testes.
-``` shell
-$ vendor/bin/phpunit
+```
+$ composer test # Roda os testes unitários
+$ composer integratedUnitTest # Roda os testes unitários integrados (rodar eventualmente)
+$ composer heavyTest # Roda os testes pesados (rodar eventualmente)
+$ composer allTests # Roda todos os testes acima, respectivamente
 ```
