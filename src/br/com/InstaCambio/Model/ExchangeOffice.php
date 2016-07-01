@@ -163,4 +163,20 @@ class ExchangeOffice implements Persistable
         $this->delivery = $data['delivery'];
     }
 
+    /**
+     * @return boolean
+     */
+    public function isDelivery()
+    {
+        return $this->delivery;
+    }
+
+    /**
+     * @param boolean $delivery
+     */
+    public function setDelivery($delivery)
+    {
+        $this->delivery = $delivery;
+    }
+
 }

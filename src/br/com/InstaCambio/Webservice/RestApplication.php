@@ -224,7 +224,7 @@ class RestApplication
             'campinas' => 'Campinas',
             'sao-bernardo-do-campo' => 'São Bernardo do Campo',
             'santo-andre' => 'Santo André',
-
+            'londrina' => 'Londrina',
         ];
     }
 
