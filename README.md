@@ -5,7 +5,7 @@ Este projeto é responsável pelo WebService Restful e as tasks background da pl
 ## Instalação
 
 ### Clone o repositório
-``` shell
+```
 $ git clone https://bitbucket.org/instacambio/webservice
 $ cd webservice/
 ```
