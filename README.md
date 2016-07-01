@@ -25,9 +25,9 @@ $ vendor/bin/phing prepare-dev-env
 
 
 ### Executando testes.
-```
+~~~~
 $ composer test # Roda os testes unitários
 $ composer integratedUnitTest # Roda os testes unitários integrados (rodar eventualmente)
 $ composer heavyTest # Roda os testes pesados (rodar eventualmente)
 $ composer allTests # Roda todos os testes acima, respectivamente
-```
+~~~~
