@@ -5669,6 +5669,8 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'lygtur');
 //            O site da Ipanema Exchange está fora do ar
             array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange');
+//            O site da Graco Exchange está fora do ar
+            array_pull($exchangeOfficesArrayCopy, 'graco');
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
