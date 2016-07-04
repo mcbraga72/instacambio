@@ -5671,6 +5671,8 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange');
 //            O site da Graco Exchange está fora do ar
             array_pull($exchangeOfficesArrayCopy, 'graco');
+//            O site da Shiopping Tour não contém mais taxas de câmbio
+            array_pull($exchangeOfficesArrayCopy, 'shopping-tour');
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
