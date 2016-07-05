@@ -667,7 +667,7 @@ class ExchangeOfficeConfig
                     'UYU' => 2,
                     'NZD' => 2,
                     'CNY' => 2,
-                    'CHF' => 1,
+                    'CHF' => 2,
                 ],
             ],
             'currencyCard' => [

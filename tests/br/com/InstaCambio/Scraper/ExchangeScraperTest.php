@@ -185,7 +185,7 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Money::UYU(0.1700), $moneys['UYU']);
         $this->assertEquals(Money::NZD(2.9300), $moneys['NZD']);
         $this->assertEquals(Money::CNY(0.7300), $moneys['CNY']);
-        $this->assertEquals(Money::CHF(4.2400), $moneys['CHF']);
+        $this->assertEquals(Money::CHF(3.6900), $moneys['CHF']);
     }
 
     public function testScrapeCurrencyCardForAGK()
