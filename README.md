@@ -10,19 +10,12 @@ $ git clone https://bitbucket.org/instacambio/webservice
 $ cd webservice/
 ```
 
-### Instale as dependências.
-```
-$ composer install
-```
-
 ### Construa o projeto.
 ```
 $ composer buildDevEnv
 ```
 
 ## Done! Run and Dev!
-
-
 
 ### Executando testes.
 ```
