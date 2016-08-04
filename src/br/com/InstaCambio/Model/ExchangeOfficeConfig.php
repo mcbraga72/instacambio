@@ -1048,7 +1048,7 @@ class ExchangeOfficeConfig
             'decode' => false,
             'foreignCurrency' => [
                 'url' => 'http://foxcambio.com.br/',
-                'selector' => 'div.container div.content div.fltlft table tr',
+                'selector' => 'div.container div.content div.fltlft table tr td table tr td table tr',
                 'iofIncluded' => true,
                 'keywords' => [
                     'USD' => [
@@ -1060,24 +1060,68 @@ class ExchangeOfficeConfig
                     'GBP' => [
                         'Libra Esterlina'
                     ],
+                    'AUD' => [
+                        'Dólar Australiano'
+                    ],
                     'CAD' => [
-                        'Dólar Canadá'
+                        'Dólar Canadense'
+                    ],
+                    'NZD' => [
+                        'Dólar Neozelandês'
+                    ],
+                    'CHF' => [
+                        'Franco Suiço'
                     ],
                     'JPY' => [
                         'Iene'
-                    ]
+                    ],
+                    'CNY' => [
+                        'Yuan Chinês'
+                    ],
+                    'ARS' => [
+                        'Peso Argentino'
+                    ],
+                    'CLP' => [
+                        'Peso Chileno'
+                    ],
+                    'COP' => [
+                        'Peso Colombiano'
+                    ],
+                    'MXN' => [
+                        'Peso Mexicano'
+                    ],
+                    'UYU' => [
+                        'Peso Uruguaio'
+                    ],
+                    'ZAR' => [
+                        'Rande Sul Africano'
+                    ],
+                    'ILS' => [
+                        'Shekel \/ Israel'
+                    ],
                 ],
                 'indexesByExchangeRate' => [
                     'USD' => 1,
                     'EUR' => 1,
                     'GBP' => 1,
                     'CAD' => 1,
-                    'JPY' => 1
+                    'JPY' => 1,
+                    'AUD' => 1,
+                    'NZD' => 1,
+                    'CHF' => 1,
+                    'CNY' => 1,
+                    'ARS' => 1,
+                    'CLP' => 1,
+                    'COP' => 1,
+                    'MXN' => 1,
+                    'UYU' => 1,
+                    'ZAR' => 1,
+                    'ILS' => 1,
                 ],
             ],
             'currencyCard' => [
                 'url' => 'http://foxcambio.com.br/',
-                'selector' => 'div.container div.content div.fltlft table tr',
+                'selector' => 'div.container div.content div.fltlft table tr td table tr td table tr',
                 'iofIncluded' => true,
                 'keywords' => [
                     'USD' => [

@@ -37,7 +37,7 @@ return [
             },
         ],
         'deploy' => [
-            'sudo service monit stop'
+            'sudo service monit stop',
         ],
         'cleanup' => [],
     ],
@@ -54,9 +54,12 @@ return [
             'buildProject',
         ],
         'deploy' => [
-            'sudo service monit start'
         ],
-        'cleanup' => [],
+        'cleanup' => [
+            function (AbstractTask $task) {
+                return $task->run('sudo service monit start');
+            },
+        ],
     ],
 
     // Custom Tasks to register with Rocketeer

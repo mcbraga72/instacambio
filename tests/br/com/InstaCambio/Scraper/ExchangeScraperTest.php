@@ -471,11 +471,22 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
 
-        $this->assertEquals(Money::USD(4.0100), $moneys['USD']);
-        $this->assertEquals(Money::EUR(4.4000), $moneys['EUR']);
-        $this->assertEquals(Money::GBP(5.7899), $moneys['GBP']);
-        $this->assertEquals(Money::CAD(3.0999), $moneys['CAD']);
-        $this->assertEquals(Money::JPY(0.0390), $moneys['JPY']);
+        $this->assertEquals(Money::USD(3.4197), $moneys['USD']);
+        $this->assertEquals(Money::EUR(3.8115), $moneys['EUR']);
+        $this->assertEquals(Money::GBP(4.5697), $moneys['GBP']);
+        $this->assertEquals(Money::AUD(2.6994), $moneys['AUD']);
+        $this->assertEquals(Money::CAD(2.7196), $moneys['CAD']);
+        $this->assertEquals(Money::NZD(2.5882), $moneys['NZD']);
+        $this->assertEquals(Money::CHF(3.6800), $moneys['CHF']);
+        $this->assertEquals(Money::JPY(0.0372), $moneys['JPY']);
+        $this->assertEquals(Money::CNY(0.5662), $moneys['CNY']);
+        $this->assertEquals(Money::ARS(0.3033), $moneys['ARS']);
+        $this->assertEquals(Money::CLP(0.0058), $moneys['CLP']);
+        $this->assertEquals(Money::COP(0.0013), $moneys['COP']);
+        $this->assertEquals(Money::MXN(0.2022), $moneys['MXN']);
+        $this->assertEquals(Money::UYU(0.1213), $moneys['UYU']);
+        $this->assertEquals(Money::ZAR(0.2730), $moneys['ZAR']);
+        $this->assertEquals(Money::ILS(0.9908), $moneys['ILS']);
     }
 
     public function testScrapeCurrencyCardForFoxCambio()
@@ -484,9 +495,9 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::CURRENCY_CARD_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
 
-        $this->assertEquals(Money::USD(4.2446), $moneys['USD']);
-        $this->assertEquals(Money::EUR(4.6594), $moneys['EUR']);
-        $this->assertEquals(Money::GBP(5.9998), $moneys['GBP']);
+        $this->assertEquals(Money::USD(3.5850), $moneys['USD']);
+        $this->assertEquals(Money::EUR(3.9893), $moneys['EUR']);
+        $this->assertEquals(Money::GBP(4.6807), $moneys['GBP']);
     }
 
     public function testScrapeCurrenciesForGoldenMoney()

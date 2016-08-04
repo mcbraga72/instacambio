@@ -7,3 +7,4 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'bootstrap
 
 $scrapeTask = new ScrapeTask('remote', new Directory(ROOT_DIR . DIRECTORY_SEPARATOR . 'tmp'));
 $scrapeTask->execute();
+unset($scrapeTask);
