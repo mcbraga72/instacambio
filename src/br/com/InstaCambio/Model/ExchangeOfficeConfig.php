@@ -5717,6 +5717,8 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'graco');
 //            O site da Shiopping Tour não contém mais taxas de câmbio
             array_pull($exchangeOfficesArrayCopy, 'shopping-tour');
+//            O site da Ebadival está fora do ar
+            array_pull($exchangeOfficesArrayCopy, 'ebadival');
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
