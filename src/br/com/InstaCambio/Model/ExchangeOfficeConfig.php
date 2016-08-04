@@ -5735,6 +5735,8 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'shopping-tour');
 //            O site da Ebadival está fora do ar
             array_pull($exchangeOfficesArrayCopy, 'ebadival');
+//            Para ter acesso as cotações da Casa de Câmbio DG é necessário fazer requisição POST
+            array_pull($exchangeOfficesArrayCopy, 'dg');
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
