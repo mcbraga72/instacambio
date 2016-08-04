@@ -5737,6 +5737,8 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'ebadival');
 //            Para ter acesso as cotações da Casa de Câmbio DG é necessário fazer requisição POST
             array_pull($exchangeOfficesArrayCopy, 'dg');
+//            O site da Interpolo está fora do arpolo
+            array_pull($exchangeOfficesArrayCopy, 'interpolo');
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
