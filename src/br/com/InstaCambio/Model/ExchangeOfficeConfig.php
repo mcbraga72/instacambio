@@ -5023,31 +5023,7 @@ class ExchangeOfficeConfig
                     'CAD' => 0,
                 ],
             ],
-            'currencyCard' => [
-                'url' => 'http://www.lhx.com.br/#!casa-de-cambio/cms9',
-                'selector' => 'div#idhbloqb p',
-                'iofIncluded' => true,
-                'keywords' => [
-                    'USD' => [
-                        'Dólar Cartão Pré-pago'
-                    ],
-                    'EUR' => [
-                        'Euro Cartão Pré-pago'
-                    ],
-                    'GBP' => [
-                        'Libra Cartão Pré-pago'
-                    ],
-                    'CAD' => [
-                        'Canadense Cartão'
-                    ],
-                ],
-                'indexesByExchangeRate' => [
-                    'USD' => 0,
-                    'EUR' => 0,
-                    'GBP' => 0,
-                    'CAD' => 0,
-                ],
-            ],
+            'currencyCard' => false,
         ],
         'voe-viagens' => [
             'nickname' => 'voe-viagens',

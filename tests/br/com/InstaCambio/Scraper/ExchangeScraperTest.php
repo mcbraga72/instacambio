@@ -1760,6 +1760,7 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
 
     public function testScrapeCurrencyCardForLhx()
     {
+        $this->markTestIncomplete('Configurações de Scraper da LHx foram removidas.');
         $exchangeOffice = ExchangeOfficeConfig::get('lhx');
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::CURRENCY_CARD_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
