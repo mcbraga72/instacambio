@@ -3819,14 +3819,14 @@ class ExchangeOfficeConfig
         'oliveira-franco' => [
             'nickname' => 'oliveira-franco',
             'name' => 'Oliveira Franco',
-            'email' => 'sac@ofranco.com.br',
+            'email' => 'cambio@ofranco.com.br',
             'state' => 'PR',
             'city' => 'curitiba',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
                 'url' => 'http://ofranco.com.br/',
-                'selector' => 'table.mtphr-dnt-grid tr td',
+                'selector' => '#content > section.section-cotacao-conversor > div > div > div > div > div > div > table > tbody > tr',
                 'iofIncluded' => true,
                 'keywords' => [
                     'USD' => [
@@ -3835,26 +3835,42 @@ class ExchangeOfficeConfig
                     'EUR' => [
                         'EUR'
                     ],
-                    'ARS' => [
-                        'ARS'
-                    ],
                     'GBP' => [
                         'GBP'
+                    ],
+                    'AUD' => [
+                        'AUD'
                     ],
                     'CAD' => [
                         'CAD'
                     ],
-                    'AUD' => [
-                        'AUD'
+                    'ARS' => [
+                        'ARS'
+                    ],
+                    'CHF' => [
+                        'CHF'
+                    ],
+                    'NZD' => [
+                        'NZD'
+                    ],
+                    'CLP' => [
+                        'CLP'
+                    ],
+                    'MXN' => [
+                        'MXN'
                     ],
                 ],
                 'indexesByExchangeRate' => [
                     'USD' => 2,
                     'EUR' => 2,
-                    'ARS' => 2,
                     'GBP' => 2,
-                    'CAD' => 1,
-                    'AUD' => 1,
+                    'AUD' => 2,
+                    'CAD' => 2,
+                    'ARS' => 2,
+                    'CHF' => 2,
+                    'NZD' => 2,
+                    'CLP' => 2,
+                    'MXN' => 2,
                 ],
             ],
             'currencyCard' => false,

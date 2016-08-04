@@ -1201,12 +1201,16 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
 
-        $this->assertEquals(Money::USD(3.76), $moneys['USD']);
-        $this->assertEquals(Money::EUR(4.27), $moneys['EUR']);
-        $this->assertEquals(Money::ARS(0.30), $moneys['ARS']);
-        $this->assertEquals(Money::GBP(5.44), $moneys['GBP']);
-        $this->assertEquals(Money::CAD(2.96), $moneys['CAD']);
-        $this->assertEquals(Money::AUD(2.96), $moneys['AUD']);
+        $this->assertEquals(Money::USD(3.36), $moneys['USD']);
+        $this->assertEquals(Money::EUR(3.74), $moneys['EUR']);
+        $this->assertEquals(Money::GBP(4.53), $moneys['GBP']);
+        $this->assertEquals(Money::AUD(2.67), $moneys['AUD']);
+        $this->assertEquals(Money::CAD(2.68), $moneys['CAD']);
+        $this->assertEquals(Money::ARS(0.32), $moneys['ARS']);
+        $this->assertEquals(Money::CHF(3.60), $moneys['CHF']);
+        $this->assertEquals(Money::NZD(2.54), $moneys['NZD']);
+        $this->assertEquals(Money::CLP(0.0063), $moneys['CLP']);
+        $this->assertEquals(Money::MXN(0.22), $moneys['MXN']);
     }
 
     public function testScrapeCurrenciesForFortur()
