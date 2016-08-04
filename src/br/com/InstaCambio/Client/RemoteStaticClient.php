@@ -20,7 +20,6 @@ class RemoteStaticClient implements InstaCambioClient
     public function request($httpMethod, $uri)
     {
         throw new \Exception('Method not implemented.');
-        return new Crawler();
     }
 
     /**
@@ -31,10 +30,14 @@ class RemoteStaticClient implements InstaCambioClient
      */
     public function send($request, $options = [])
     {
-
         try {
             $client = new GuzzleClient();
-            $response = $client->send($request, ['timeout' => 29]);
+            $response = $client->send($request, [
+                'timeout' => 29,
+                'headers' => [
+                    'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36'
+                ]
+            ]);
             return $response;
         } catch (TransferException $e) {
             throw new RequestException($e->getMessage(), $e->getCode(), $e);
