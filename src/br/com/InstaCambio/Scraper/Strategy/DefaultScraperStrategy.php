@@ -24,10 +24,11 @@ class DefaultScraperStrategy implements ScraperStrategy
                         if (preg_match('/' . implode('|', $keywords) . '/', $node->text()) === 1) {
                             $exchangeRate = null;
                             preg_match_all('/\d{1,5}(?:[.,]\d{3})*(?:[.,]\d{2,5})/', $node->html(), $exchangeRate);
-                            if (empty($exchangeRate[0][$product->getIndexesByExchangeRate()[$currency]]))
-                                trigger_error("Undefined offset: {$product->getIndexesByExchangeRate()[$currency]} - currency: {$currency}");
-
-                            $exchangeRate = $exchangeRate[0][$product->getIndexesByExchangeRate()[$currency]];
+                            if (empty($exchangeRate[0][$product->getIndexesByExchangeRate()[$currency]])) {
+                                $exchangeRate = 0;
+                            } else {
+                                $exchangeRate = $exchangeRate[0][$product->getIndexesByExchangeRate()[$currency]];
+                            }
                             $formattedExchangeRate = floatval(str_replace(',', '.', $exchangeRate));
                             $moneys[$currency] = Money::create($formattedExchangeRate, $currency);
                             $currencyFound = $currency;

@@ -1524,14 +1524,13 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Money::JPY(0.054), $moneys['JPY']);
     }
 
-    /**
-     * @expectedException \ErrorException
-     */
-    public function test()
+    public function testShouldReturnsAmountZeroWhenNotFoundRate()
     {
         $exchangeOffice = $this->getExchangeOfficeWithIndexByRateUndefined();
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
+
+        $this->assertEquals(0, $moneys['USD']->getAmount());
     }
 
     /**
