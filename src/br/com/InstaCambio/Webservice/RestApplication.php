@@ -117,16 +117,16 @@ class RestApplication
             case "franco-suico":
                 $userCurrency = "CHF";
                 break;
-            case "iene-japones":
+            case "iene":
                 $userCurrency = "JPY";
                 break;
             case "libra-esterlina":
                 $userCurrency = "GBP";
                 break;
-            case "novo-shekel-israelense":
+            case "shekel":
                 $userCurrency = "ILS";
                 break;
-            case "novo-sol-peruano":
+            case "novo-sol":
                 $userCurrency = "PEN";
                 break;
             case "peso-argentino":
@@ -147,13 +147,13 @@ class RestApplication
             case "peso-uruguaio":
                 $userCurrency = "UYU";
                 break;
-            case "rand-sul-africano":
+            case "rand":
                 $userCurrency = "ZAR";
                 break;
-            case "won-sul-coreano":
+            case "won":
                 $userCurrency = "KRW";
                 break;
-            case "yuan-chines":
+            case "yuan":
                 $userCurrency = "CNY";
                 break;
         }
@@ -353,7 +353,7 @@ class RestApplication
             ],
             [
                 'name' => "Iene Japonês",
-                'slug' => "iene-japones",
+                'slug' => "iene",
                 'currency' => 'JPY',
                 'imageName' => 'japao',
                 'imageTitle' => 'Japão',
@@ -362,7 +362,7 @@ class RestApplication
             ],
             [
                 'name' => "Yuan Chinês",
-                'slug' => "yuan-chines",
+                'slug' => "yuan",
                 'currency' => 'CNY',
                 'imageName' => 'china',
                 'imageTitle' => 'China',
@@ -371,7 +371,7 @@ class RestApplication
             ],
             [
                 'name' => "Rand Sul-Africano",
-                'slug' => "rand-sul-africano",
+                'slug' => "rand",
                 'currency' => 'ZAR',
                 'imageName' => 'africa-sul',
                 'imageTitle' => 'África do Sul',
@@ -407,7 +407,7 @@ class RestApplication
             ],
             [
                 'name' => "Won Sul-Coreano",
-                'slug' => "won-sul-coreano",
+                'slug' => "won",
                 'currency' => 'KRW',
                 'imageName' => 'coreia-sul',
                 'imageTitle' => 'Coréia do Sul',
@@ -425,7 +425,7 @@ class RestApplication
             ],
             [
                 'name' => "Novo Sol Peruano",
-                'slug' => "novo-sol-peruano",
+                'slug' => "novo-sol",
                 'currency' => 'PEN',
                 'imageName' => 'peru',
                 'imageTitle' => 'Peru',
@@ -434,7 +434,7 @@ class RestApplication
             ],
             [
                 'name' => "Novo Shekel Israelense",
-                'slug' => "novo-shekel-israelense",
+                'slug' => "shekel",
                 'currency' => 'ILS',
                 'imageName' => 'israel',
                 'imageTitle' => 'Israel',
