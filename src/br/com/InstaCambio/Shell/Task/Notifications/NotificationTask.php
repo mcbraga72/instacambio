@@ -89,7 +89,7 @@ class NotificationTask
         $this->mailer->SMTPAuth = true;
         $this->mailer->SMTPSecure = 'ssl';
         $this->mailer->Username = $emailTo;
-        $this->mailer->Password = 'Open1001!';
+        $this->mailer->Password = 'Portalinstacambio1620';
 
         $this->mailer->CharSet = 'UTF-8';
         $this->mailer->From = $emailTo;
