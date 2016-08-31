@@ -1742,67 +1742,59 @@ class ExchangeOfficeConfig
             'decode' => false,
             'foreignCurrency' => [
                 'url' => 'http://ggcambio.com.br/home',
-                'selector' => 'div#moedas',
+                'selector' => 'div#moedas div img',
                 'iofIncluded' => true,
                 'keywords' => [
                     'USD' => [
-                        'Dólar'
+                        'moeda1.png'
                     ],
                     'EUR' => [
-                        'Euro'
+                        'moeda2.png'
                     ],
                     'GBP' => [
-                        'Libra Esterlina'
-                    ],
-                    'ARS' => [
-                        'Pesos Argentinos'
-                    ],
-                    'JPY' => [
-                        'Iene'
+                        'moeda3.png'
                     ],
                     'CAD' => [
-                        'Dólar Canadense'
-                    ],
-                    'AUD' => [
-                        'Dólar Australiano'
-                    ],
-                    'NZD' => [
-                        'Dólar Neozelandês'
+                        'moeda20.png'
                     ],
                     'CHF' => [
-                        'Franco Suiço'
+                        'moeda12.png'
+                    ],
+                    'AUD' => [
+                        'moeda9.png'
+                    ],
+                    'NZD' => [
+                        'moeda11.png'
                     ],
                     'CLP' => [
-                        'Pesos Chilenos'
+                        'moeda4.png'
                     ],
-                    'UYU' => [
-                        'Pesos Uruguaios'
-                    ],
-                    'CNY' => [
-                        'Renmimbi Iuan'
+                    'JPY' => [
+                        'moeda5.png'
                     ],
                     'MXN' => [
-                        'Pesos Mexicanos'
+                        'moeda13.png'
                     ],
-                    'ZAR' => [
-                        'Rande'
+                    'ARS' => [
+                        'moeda21.png'
+                    ],
+                    'CNY' => [
+                        'moeda19.png'
                     ],
                 ],
                 'indexesByExchangeRate' => [
                     'USD' => 0,
                     'EUR' => 0,
                     'GBP' => 0,
-                    'ARS' => 0,
-                    'JPY' => 0,
                     'CAD' => 0,
+                    'CHF' => 0,
                     'AUD' => 0,
                     'NZD' => 0,
-                    'CHF' => 0,
                     'CLP' => 0,
-                    'UYU' => 0,
-                    'CNY' => 0,
+                    'JPY' => 0,
                     'MXN' => 0,
-                    'ZAR' => 0,
+                    'ARS' => 0,
+                    'CNY' => 0,
                 ],
             ],
             'currencyCard' => false
@@ -3628,7 +3620,7 @@ class ExchangeOfficeConfig
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
-                'url' => 'http://www.ebadival.com.br/cambio',
+                'url' => 'http://www.ebadival.com.br/',
                 'selector' => 'table tr',
                 'iofIncluded' => true,
                 'keywords' => [
@@ -3645,7 +3637,7 @@ class ExchangeOfficeConfig
                 ],
             ],
             'currencyCard' => [
-                'url' => 'http://www.ebadival.com.br/cambio',
+                'url' => 'http://www.ebadival.com.br/',
                 'selector' => 'table tr',
                 'iofIncluded' => false,
                 'keywords' => [
@@ -5694,27 +5686,16 @@ class ExchangeOfficeConfig
 
         if (empty($nicknameOfTheExchangesOffices)) {
             $exchangeOfficesArrayCopy = (new \ArrayObject(self::$exchangeOffices))->getArrayCopy();
-            array_pull($exchangeOfficesArrayCopy, 'get-go');
-            array_pull($exchangeOfficesArrayCopy, 'multi-money');
-            array_pull($exchangeOfficesArrayCopy, 'ourominas');
-//            O site da Ceará Travel está fora do ar
-            array_pull($exchangeOfficesArrayCopy, 'ceara-travel');
-//            As cotações no site estão zeradas
-            array_pull($exchangeOfficesArrayCopy, 'pm-turismo');
-//            As cotações não são mais exibidas no site
-            array_pull($exchangeOfficesArrayCopy, 'lygtur');
-//            O site da Ipanema Exchange está fora do ar
-            array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange');
-//            O site da Graco Exchange está fora do ar
-            array_pull($exchangeOfficesArrayCopy, 'graco');
-//            O site da Shiopping Tour não contém mais taxas de câmbio
-            array_pull($exchangeOfficesArrayCopy, 'shopping-tour');
-//            O site da Ebadival está fora do ar
-            array_pull($exchangeOfficesArrayCopy, 'ebadival');
-//            Para ter acesso as cotações da Casa de Câmbio DG é necessário fazer requisição POST
-            array_pull($exchangeOfficesArrayCopy, 'dg');
-//            O site da Interpolo está fora do arpolo
-            array_pull($exchangeOfficesArrayCopy, 'interpolo');
+            array_pull($exchangeOfficesArrayCopy, 'multi-money'); // Pediu para sair da plataforma
+            array_pull($exchangeOfficesArrayCopy, 'ourominas'); // Removida a pedido do Bruno
+            array_pull($exchangeOfficesArrayCopy, 'ceara-travel'); // O site da Ceará Travel está fora do ar
+            array_pull($exchangeOfficesArrayCopy, 'pm-turismo'); // Testar ********************
+            array_pull($exchangeOfficesArrayCopy, 'lygtur'); // As cotações não são mais exibidas no site
+            array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange'); // O site da Ipanema Exchange está fora do ar
+            array_pull($exchangeOfficesArrayCopy, 'shopping-tour'); // O site da Shiopping Tour não contém mais taxas de câmbio
+            array_pull($exchangeOfficesArrayCopy, 'ebadival'); // Testar ********************
+            array_pull($exchangeOfficesArrayCopy, 'dg'); //  Testar ******************** Para ter acesso as cotações da Casa de Câmbio DG é necessário fazer requisição POST
+            array_pull($exchangeOfficesArrayCopy, 'interpolo'); // Testar ********************
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }

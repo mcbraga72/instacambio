@@ -61,7 +61,7 @@ class StubFilePaths
         'https://www.beecambio.com.br/cotacao-turismo/preco' => 'foreign-currency/bee-cambio.html',
         'http://cambiocuritiba.com/' => 'foreign-currency/cambio-curitiba.html',
         'http://www.sidney.com.br/cambio/cambio.aspx' => 'foreign-currency/sidney.html',
-        'http://www.ebadival.com.br/cambio' => 'foreign-currency/ebadival.html',
+        'http://www.ebadival.com.br/' => 'foreign-currency/ebadival.html',
         'https://www.avsturismo.com.br/?view=cambio' => 'foreign-currency/avs.html',
         'http://www.dourada.com.br/?/cotacao/' => 'foreign-currency/dourada.html',
         'http://ofranco.com.br/' => 'foreign-currency/oliveira-franco.html',
@@ -101,6 +101,7 @@ class StubFilePaths
         'http://numatur.com.br/ncc-cambio/' => 'foreign-currency/numatur.html',
         'http://www.lojamultimoney.com.br/?interpolo' => 'foreign-currency/interpolo.html',
         'http://sidney.com.br/cambio/cambio.aspx?c=2' => 'foreign-currency/sidney-londrina.html',
+        'http://ggcambio.com.br/home' => 'foreign-currency/get-go.html',
     ];
 
 }

@@ -66,6 +66,9 @@ class ScraperStrategyBuilder
         if ($exchangeOffice->getNickname() === 'lhx')
             return self::instantiateIfNotYet(LhxScraperStrategy::class);
 
+        if ($exchangeOffice->getNickname() === 'get-go')
+            return self::instantiateIfNotYet(GetGoScraperStrategy::class);
+
         return self::instantiateIfNotYet(DefaultScraperStrategy::class);
     }
 

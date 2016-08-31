@@ -2009,6 +2009,26 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Money::GBP(5.1800), $moneys['GBP']);
     }
 
+    public function testScrapeCurrenciesBuyForGetGo()
+    {
+        $exchangeOffice = ExchangeOfficeConfig::get('get-go');
+        $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT);
+        $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
+
+        $this->assertEquals(Money::USD(3.367), $moneys['USD']);
+        $this->assertEquals(Money::EUR(3.823), $moneys['EUR']);
+        $this->assertEquals(Money::GBP(4.522), $moneys['GBP']);
+        $this->assertEquals(Money::CAD(2.748), $moneys['CAD']);
+        $this->assertEquals(Money::CHF(3.669), $moneys['CHF']);
+        $this->assertEquals(Money::AUD(2.697), $moneys['AUD']);
+        $this->assertEquals(Money::NZD(2.555), $moneys['NZD']);
+        $this->assertEquals(Money::CLP(0.00566), $moneys['CLP']);
+        $this->assertEquals(Money::JPY(0.03487), $moneys['JPY']);
+        $this->assertEquals(Money::MXN(0.203), $moneys['MXN']);
+        $this->assertEquals(Money::ARS(0.314), $moneys['ARS']);
+        $this->assertEquals(Money::CNY(0.558), $moneys['CNY']);
+    }
+
     protected function setUp()
     {
         parent::setUp();
