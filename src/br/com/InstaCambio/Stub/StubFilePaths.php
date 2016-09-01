@@ -44,7 +44,7 @@ class StubFilePaths
         'http://ipanemaexchange.com.br/loja/pt/13-moedas' => 'foreign-currency/ipanema-exchange.html',
         'http://www.ultramarviagens.com.br/cambio' => 'foreign-currency/ultramar.html',
         'http://www.lebonvoyage.com.br/agencias/' => 'foreign-currency/le-bon-voyage.html',
-        'http://www.pmturismo.com.br/site_novo/moedas.php' => 'foreign-currency/pm-turismo.html',
+        'http://www.pmturismo.com.br/site_novo/' => 'foreign-currency/pm-turismo.html',
         'http://api.agencianavegantes.com.br/tabela.php' => 'foreign-currency/navegantes.html',
         'http://www.expresschange.tur.br/' => 'foreign-currency/express-change.html',
         'http://lygtur.com.br/mag_lygtur/' => 'currency-card/lygtur.html',

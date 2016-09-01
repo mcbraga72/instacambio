@@ -3049,7 +3049,7 @@ class ExchangeOfficeConfig
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
-                'url' => 'http://www.pmturismo.com.br/site_novo/moedas.php',
+                'url' => 'http://www.pmturismo.com.br/site_novo/',
                 'selector' => 'marquee',
                 'iofIncluded' => true,
                 'keywords' => [
