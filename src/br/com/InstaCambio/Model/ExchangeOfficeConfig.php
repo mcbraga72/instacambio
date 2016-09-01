@@ -5493,7 +5493,7 @@ class ExchangeOfficeConfig
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
-                'url' => 'http://www.lojamultimoney.com.br/?interpolo',
+                'url' => 'http://www.lojamultimoney.com.br/index.php?interpolo',
                 'selector' => '#ctl00_MainContent_UpdatePanel1 div.boxProduto',
                 'iofIncluded' => false,
                 'keywords' => [
@@ -5689,12 +5689,10 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'multi-money'); // Pediu para sair da plataforma
             array_pull($exchangeOfficesArrayCopy, 'ourominas'); // Removida a pedido do Bruno
             array_pull($exchangeOfficesArrayCopy, 'ceara-travel'); // O site da Ceará Travel está fora do ar
-            array_pull($exchangeOfficesArrayCopy, 'pm-turismo'); // Testar ********************
             array_pull($exchangeOfficesArrayCopy, 'lygtur'); // As cotações não são mais exibidas no site
             array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange'); // O site da Ipanema Exchange está fora do ar
             array_pull($exchangeOfficesArrayCopy, 'shopping-tour'); // O site da Shiopping Tour não contém mais taxas de câmbio
-            array_pull($exchangeOfficesArrayCopy, 'dg'); //  Testar ******************** Para ter acesso as cotações da Casa de Câmbio DG é necessário fazer requisição POST
-            array_pull($exchangeOfficesArrayCopy, 'interpolo'); // Testar ********************
+            array_pull($exchangeOfficesArrayCopy, 'interpolo'); // Não é possível baixar a página, devido a um redirecionamento automático
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
