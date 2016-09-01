@@ -865,20 +865,20 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::FOREIGN_CURRENCY_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
 
-        $this->assertEquals(Money::USD(4.1000), $moneys['USD']);
-        $this->assertEquals(Money::EUR(4.5000), $moneys['EUR']);
-        $this->assertEquals(Money::GBP(5.8500), $moneys['GBP']);
-        $this->assertEquals(Money::ARS(0.4000), $moneys['ARS']);
-        $this->assertEquals(Money::JPY(0.0403), $moneys['JPY']);
-        $this->assertEquals(Money::CAD(3.1300), $moneys['CAD']);
-        $this->assertEquals(Money::AUD(3.0200), $moneys['AUD']);
-        $this->assertEquals(Money::NZD(2.8500), $moneys['NZD']);
-        $this->assertEquals(Money::CHF(4.3000), $moneys['CHF']);
-        $this->assertEquals(Money::CLP(0.0062), $moneys['CLP']);
-        $this->assertEquals(Money::UYU(0.2500), $moneys['UYU']);
-        $this->assertEquals(Money::CNY(0.8100), $moneys['CNY']);
-        $this->assertEquals(Money::MXN(0.4800), $moneys['MXN']);
-        $this->assertEquals(Money::ZAR(0.5000), $moneys['ZAR']);
+        $this->assertEquals(Money::USD(3.30000), $moneys['USD']);
+        $this->assertEquals(Money::EUR(3.72000), $moneys['EUR']);
+        $this->assertEquals(Money::GBP(4.56000), $moneys['GBP']);
+        $this->assertEquals(Money::ARS(0.33000), $moneys['ARS']);
+        $this->assertEquals(Money::JPY(0.04030), $moneys['JPY']);
+        $this->assertEquals(Money::CAD(2.62000), $moneys['CAD']);
+        $this->assertEquals(Money::AUD(2.60000), $moneys['AUD']);
+        $this->assertEquals(Money::NZD(2.52000), $moneys['NZD']);
+        $this->assertEquals(Money::CHF(3.53000), $moneys['CHF']);
+        $this->assertEquals(Money::CLP(0.00580), $moneys['CLP']);
+        $this->assertEquals(Money::UYU(0.19000), $moneys['UYU']);
+        $this->assertEquals(Money::CNY(0.81000), $moneys['CNY']);
+        $this->assertEquals(Money::MXN(0.28000), $moneys['MXN']);
+        $this->assertEquals(Money::ZAR(0.35000), $moneys['ZAR']);
     }
 
     public function testScrapeCururrencyCardForDg()
@@ -887,11 +887,11 @@ class ExchangeScraperTest extends \PHPUnit_Framework_TestCase
         $exchangeDocument = $this->client->generateDocument($exchangeOffice, ExchangeOfficeConfig::CURRENCY_CARD_PRODUCT);
         $moneys = $this->scraper->scrapeExchangeRates($exchangeDocument);
 
-        $this->assertEquals(Money::USD(3.8500), $moneys['USD']);
-        $this->assertEquals(Money::EUR(4.2500), $moneys['EUR']);
-        $this->assertEquals(Money::AUD(2.9800), $moneys['AUD']);
-        $this->assertEquals(Money::CAD(3.0000), $moneys['CAD']);
-        $this->assertEquals(Money::GBP(5.6000), $moneys['GBP']);
+        $this->assertEquals(Money::USD(3.36000), $moneys['USD']);
+        $this->assertEquals(Money::EUR(3.74000), $moneys['EUR']);
+        $this->assertEquals(Money::AUD(2.60000), $moneys['AUD']);
+        $this->assertEquals(Money::CAD(2.62000), $moneys['CAD']);
+        $this->assertEquals(Money::GBP(4.56000), $moneys['GBP']);
     }
 
     public function testScrapeCurrenciesForEcoForte()
