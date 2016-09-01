@@ -5693,7 +5693,6 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'lygtur'); // As cotações não são mais exibidas no site
             array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange'); // O site da Ipanema Exchange está fora do ar
             array_pull($exchangeOfficesArrayCopy, 'shopping-tour'); // O site da Shiopping Tour não contém mais taxas de câmbio
-            array_pull($exchangeOfficesArrayCopy, 'ebadival'); // Testar ********************
             array_pull($exchangeOfficesArrayCopy, 'dg'); //  Testar ******************** Para ter acesso as cotações da Casa de Câmbio DG é necessário fazer requisição POST
             array_pull($exchangeOfficesArrayCopy, 'interpolo'); // Testar ********************
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
