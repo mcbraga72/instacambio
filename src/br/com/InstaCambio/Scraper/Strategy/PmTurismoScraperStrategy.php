@@ -27,9 +27,9 @@ class PmTurismoScraperStrategy implements ScraperStrategy
                     foreach ($keywordsArray as $currency => $keywords) {
                         if (preg_match('/' . implode('|', $keywords) . '/', $node->html()) === 1) {
                             $exchangeRate = null;
-                            preg_match_all('/\d{1,5}(?:[.,]\d{3})*(?:[.,]\d{2,5})/', $node->html(), $exchangeRate);
+                            preg_match_all('/\d{1,5}(?:[.,]\s?\d{3})*(?:[.,]\s?\d{2,5})/', $node->html(), $exchangeRate);
                             $exchangeRate = $exchangeRate[0][$product->getIndexesByExchangeRate()[$currency]];
-                            $formattedExchangeRate = floatval(str_replace(',', '.', $exchangeRate));
+                            $formattedExchangeRate = floatval(str_replace(',', '.', str_replace(' ', '', $exchangeRate)));
                             $moneys[$currency] = Money::create($formattedExchangeRate, $currency);
                             $currencyFound = $currency;
                         }
