@@ -3313,7 +3313,7 @@ class ExchangeOfficeConfig
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
-                'url' => 'https://evtm.com.br/Vitrine.aspx?Moeda=Papel',
+                'url' => 'https://evtm.com.br/Vitrine.aspx?Grupo=ESPECIE',
                 'selector' => 'div.boxProduto',
                 'iofIncluded' => false,
                 'keywords' => [
@@ -3378,7 +3378,7 @@ class ExchangeOfficeConfig
                 ],
             ],
             'currencyCard' => [
-                'url' => 'https://evtm.com.br/Vitrine.aspx?Moeda=Visa',
+                'url' => 'https://evtm.com.br/Vitrine.aspx?Grupo=VISA',
                 'selector' => 'div.boxProduto',
                 'iofIncluded' => false,
                 'keywords' => [
