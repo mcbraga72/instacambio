@@ -40,7 +40,7 @@ return [
         'production' => [
             'host'      => '52.73.193.71',
             'username'  => 'websc',
-            'password'  => '553cb425d0002@',
+            'password'  => 'HjPJUTXzmvMeeCI0BOlf',
             'key'       => '',
             'keyphrase' => '',
         ],

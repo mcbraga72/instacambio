@@ -57,3 +57,6 @@ tmp/scraper/
 /vendor/
 /.rocketeer/logs/
 /app.ini
+tmp/cache
+logs
+config
