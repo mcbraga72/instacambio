@@ -5693,6 +5693,9 @@ class ExchangeOfficeConfig
             array_pull($exchangeOfficesArrayCopy, 'ipanema-exchange'); // O site da Ipanema Exchange está fora do ar
             array_pull($exchangeOfficesArrayCopy, 'shopping-tour'); // O site da Shiopping Tour não contém mais taxas de câmbio
             array_pull($exchangeOfficesArrayCopy, 'interpolo'); // Não é possível baixar a página, devido a um redirecionamento automático
+            array_pull($exchangeOfficesArrayCopy, 'premium-viagens'); // As cotações não são mais exibidas no site
+            array_pull($exchangeOfficesArrayCopy, 'ebadival'); // Erro 403 - Forbidden - Possível bloqueio
+            array_pull($exchangeOfficesArrayCopy, 'maxima'); // Problemas com certificado SSL
             foreach ($exchangeOfficesArrayCopy as $nickname => $exchangeOffice) {
                 $exchangeOffices->append(self::get($nickname));
             }
