@@ -40,6 +40,10 @@ class ExchangeRate implements Persistable
      * @var
      */
     private $id;
+    /**
+     * @var string
+     */
+    private $status;
 
     /**
      * ExchangeRate constructor.
@@ -58,6 +62,7 @@ class ExchangeRate implements Persistable
             $this->productType = $array['productType'];
             $this->trade = $array['trade'];
             $this->iofIncluded = $array['iofIncluded'];
+            $this->status = 'status';
         }
     }
 
@@ -167,6 +172,22 @@ class ExchangeRate implements Persistable
     {
         $this->update = $update;
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
     /**

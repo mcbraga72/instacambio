@@ -3,9 +3,12 @@
 namespace br\com\InstaCambio\Webservice;
 
 use br\com\InstaCambio\Config\Database\DatabaseClientBuilder;
+use br\com\InstaCambio\Config\Database\MysqlClientBuilder;
 use br\com\InstaCambio\Model\ExchangeOfficeConfig;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use PDO;
+use PDOException;
 
 class RestApplication
 {
@@ -164,20 +167,26 @@ class RestApplication
      * @param array $args
      * @return array
      */
-    public function getStates($args = [])
+    public function getStates()
     {
-        $database = DatabaseClientBuilder::getInstance();
-        $collection = $database->selectCollection('exchangeRates');
-
+        $db = MysqlClientBuilder::getInstance();
         $adapted = [];
-        $states = $collection->distinct("exchangeOffice.state", $args);
-        foreach ($states as $index => $result) {
-            $adapted[] = [
-                'name' => $result,
-            ];
+        $query = 'SELECT DISTINCT s.uf FROM cities c, exchange_offices eo, exchange_offices_places eop, states s WHERE eo.status=1 AND eop.exchange_office_id=eo.id AND eop.city_id=c.id AND c.state_id=s.id ORDER BY s.uf';
+
+        try {
+            $stmt = $db->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                $adapted[] = [
+                    'name' => $row[0],
+                ];
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
         }
         return $adapted;
-
     }
 
     /**

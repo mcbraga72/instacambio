@@ -85,7 +85,7 @@ $app->get('/v1/states', function (Request $request, Response $response) {
     /* @var $restApplication RestApplication */
     $restApplication = $this->webServiceRestApplication;
     $args = ['productType' => 'foreignCurrency'];
-    $states = $restApplication->getStates($args);
+    $states = $restApplication->getStates();
 
     /* @var $serializer Serializer */
     $serializer = $this->serializer;

@@ -2,7 +2,10 @@
 
 namespace br\com\InstaCambio\Model;
 
+use br\com\InstaCambio\Config\Database\MysqlClientBuilder;
 use MongoDB\BSON\Persistable;
+use PDO;
+use PDOException;
 
 class ExchangeOffice implements Persistable
 {
@@ -39,7 +42,7 @@ class ExchangeOffice implements Persistable
      */
     private $state;
     /**
-     * @var string
+     * @var int
      */
     private $city;
     /**
@@ -58,6 +61,29 @@ class ExchangeOffice implements Persistable
         $this->delivery = $config['delivery'];
         $this->currencyCard = $config['currencyCard'];
         $this->foreignCurrency = $config['foreignCurrency'];
+    }
+
+    /**
+     * @return int
+     */
+    public function getId($nickname)
+    {
+        $db = MysqlClientBuilder::getInstance();
+        $query = 'SELECT id FROM exchange_offices WHERE nickname="' . $nickname . '"';
+        $id = 0;
+
+        try {
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            while ($row = $stmt->fetch()) {
+                $id = $row[0];
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
+        }
+        return $id;
     }
 
     /**
@@ -109,7 +135,7 @@ class ExchangeOffice implements Persistable
     }
 
     /**
-     * @return string
+     * @return int
      */
     public function getCity()
     {

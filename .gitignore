@@ -59,4 +59,5 @@ tmp/scraper/
 /app.ini
 tmp/cache
 logs
-config
+./config
+config/app.php
