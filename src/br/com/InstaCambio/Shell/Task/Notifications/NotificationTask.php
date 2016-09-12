@@ -103,7 +103,7 @@ class NotificationTask
         $message .= 'Acesse https://www.instacambio.com.br e faça sua proposta:' . PHP_EOL . PHP_EOL;
         $message .= "Taxa desejada: R$ {$notification['rate']}" . PHP_EOL;
         $message .= 'Moeda: ' . RestApplication::currencySymbolToCurrencyNameStatic(RestApplication::currencySlugToCurrencySymbolStatic($notification['currency'])) . PHP_EOL;
-        $humanReadableCity = RestApplication::citiesMap()[$notification['city']];
+        $humanReadableCity = RestApplication::citiesNameToSlug()[$notification['city']];
         $message .= "Cidade/Estado: {$humanReadableCity}/{$notification['state']}" . PHP_EOL . PHP_EOL;
 
         $message .= 'Atenciosamente,' . PHP_EOL;
