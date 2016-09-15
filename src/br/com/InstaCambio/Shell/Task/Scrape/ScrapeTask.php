@@ -2,7 +2,7 @@
 
 namespace br\com\InstaCambio\Shell\Task\Scrape;
 
-use br\com\InstaCambio\Config\Database\DatabaseClientBuilder;
+use br\com\InstaCambio\Client\SlackClient;
 use br\com\InstaCambio\Config\Database\MysqlClientBuilder;
 use br\com\InstaCambio\Filesystem\Directory;
 use br\com\InstaCambio\Helper\LogWrapper;
@@ -15,7 +15,6 @@ use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PDOException;
 use Symfony\Component\DomCrawler\Crawler;
-
 
 class ScrapeTask
 {
@@ -82,6 +81,7 @@ class ScrapeTask
                     } else {
                         $message = 'file ' . basename($filename) . ' not exists in ' . basename(dirname($filename));
                         $this->logger->addInfo($message);
+                        SlackClient::slack($message, "crawler");
                     }
                 }
             }
@@ -189,7 +189,7 @@ class ScrapeTask
                                     }
 
                                     $queryExchangeRate = 'UPDATE exchange_rates SET modified=?, price=? WHERE id=' . $exchangeRateFoundId;
-                                    echo "price - " . $exchangeRateFoundId . " - " . $modified . " - " . $price . PHP_EOL;
+
                                     try {
                                         $stmt = $db->prepare($queryExchangeRate);
                                         $stmt->bindParam(1, $modified);
@@ -205,7 +205,7 @@ class ScrapeTask
                                 if (is_bool($iofIncluded)) {
                                     if ($exchangeRateFoundIofIncluded != $iofIncluded) {
                                         $queryExchangeRate = 'UPDATE exchange_rates SET iofIncluded=? WHERE id=' . $exchangeRateFoundId;
-                                        echo "iof - " . $exchangeOfficeId . " - " . $exchangeRateFoundId . " - " . $iofIncluded . " - " . $exchangeRateFoundIofIncluded . PHP_EOL;
+
                                         try {
                                             $stmt = $db->prepare($queryExchangeRate);
                                             $stmt->bindParam(1, $iofIncluded);
@@ -221,7 +221,7 @@ class ScrapeTask
                                 if (is_bool($delivery)) {
                                     if ($exchangeRateFoundDelivery != $delivery) {
                                         $queryExchangeRate = 'UPDATE exchange_rates SET delivery=? WHERE id=' . $exchangeRateFoundId;
-                                        echo "delivery - " . $exchangeOfficeId . " - " . $exchangeRateFoundId . " - " . $delivery . " - " . $exchangeRateFoundDelivery . PHP_EOL;
+
                                         try {
                                             $stmt = $db->prepare($queryExchangeRate);
                                             $stmt->bindParam(1, $delivery);
@@ -237,6 +237,8 @@ class ScrapeTask
                         }
                     } else {
                         $this->logger->addInfo('$moneys array is empty', ['exchangeOffice' => $nickname, 'productType' => $productType]);
+                        $message = '$moneys array is empty. Exchange Office: ' . $nickname . ' / Product Type: ' . $productType;
+                        SlackClient::slack($message, "crawler");
                     }
                 }
             }
@@ -283,7 +285,7 @@ class ScrapeTask
     public function disableExchangeRatesOutdated()
     {
         $acceptableDate = (new \DateTime());
-        $acceptableDate->sub(new \DateInterval('PT1H'));
+        $acceptableDate->sub(new \DateInterval('P5D'));
 
         $db = MysqlClientBuilder::getInstance();
         $queryExchangeRate = 'UPDATE exchange_rates SET status=0 WHERE modified < "' . $acceptableDate->format('Y-m-d H:i:s') . '"';

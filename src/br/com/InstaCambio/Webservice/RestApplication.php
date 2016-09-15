@@ -41,7 +41,7 @@ class RestApplication
 
     /**
      * @param $args
-     * @return \MongoDB\Driver\Cursor
+     * @return array
      */
     public function getExchangeRates($args)
     {

@@ -2,11 +2,13 @@
 
 namespace br\com\InstaCambio\Shell\Task\Scrape;
 
+use br\com\InstaCambio\Client\SlackClient;
 use br\com\InstaCambio\Helper\LogWrapper;
 use br\com\InstaCambio\Model\ExchangeDocument;
 use br\com\InstaCambio\Model\ExchangeOfficeConfig;
 use br\com\InstaCambio\Model\ExchangeScrapeResult;
 use br\com\InstaCambio\Scraper\ExchangeScraper;
+use Maknz\Slack\Client;
 use Monolog\Logger;
 
 class DocumentScraperWork
@@ -54,6 +56,8 @@ class DocumentScraperWork
                         'nickname' => $exchangeDocument->getExchangeOffice()->getNickname(),
                         'productType' => $exchangeDocument->productType(),
                     ]);
+                    $message = $e->getMessage() . ' in ' . $e->getFile() . ': ' . $e->getLine() . '/ Exchange Office: ' . $exchangeDocument->getExchangeOffice()->getNickname() . ' - Product Type: ' . $exchangeDocument->productType();
+                    SlackClient::slack($message, "crawler");
                 }
             } else if (ExchangeOfficeConfig::CURRENCY_CARD_PRODUCT === $exchangeDocument->productType()) {
                 try {
@@ -63,6 +67,8 @@ class DocumentScraperWork
                         'nickname' => $exchangeDocument->getExchangeOffice()->getNickname(),
                         'productType' => $exchangeDocument->productType(),
                     ]);
+                    $message = $e->getMessage() . ' in ' . $e->getFile() . ': ' . $e->getLine() . '/ Exchange Office: ' . $exchangeDocument->getExchangeOffice()->getNickname() . ' - Product Type: ' . $exchangeDocument->productType();
+                    SlackClient::slack($message, "crawler");
                 }
             }
             $exchangeOffice = $exchangeDocument->getExchangeOffice();
