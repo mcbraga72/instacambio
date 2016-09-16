@@ -3,6 +3,7 @@
 namespace br\com\InstaCambio\Shell\Task\PageLoader;
 
 use br\com\InstaCambio\Client\ExchangeClientException;
+use br\com\InstaCambio\Client\SlackClient;
 use br\com\InstaCambio\Helper\LogWrapper;
 use br\com\InstaCambio\Model\ExchangeOffice;
 use br\com\InstaCambio\Model\ExchangePageLoadCollection;
@@ -47,8 +48,10 @@ class PageLoadWork extends \Collectable
                 $exchangePageLoadCollection->add($index, $response->getBody()->getContents());
             } catch (ExchangeClientException $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
+                SlackClient::slack($e->getMessage(), "crawler");
             } catch (\Exception $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
+                SlackClient::slack($e->getMessage(), "crawler");
             }
         }
         $this->exchangePageLoadCollection = $exchangePageLoadCollection;
