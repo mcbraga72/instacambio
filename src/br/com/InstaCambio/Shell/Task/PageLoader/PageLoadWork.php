@@ -46,12 +46,17 @@ class PageLoadWork extends \Collectable
             try {
                 $response = $this->worker->exchangeClient->send($this->exchangeOffice, $product);
                 $exchangePageLoadCollection->add($index, $response->getBody()->getContents());
+                $message = 'Download da página da casa de câmbio ' . $this->exchangeOffice->getName() . ', realizado com sucesso!';
+                $color = '#4CAF50';
+                SlackClient::slack($message, $color, "crawler");
             } catch (ExchangeClientException $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
-                SlackClient::slack($e->getMessage(), "crawler");
+                $color = '#FF0000';
+                SlackClient::slack($logWrapper->setMessage($e->getMessage()), $color, "crawler");
             } catch (\Exception $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
-                SlackClient::slack($e->getMessage(), "crawler");
+                $color = '#FF0000';
+                SlackClient::slack($logWrapper->setMessage($e->getMessage()), $color, "crawler");
             }
         }
         $this->exchangePageLoadCollection = $exchangePageLoadCollection;

@@ -5,11 +5,14 @@ namespace br\com\InstaCambio\Client;
 class SlackClient
 {
 
-    public static function slack($message, $room, $icon = ":slack:") {
+    public static function slack($message, $color = "", $room, $icon = ":slack:") {
         $data = "payload=" . json_encode(array(
                 "channel"       =>  "#{$room}",
-                "text"          =>  $message,
-                "icon_emoji"    =>  $icon
+                "icon_emoji"    =>  $icon,
+                "attachments"   =>  array(array(
+                    "text"      =>  $message,
+                    "color"     =>  $color
+                ))
             ));
 
         $ch = curl_init("https://hooks.slack.com/services/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");

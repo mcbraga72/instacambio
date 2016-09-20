@@ -79,9 +79,10 @@ class ScrapeTask
                         }
                         $exchangeDocumentsArray[$exchangeOffice->getNickname()][$productType] = new ExchangeDocument($crawler, $productType, $exchangeOffice);
                     } else {
-                        $message = 'file ' . basename($filename) . ' not exists in ' . basename(dirname($filename));
+                        $message = 'Não foi possível baixar a página da casa de câmbio ' . $exchangeOffice->getName();
                         $this->logger->addInfo($message);
-                        SlackClient::slack($message, "crawler");
+                        $color = '#FF0000';
+                        SlackClient::slack($message, $color, "crawler");
                     }
                 }
             }
@@ -238,7 +239,6 @@ class ScrapeTask
                     } else {
                         $this->logger->addInfo('$moneys array is empty', ['exchangeOffice' => $nickname, 'productType' => $productType]);
                         $message = '$moneys array is empty. Exchange Office: ' . $nickname . ' / Product Type: ' . $productType;
-                        SlackClient::slack($message, "crawler");
                     }
                 }
             }
