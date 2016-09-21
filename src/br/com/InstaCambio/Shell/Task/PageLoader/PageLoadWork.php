@@ -51,12 +51,16 @@ class PageLoadWork extends \Collectable
                 SlackClient::slack($message, $color, "crawler");
             } catch (ExchangeClientException $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
+                $error = $logWrapper->setMessage($e->getMessage());
+                $message = 'Não foi possível baixar a página da casa de câmbio ' . $this->exchangeOffice->getName() . "." . $error;
                 $color = '#FF0000';
-                SlackClient::slack($logWrapper->setMessage($e->getMessage()), $color, "crawler");
+                SlackClient::slack($message, $color, "crawler");
             } catch (\Exception $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
+                $error = $logWrapper->setMessage($e->getMessage());
+                $message = 'Não foi possível baixar a página da casa de câmbio ' . $this->exchangeOffice->getName() . "." . $error;
                 $color = '#FF0000';
-                SlackClient::slack($logWrapper->setMessage($e->getMessage()), $color, "crawler");
+                SlackClient::slack($message, $color, "crawler");
             }
         }
         $this->exchangePageLoadCollection = $exchangePageLoadCollection;

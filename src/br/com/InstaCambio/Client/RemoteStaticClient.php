@@ -34,6 +34,7 @@ class RemoteStaticClient implements InstaCambioClient
             $client = new GuzzleClient();
             $response = $client->send($request, [
                 'timeout' => 29,
+                'verify' => false,
                 'headers' => [
                     'User-Agent' => 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.82 Safari/537.36'
                 ]

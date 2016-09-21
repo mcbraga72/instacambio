@@ -39,101 +39,78 @@ class LogWrapper
 
     public function setMessage($error)
     {
-        switch ($error) {
-            case "Could not resolve host":
-                $this->message = "Falha na resolução de nomes.";
-                break;
-            case "Failed connect to":
-                $this->message = "Falha ao conectar ao host.";
-                break;
-            case "Failed to connect to":
-                $this->message = "Falha ao conectar ao host.";
-                break;
-            case "transfer closed":
-                $this->message = "Transferência interrompida.";
-                break;
-            case "Connection timed out":
-                $this->message = "Tempo máximo de conexão esgotado.";
-                break;
-            case "Operation timed out":
-                $this->message = "Tempo máximo de conexão esgotado.";
-                break;
-            case "SSL received a record with an incorrect Message Authentication Code":
-                $this->message = "Problemas durante o SSL handshake.";
-                break;
-            case "Encountered end of file":
-                $this->message = "Problemas durante o SSL handshake.";
-                break;
-            case "SSL received a record that exceeded the maximum permissible length":
-                $this->message = "Problemas durante o SSL handshake.";
-                break;
-            case "A TLS packet with unexpected length was received":
-                $this->message = "Problemas durante o SSL handshake.";
-                break;
-            case "Unable to communicate securely with peer":
-                $this->message = "Probelmas com o certificado SSL do site.";
-                break;
-            case "Empty reply from server":
-                $this->message = "Resposta vazia vinda do servidor.";
-                break;
-            case "Recv failure: Connection reset by peer":
-                $this->message = "Falha durante o recebimento de dados pela rede.";
-                break;
-            case "Peer's certificate":
-                $this->message = "O certificado SSL do servidor não pode ser validado por nenhuma AC reconhecida.";
-                break;
-            case "cURL error 77":
-                $this->message = "Problemas para ler o certificado SSL do servidor.";
-                break;
-            case "401 Access Denied":
-                $this->message = "Acesso negado (Erro 401).";
-                break;
-            case "403 Forbidden":
-                $this->message = "Acesso proibido (Erro 403).";
-                break;
-            case "404 Not Found":
-                $this->message = "Página não encontrada (Erro 404).";
-                break;
-            case "408 Request Time-out":
-                $this->message = "Tempo máximo de requisição esgotado (Erro 408).";
-                break;
-            case "500 Internal Server Error":
-                $this->message = "Erro interno no servidor web (Erro 500).";
-                break;
-            case "500 MySQL server has gone away":
-                $this->message = "Erro interno no servidor de banco de dados (Erro 500).";
-                break;
-            case "502 Proxy Error":
-                $this->message = "Problemas de acesso ao servidor (Erro 502)";
-                break;
-            case "502 Bad Gateway":
-                $this->message = "Problemas de acesso ao servidor (Erro 502)";
-                break;
-            case "503 Service":
-                $this->message = "Serviço temporariamente indisponível (Erro 503).";
-                break;
-            case "503 Backend fetch failed":
-                $this->message = "Serviço temporariamente indisponível (Erro 503).";
-                break;
-            case "508 Loop Detected":
-                $this->message = "Problemas de acesso ao servidor devido a um loop no roteamento (Erro 508).";
-                break;
-            case "520 Origin Error":
-                $this->message = "Erro no servidor web (Erro 520).";
-                break;
-            case "521 Origin Down":
-                $this->message = "Servidor web down (Erro 521).";
-                break;
-            case "522 Origin Connection Time-out":
-                $this->message = "Tempo máximo de conexão esgotado (Erro 521).";
-                break;
-            case "more than 5 redirects":
-                $this->message = "Falha devido a excesso de redirecionamentos.";
-                break;
-            case "Undefined offset":
-                $this->message = "Índice de moeda não definido.";
-                break;
+
+        if (strpos($error, "Could not resolve host") != false) {
+            $this->message = "Falha na resolução de nomes.";
+        }  else if (strpos($error, "Failed connect to") != false) {
+            $this->message = "Falha ao conectar ao host.";
+        } else if (strpos($error, "Failed to connect to") != false) {
+            $this->message = "Falha ao conectar ao host.";
+        } else if (strpos($error, "transfer closed") != false) {
+            $this->message = "Transferência interrompida.";
+        } else if (strpos($error, "Connection timed out") != false) {
+            $this->message = "Tempo máximo de conexão esgotado.";
+        } else if (strpos($error, "Operation timed out") != false) {
+            $this->message = "Tempo máximo de conexão esgotado.";
+        } else if (strpos($error, "SSL received a record with an incorrect Message Authentication Code") != false) {
+            $this->message = "Problemas durante o SSL handshake.";
+        } else if (strpos($error, "Encountered end of file") != false) {
+            $this->message = "Problemas durante o SSL handshake.";
+        } else if (strpos($error, "SSL received a record that exceeded the maximum permissible length") != false) {
+            $this->message = "Problemas durante o SSL handshake.";
+        } else if (strpos($error, "A TLS packet with unexpected length was received") != false) {
+            $this->message = "Problemas durante o SSL handshake.";
+        } else if (strpos($error, "Unable to communicate securely with peer") != false) {
+            $this->message = "Probelmas com o certificado SSL do site.";
+        } else if (strpos($error, "server certificate verification failed") != false) {
+            $this->message = "Falha na verificação do certificado SSL.";
+        } else if (strpos($error, "Peer's Certificate issuer is not recognized") != false) {
+            $this->message = "Emissor do certificado SSL não reconhecido.";
+        } else if (strpos($error, "Empty reply from server") != false) {
+            $this->message = "Resposta vazia vinda do servidor.";
+        } else if (strpos($error, "Recv failure: Connection reset by peer") != false) {
+            $this->message = "Falha durante o recebimento de dados pela rede.";
+        } else if (strpos($error, "Peer's certificate") != false) {
+            $this->message = "O certificado SSL do servidor não pode ser validado por nenhuma AC reconhecida.";
+        } else if (strpos($error, "cURL error 77") != false) {
+            $this->message = "Problemas para ler o certificado SSL do servidor.";
+        } else if (strpos($error, "401 Access Denied") != false) {
+            $this->message = "Acesso negado (Erro 401).";
+        } else if (strpos($error, "403 Forbidden") != false) {
+            $this->message = "Acesso proibido (Erro 403).";
+        } else if (strpos($error, "404 Not Found") != false) {
+            $this->message = "Página não encontrada (Erro 404).";
+        } else if (strpos($error, "408 Request Time-out") != false) {
+            $this->message = "Tempo máximo de requisição esgotado (Erro 408).";
+        } else if (strpos($error, "500 Internal Server Error") != false) {
+            $this->message = "Erro interno no servidor web (Erro 500).";
+        } else if (strpos($error, "500 MySQL server has gone away") != false) {
+            $this->message = "Erro interno no servidor de banco de dados (Erro 500).";
+        } else if (strpos($error, "502 Proxy Error") != false) {
+            $this->message = "Problemas de acesso ao servidor (Erro 502)";
+        } else if (strpos($error, "502 Bad Gateway") != false) {
+            $this->message = "Problemas de acesso ao servidor (Erro 502)";
+        } else if (strpos($error, "503 Service") != false) {
+            $this->message = "Serviço temporariamente indisponível (Erro 503).";
+        } else if (strpos($error, "503 Backend fetch failed") != false) {
+            $this->message = "Serviço temporariamente indisponível (Erro 503).";
+        } else if (strpos($error, "508 Loop Detected") != false) {
+            $this->message = "Problemas de acesso ao servidor devido a um loop no roteamento (Erro 508).";
+        } else if (strpos($error, "520 Origin Error") != false) {
+            $this->message = "Erro no servidor web (Erro 520).";
+        } else if (strpos($error, "521 Origin Down") != false) {
+            $this->message = "Servidor web down (Erro 521).";
+        } else if (strpos($error, "522 Origin Connection Time-out") != false) {
+            $this->message = "Tempo máximo de conexão esgotado (Erro 521).";
+        } else if (strpos($error, "more than 5 redirects") != false) {
+            $this->message = "Falha devido a excesso de redirecionamentos.";
+        } else if (strpos($error, "Undefined offset") != false) {
+            $this->message = "Índice de moeda não definido.";
+        } else if (strpos($error, "bin/phantomjs") != false) {
+            $this->message = "O binário do PhantomJS não foi encontrado.";
         }
+
+        //return $error;
         return $this->message;
     }
 }
