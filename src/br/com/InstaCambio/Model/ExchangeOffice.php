@@ -42,7 +42,7 @@ class ExchangeOffice implements Persistable
      */
     private $state;
     /**
-     * @var int
+     * @var string
      */
     private $city;
     /**
@@ -139,7 +139,22 @@ class ExchangeOffice implements Persistable
      */
     public function getCity()
     {
-        return $this->city;
+        $db = MysqlClientBuilder::getInstance();
+        $query = 'SELECT id FROM cities WHERE name="' . $this->city . '"';
+        $id = 0;
+
+        try {
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            while ($row = $stmt->fetch()) {
+                $id = $row[0];
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
+        }
+        return $id;
     }
 
     /**
