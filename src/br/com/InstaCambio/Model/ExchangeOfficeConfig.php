@@ -1810,7 +1810,7 @@ class ExchangeOfficeConfig
             'foreignCurrency' => [
                 'url' => 'http://www.guitta.com.br/turismo.php',
                 'selector' => 'body > ul.lista-moedas-small > li',
-                'iofIncluded' => true,
+                'iofIncluded' => false,
                 'keywords' => [
                     'USD' => [
                         'USD'
@@ -1827,7 +1827,7 @@ class ExchangeOfficeConfig
             'currencyCard' => [
                 'url' => 'http://www.guitta.com.br/turismo.php',
                 'selector' => 'body > ul.lista-moedas-small > li',
-                'iofIncluded' => true,
+                'iofIncluded' => false,
                 'keywords' => [
                     'USD' => [
                         'GTM \(USD\)'
