@@ -3,9 +3,12 @@
 namespace br\com\InstaCambio\Webservice;
 
 use br\com\InstaCambio\Config\Database\DatabaseClientBuilder;
+use br\com\InstaCambio\Config\Database\MysqlClientBuilder;
 use br\com\InstaCambio\Model\ExchangeOfficeConfig;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use PDO;
+use PDOException;
 
 class RestApplication
 {
@@ -38,44 +41,74 @@ class RestApplication
 
     /**
      * @param $args
-     * @return \MongoDB\Driver\Cursor
+     * @return array
      */
     public function getExchangeRates($args)
     {
-        $city = $args['city'];
-        $slugCurrency = $args['currency'];
-        $tradeInfo = $args['trade'];
-        $deliveryOption = $args['delivery'];
-        $productType = $args['productType'];
+        $db = MysqlClientBuilder::getInstance();
+
+        $citiesNameToSlug = self::citiesNameToSlug();
+        $citiesSlugToName = self::citiesSlugToName();
+        $cityName = (key_exists($args['city'], $citiesSlugToName)) ? $citiesSlugToName[$args['city']] : str_replace('-', ' ', ucfirst($args['city']));
+        $currencySymbol = $this->currencySlugToCurrencySymbol($args['currency']);
         $acceptableDate = (new \DateTime());
         $acceptableDate->sub(new \DateInterval('P5D'));
-        $currencySymbol = $this->currencySlugToCurrencySymbol($slugCurrency);
+        $modified = $acceptableDate->format('c');
 
-        $filters = ['exchangeOffice.city' => $city, 'currency' => $currencySymbol];
-        if ($tradeInfo === "comprar") {
-            $tradeInfo = "buy";
+        if ($args['trade'] === "comprar") {
+            $tradeOption = "Cliente compra";
         } else {
-            $tradeInfo = "sell";
+            $tradeOption = "Cliente vende";
         }
-        $filters['trade'] = $tradeInfo;
-
-        if ($deliveryOption === "delivery") {
-            $filters['exchangeOffice.delivery'] = true;
-        }
-
-        if ($productType === "papel-moeda") {
-            $productType = 'foreignCurrency';
+        if ($args['delivery'] === "delivery") {
+            $delivery = 1;
         } else {
-            $productType = 'currencyCard';
+            $delivery = 0;
         }
-        $filters['productType'] = $productType;
-        $filters['update'] = ['$gt' => $acceptableDate->format('c')];
+        if ($args['productType'] === "papel-moeda") {
+            $productType = 'Papel moeda';
+        } else {
+            $productType = 'Cartão pré-pago';
+        }
 
-        $database = DatabaseClientBuilder::getInstance();
-        $collection = $database->selectCollection('exchangeRates');
-        $results = $collection->find($filters, ['sort' => ['price' => 1]]);
+        $results = [];
+
+        $query = 'SELECT DISTINCT cr.currency, er.iofIncluded, er.price, pt.name, t.name, er.modified, eo.nickname, eo.name, s.uf, c.name, er.delivery FROM cities c, currencies cr, exchange_offices eo, exchange_rates er, product_types pt, states s, trades t WHERE eo.status=1 AND c.name=? AND cr.currency=? AND t.name=? AND er.delivery=? AND pt.name=? AND er.modified>? AND cr.id=er.currency_id AND c.state_id=s.id AND c.id=er.city_id AND eo.id=er.exchange_office_id AND er.product_type_id=pt.id AND er.trade_id=t.id ORDER BY er.price';
+
+        try {
+            $stmt = $db->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            $stmt->bindParam(1, $cityName);
+            $stmt->bindParam(2, $currencySymbol);
+            $stmt->bindParam(3, $tradeOption);
+            $stmt->bindParam(4, $delivery);
+            $stmt->bindParam(5, $productType);
+            $stmt->bindParam(6, $modified);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                if(!is_null($row[0])) {
+                    $result['currency'] = $row[0];
+                    $result['iofIncluded'] = ($row[1] == 0) ? false : true;
+                    $result['price'] = $row[2];
+                    $result['productType'] = ($row[3] == "Papel moeda") ? "foreignCurrency" : "currencyCard";
+                    $result['trade'] = ($row[4] == "Cliente compra") ? "buy" : "sell";
+                    $result['modified'] = $row[5];
+                    $result['nickname'] = $row[6];
+                    $result['name'] = $row[7];
+                    $result['state'] = $row[8];
+                    $result['city'] = (key_exists($row[9], $citiesNameToSlug)) ? $citiesNameToSlug[$row[9]] : str_replace(' ', '-', ucfirst($row[9]));
+                    $result['delivery'] = ($row[10] == 0) ? false : true;
+                    $result['totalPrice'] = ($row[1] == false) ? ($row[3] == "Papel moeda") ? $row[2] * 1.011 : $row[2] * 1.0638 : $row[2];
+
+                    $results[] = $result;
+                }
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
+        }
+
         return $results;
-
     }
 
     /**
@@ -164,20 +197,26 @@ class RestApplication
      * @param array $args
      * @return array
      */
-    public function getStates($args = [])
+    public function getStates()
     {
-        $database = DatabaseClientBuilder::getInstance();
-        $collection = $database->selectCollection('exchangeRates');
-
+        $db = MysqlClientBuilder::getInstance();
         $adapted = [];
-        $states = $collection->distinct("exchangeOffice.state", $args);
-        foreach ($states as $index => $result) {
-            $adapted[] = [
-                'name' => $result,
-            ];
+        $query = 'SELECT DISTINCT s.uf FROM cities c, exchange_offices eo, exchange_offices_places eop, states s WHERE eo.status=1 AND eop.exchange_office_id=eo.id AND eop.city_id=c.id AND c.state_id=s.id ORDER BY s.uf';
+
+        try {
+            $stmt = $db->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                $adapted[] = [
+                    'name' => $row[0],
+                ];
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
         }
         return $adapted;
-
     }
 
     /**
@@ -186,25 +225,34 @@ class RestApplication
      */
     public function getCities($args)
     {
-        $database = DatabaseClientBuilder::getInstance();
-        $collection = $database->selectCollection('exchangeRates');
+        $db = MysqlClientBuilder::getInstance();
 
-        $filter['exchangeOffice.state'] = $args['state'];
-        $filter['productType'] = $args['productType'];
-        $cities = $collection->distinct("exchangeOffice.city", $filter);
-
-        $citiesMap = self::citiesMap();
+        $state = $args['state'];
+        $productType = $args['productType'];
+        $citiesMap = self::citiesNameToSlug();
         $adapted = [];
-        foreach ($cities as $index => $city) {
-            $adapted[] = [
-                'slug' => $city,
-                'name' => (key_exists($city, $citiesMap)) ? $citiesMap[$city] : str_replace('-', ' ', strtoupper($city)),
-            ];
+
+        $query = 'SELECT DISTINCT c.name FROM cities c, exchange_offices eo, exchange_rates er, states s WHERE eo.status=1 AND s.uf=? AND s.id=c.state_id AND c.id=er.city_id AND eo.id=er.exchange_office_id ORDER BY c.name';
+
+        try {
+            $stmt = $db->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            $stmt->bindParam(1, $state);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                $adapted[] = [
+                    'name' => $row[0],
+                    'slug' => (key_exists($row[0], $citiesMap)) ? $citiesMap[$row[0]] : str_replace('-', ' ', strtoupper($row[0])),
+                ];
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
         }
         return $adapted;
     }
 
-    public static function citiesMap()
+    public static function citiesSlugToName()
     {
         return [
             'sao-paulo' => 'São Paulo',
@@ -228,224 +276,268 @@ class RestApplication
         ];
     }
 
+    public static function citiesNameToSlug()
+    {
+        return [
+            'São Paulo' => 'sao-paulo',
+            'Rio de Janeiro' => 'rio-de-janeiro',
+            'Belo Horizonte' => 'belo-horizonte',
+            'Curitiba' => 'curitiba',
+            'Fortaleza' => 'fortaleza',
+            'Porto Alegre' => 'porto-alegre',
+            'Manaus' => 'manaus',
+            'Salvador' => 'salvador',
+            'Belém' => 'belem',
+            'Goiânia' => 'goiania',
+            'Campo Grande' => 'campo-grande',
+            'Aracajú' => 'aracaju',
+            'Florianópolis' => 'florianopolis',
+            'Vitória' => 'vitoria',
+            'Campinas' => 'campinas',
+            'São Bernardo do Campo' => 'sao-bernardo-do-campo',
+            'Santo André' => 'santo-andre',
+            'Londrina' => 'londrina'
+        ];
+    }
+
+    public static function currencyData($currency)
+    {
+        $currencyData = [];            
+    
+        switch ($currency) {
+            case "USD":
+                $currencyData['name'] = 'Dólar';
+                $currencyData['slug'] = 'dolar-americano';
+                $currencyData['currency'] = 'USD';
+                $currencyData['imageName'] = 'eua';
+                $currencyData['imageTitle'] = 'Estados Unidos';
+                $currencyData['order'] = 1;
+                $currencyData['precision'] = 3;
+                break;
+            case "EUR":
+                $currencyData['name'] = 'Euro';
+                $currencyData['slug'] = 'euro';
+                $currencyData['currency'] = 'EUR';
+                $currencyData['imageName'] = 'euro';
+                $currencyData['imageTitle'] = 'Europa';
+                $currencyData['order'] = 2;
+                $currencyData['precision'] = 3;
+                break;
+            case "GBP":
+                $currencyData['name'] = 'Libra Esterlina';
+                $currencyData['slug'] = 'libra-esterlina';
+                $currencyData['currency'] = 'GBP';
+                $currencyData['imageName'] = 'gra-bretanha';
+                $currencyData['imageTitle'] = 'Grã Bretanha';
+                $currencyData['order'] = 3;
+                $currencyData['precision'] = 3;
+                break;
+            case "CAD":
+                $currencyData['name'] = 'Dólar Canadense';
+                $currencyData['slug'] = 'dolar-canadense';
+                $currencyData['currency'] = 'CAD';
+                $currencyData['imageName'] = 'canada';
+                $currencyData['imageTitle'] = 'Canadá';
+                $currencyData['order'] = 4;
+                $currencyData['precision'] = 3;
+                break;
+            case "AUD":
+                $currencyData['name'] = 'Dólar Australiano';
+                $currencyData['slug'] = 'dolar-australiano';
+                $currencyData['currency'] = 'AUD';
+                $currencyData['imageName'] = 'australia';
+                $currencyData['imageTitle'] = 'Austrália';
+                $currencyData['order'] = 5;
+                $currencyData['precision'] = 3;
+                break;
+            case "NZD":
+                $currencyData['name'] = 'Dólar Neozelandês';
+                $currencyData['slug'] = 'dolar-neozelandes';
+                $currencyData['currency'] = 'NZD';
+                $currencyData['imageName'] = 'nova-zelandia';
+                $currencyData['imageTitle'] = 'Nova Zelândia';
+                $currencyData['order'] = 6;
+                $currencyData['precision'] = 3;
+                break;
+            case "ARS":
+                $currencyData['name'] = 'Peso Argentino';
+                $currencyData['slug'] = 'peso-argentino';
+                $currencyData['currency'] = 'ARS';
+                $currencyData['imageName'] = 'argentina';
+                $currencyData['imageTitle'] = 'Argentina';
+                $currencyData['order'] = 7;
+                $currencyData['precision'] = 3;
+                break;
+            case "CLP":
+                $currencyData['name'] = 'Peso Chileno';
+                $currencyData['slug'] = 'peso-chileno';
+                $currencyData['currency'] = 'CLP';
+                $currencyData['imageName'] = 'chile';
+                $currencyData['imageTitle'] = 'Chile';
+                $currencyData['order'] = 8;
+                $currencyData['precision'] = 4;
+                break;
+            case "MXN":
+                $currencyData['name'] = 'Peso Mexicano';
+                $currencyData['slug'] = 'peso-mexicano';
+                $currencyData['currency'] = 'MXN';
+                $currencyData['imageName'] = 'mexico';
+                $currencyData['imageTitle'] = 'México';
+                $currencyData['order'] = 9;
+                $currencyData['precision'] = 3;
+                break;
+            case "COP":
+                $currencyData['name'] = 'Peso Colombiano';
+                $currencyData['slug'] = 'peso-colombiano';
+                $currencyData['currency'] = 'COP';
+                $currencyData['imageName'] = 'colombia';
+                $currencyData['imageTitle'] = 'Colômbia';
+                $currencyData['order'] = 10;
+                $currencyData['precision'] = 4;
+                break;
+            case "UYU":
+                $currencyData['name'] = 'Peso Uruguaio';
+                $currencyData['slug'] = 'peso-uruguaio';
+                $currencyData['currency'] = 'UYU';
+                $currencyData['imageName'] = 'uruguai';
+                $currencyData['imageTitle'] = 'Uruguai';
+                $currencyData['order'] = 11;
+                $currencyData['precision'] = 3;
+                break;
+            case "CHF":
+                $currencyData['name'] = 'Franco Suíço';
+                $currencyData['slug'] = 'franco-suico';
+                $currencyData['currency'] = 'CHF';
+                $currencyData['imageName'] = 'suica';
+                $currencyData['imageTitle'] = 'Suíça';
+                $currencyData['order'] = 12;
+                $currencyData['precision'] = 3;
+                break;
+            case "JPY":
+                $currencyData['name'] = 'Iene Japonês';
+                $currencyData['slug'] = 'iene';
+                $currencyData['currency'] = 'JPY';
+                $currencyData['imageName'] = 'japao';
+                $currencyData['imageTitle'] = 'Japão';
+                $currencyData['order'] = 13;
+                $currencyData['precision'] = 3;
+                break;
+            case "CNY":
+                $currencyData['name'] = 'Yuan Chinês';
+                $currencyData['slug'] = 'yuan';
+                $currencyData['currency'] = 'CNY';
+                $currencyData['imageName'] = 'china';
+                $currencyData['imageTitle'] = 'China';
+                $currencyData['order'] = 14;
+                $currencyData['precision'] = 3;
+                break;
+            case "ZAR":
+                $currencyData['name'] = 'Rand Sul-Africano';
+                $currencyData['slug'] = 'rand';
+                $currencyData['currency'] = 'ZAR';
+                $currencyData['imageName'] = 'africa-sul';
+                $currencyData['imageTitle'] = 'África do Sul';
+                $currencyData['order'] = 15;
+                $currencyData['precision'] = 3;
+                break;
+            case "DKK":
+                $currencyData['name'] = 'Coroa Dinamarquesa';
+                $currencyData['slug'] = 'coroa-dinamarquesa';
+                $currencyData['currency'] = 'DKK';
+                $currencyData['imageName'] = 'dinamarca';
+                $currencyData['imageTitle'] = 'Dinamarca';
+                $currencyData['order'] = 16;
+                $currencyData['precision'] = 3;
+                break;
+            case "NOK":
+                $currencyData['name'] = 'Coroa Norueguesa';
+                $currencyData['slug'] = 'coroa-norueguesa';
+                $currencyData['currency'] = 'NOK';
+                $currencyData['imageName'] = 'noruega';
+                $currencyData['imageTitle'] = 'Noruega';
+                $currencyData['order'] = 17;
+                $currencyData['precision'] = 3;
+                break;
+            case "SEK":
+                $currencyData['name'] = 'Coroa Sueca';
+                $currencyData['slug'] = 'coroa-sueca';
+                $currencyData['currency'] = 'SEK';
+                $currencyData['imageName'] = 'suecia';
+                $currencyData['imageTitle'] = 'Suécia';
+                $currencyData['order'] = 18;
+                $currencyData['precision'] = 3;
+                break;
+            case "KRW":
+                $currencyData['name'] = 'Won Sul-Coreano';
+                $currencyData['slug'] = 'won';
+                $currencyData['currency'] = 'KRW';
+                $currencyData['imageName'] = 'coreia-sul';
+                $currencyData['imageTitle'] = 'Coréia do Sul';
+                $currencyData['order'] = 19;
+                $currencyData['precision'] = 4;
+                break;
+            case "BOB":
+                $currencyData['name'] = 'Peso Boliviano';
+                $currencyData['slug'] = 'peso-boliviano';
+                $currencyData['currency'] = 'BOB';
+                $currencyData['imageName'] = 'bolivia';
+                $currencyData['imageTitle'] = 'Bolívia';
+                $currencyData['order'] = 20;
+                $currencyData['precision'] = 3;
+                break;
+            case "PEN":
+                $currencyData['name'] = 'Novo Sol Peruano';
+                $currencyData['slug'] = 'novo-sol';
+                $currencyData['currency'] = 'PEN';
+                $currencyData['imageName'] = 'peru';
+                $currencyData['imageTitle'] = 'Peru';
+                $currencyData['order'] = 21;
+                $currencyData['precision'] = 3;
+                break;
+            case "ILS":
+                $currencyData['name'] = 'Novo Shekel Israelense';
+                $currencyData['slug'] = 'shekel';
+                $currencyData['currency'] = 'ILS';
+                $currencyData['imageName'] = 'israel';
+                $currencyData['imageTitle'] = 'Israel';
+                $currencyData['order'] = 22;
+                $currencyData['precision'] = 3;
+        }
+        return $currencyData;
+    }
+
+
     /**
      * @param $args
      * @return array
      */
     public function getCurrencies($args)
     {
-        $userCity = $args['city'];
-        $filter['exchangeOffice.city'] = $userCity;
-        $filter['productType'] = $args['productType'];
+        $db = MysqlClientBuilder::getInstance();
 
-        $database = DatabaseClientBuilder::getInstance();
-        $collection = $database->selectCollection('exchangeRates');
-
-        $results = $collection->distinct("currency", $filter);
-        $currencyData = [
-            [
-                'name' => "Dólar",
-                'slug' => "dolar-americano",
-                'currency' => 'USD',
-                'imageName' => 'eua',
-                'imageTitle' => 'Estados Unidos',
-                'order' => 1,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Euro",
-                'slug' => "euro",
-                'currency' => 'EUR',
-                'imageName' => 'euro',
-                'imageTitle' => 'Europa',
-                'order' => 2,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Libra Esterlina",
-                'slug' => "libra-esterlina",
-                'currency' => 'GBP',
-                'imageName' => 'gra-bretanha',
-                'imageTitle' => 'Grã Bretanha',
-                'order' => 3,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Dólar Canadense",
-                'slug' => "dolar-canadense",
-                'currency' => 'CAD',
-                'imageName' => 'canada',
-                'imageTitle' => 'Canadá',
-                'order' => 4,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Dólar Australiano",
-                'slug' => "dolar-australiano",
-                'currency' => 'AUD',
-                'imageName' => 'australia',
-                'imageTitle' => 'Austrália',
-                'order' => 5,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Dólar Neozelandês",
-                'slug' => "dolar-neozelandes",
-                'currency' => 'NZD',
-                'imageName' => 'nova-zelandia',
-                'imageTitle' => 'Nova Zelândia',
-                'order' => 6,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Peso Argentino",
-                'slug' => "peso-argentino",
-                'currency' => 'ARS',
-                'imageName' => 'argentina',
-                'imageTitle' => 'Argentina',
-                'order' => 7,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Peso Chileno",
-                'slug' => "peso-chileno",
-                'currency' => 'CLP',
-                'imageName' => 'chile',
-                'imageTitle' => 'Chile',
-                'order' => 8,
-                'precision' => 4,
-            ],
-            [
-                'name' => "Peso Mexicano",
-                'slug' => "peso-mexicano",
-                'currency' => 'MXN',
-                'imageName' => 'mexico',
-                'imageTitle' => 'México',
-                'order' => 9,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Peso Colombiano",
-                'slug' => "peso-colombiano",
-                'currency' => 'COP',
-                'imageName' => 'colombia',
-                'imageTitle' => 'Colômbia',
-                'order' => 10,
-                'precision' => 4,
-            ],
-            [
-                'name' => "Peso Uruguaio",
-                'slug' => "peso-uruguaio",
-                'currency' => 'UYU',
-                'imageName' => 'uruguai',
-                'imageTitle' => 'Uruguai',
-                'order' => 11,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Franco Suíço",
-                'slug' => "franco-suico",
-                'currency' => 'CHF',
-                'imageName' => 'suica',
-                'imageTitle' => 'Suíça',
-                'order' => 12,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Iene Japonês",
-                'slug' => "iene",
-                'currency' => 'JPY',
-                'imageName' => 'japao',
-                'imageTitle' => 'Japão',
-                'order' => 13,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Yuan Chinês",
-                'slug' => "yuan",
-                'currency' => 'CNY',
-                'imageName' => 'china',
-                'imageTitle' => 'China',
-                'order' => 14,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Rand Sul-Africano",
-                'slug' => "rand",
-                'currency' => 'ZAR',
-                'imageName' => 'africa-sul',
-                'imageTitle' => 'África do Sul',
-                'order' => 15,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Coroa Dinamarquesa",
-                'slug' => "coroa-dinamarquesa",
-                'currency' => 'DKK',
-                'imageName' => 'dinamarca',
-                'imageTitle' => 'Dinamarca',
-                'order' => 16,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Coroa Norueguesa",
-                'slug' => "coroa-norueguesa",
-                'currency' => 'NOK',
-                'imageName' => 'noruega',
-                'imageTitle' => 'Noruega',
-                'order' => 17,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Coroa Sueca",
-                'slug' => "coroa-sueca",
-                'currency' => 'SEK',
-                'imageName' => 'suecia',
-                'imageTitle' => 'Suécia',
-                'order' => 18,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Won Sul-Coreano",
-                'slug' => "won",
-                'currency' => 'KRW',
-                'imageName' => 'coreia-sul',
-                'imageTitle' => 'Coréia do Sul',
-                'order' => 19,
-                'precision' => 4,
-            ],
-            [
-                'name' => "Peso Boliviano",
-                'slug' => "peso-boliviano",
-                'currency' => 'BOB',
-                'imageName' => 'bolivia',
-                'imageTitle' => 'Bolívia',
-                'order' => 20,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Novo Sol Peruano",
-                'slug' => "novo-sol",
-                'currency' => 'PEN',
-                'imageName' => 'peru',
-                'imageTitle' => 'Peru',
-                'order' => 21,
-                'precision' => 3,
-            ],
-            [
-                'name' => "Novo Shekel Israelense",
-                'slug' => "shekel",
-                'currency' => 'ILS',
-                'imageName' => 'israel',
-                'imageTitle' => 'Israel',
-                'order' => 22,
-                'precision' => 3,
-            ],
-        ];
         $currencies = [];
-        foreach ($currencyData as $currency) {
-            if (in_array($currency['currency'], $results))
-                $currencies[] = $currency;
+        $city = $args['city'];
+        $productType = $args['productType'];
+
+        $query = 'SELECT DISTINCT cr.currency FROM cities c, currencies cr, exchange_offices eo, exchange_rates er WHERE eo.status=1 AND c.name=? AND cr.id=er.currency_id AND c.id=er.city_id AND eo.id=er.exchange_office_id ORDER BY cr.sort';
+
+        $citiesMap = self::citiesSlugToName();
+        $cityName = (key_exists($city, $citiesMap)) ? $citiesMap[$city] : str_replace('-', ' ', strtoupper($city));
+
+        try {
+            $stmt = $db->prepare($query, array(PDO::ATTR_CURSOR => PDO::CURSOR_SCROLL));
+            $stmt->bindParam(1, $cityName);
+            $stmt->execute();
+            while ($row = $stmt->fetch(PDO::FETCH_NUM, PDO::FETCH_ORI_NEXT)) {
+                if(!is_null($row[0])) {
+                    $currency = $row[0];
+                    $currencies[] = self::currencyData($currency);
+                }
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
         }
         return $currencies;
     }

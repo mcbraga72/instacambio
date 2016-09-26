@@ -13,15 +13,15 @@ abstract class ExchangeOfficeProduct
 
     /**
      * CurrencyCard constructor.
-     * @param array $currencyCardProperties
+     * @param array $productProperties
      */
-    public function __construct($currencyCardProperties)
+    public function __construct($productProperties)
     {
-        $this->url = $currencyCardProperties['url'];
-        $this->selector = $currencyCardProperties['selector'];
-        $this->iofIncluded = key_exists('iofIncluded', $currencyCardProperties) ? $currencyCardProperties['iofIncluded'] : true;
-        $this->keywords = $currencyCardProperties['keywords'];
-        $this->indexesByExchangeRate = $currencyCardProperties['indexesByExchangeRate'];
+        $this->url = $productProperties['url'];
+        $this->selector = $productProperties['selector'];
+        $this->iofIncluded = $productProperties['iofIncluded'];
+        $this->keywords = $productProperties['keywords'];
+        $this->indexesByExchangeRate = $productProperties['indexesByExchangeRate'];
     }
 
     /**

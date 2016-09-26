@@ -72,7 +72,7 @@ class ExchangePageLoaderTask
                 $filename = $file->getPathname();
                 $file = null;
                 chmod($filename, 0777);
-                $this->logger->addInfo("page hash {$index} (1-currendy Card, 2-foreign currency): " . md5_file($filename));
+                $this->logger->addInfo("page hash {$index} (1-currency Card, 2-foreign currency): " . md5_file($filename));
             }
 
             // logging

@@ -2,6 +2,9 @@
 
 namespace br\com\InstaCambio\Model;
 
+use br\com\InstaCambio\Config\Database\MysqlClientBuilder;
+use PDOException;
+
 class Money
 {
 
@@ -16,6 +19,29 @@ class Money
     {
         $this->amount = $amount;
         $this->currency = $currency;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId($currencyName)
+    {
+        $db = MysqlClientBuilder::getInstance();
+        $query = 'SELECT id FROM currencies WHERE currency="' . $currencyName . '"';
+        $id = 0;
+
+        try {
+            $stmt = $db->prepare($query);
+            $stmt->execute();
+            while ($row = $stmt->fetch()) {
+                $id = $row[0];
+            }
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
+        }
+        return $id;
     }
 
     /**

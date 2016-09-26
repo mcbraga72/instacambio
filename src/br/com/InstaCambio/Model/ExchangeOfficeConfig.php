@@ -17,7 +17,7 @@ class ExchangeOfficeConfig
             'name' => 'Prime Cash',
             'email' => 'atendimento@primecash.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -116,7 +116,7 @@ class ExchangeOfficeConfig
             'name' => 'Fast Money',
             'email' => 'contato@fastmoneytour.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -171,7 +171,7 @@ class ExchangeOfficeConfig
             'name' => 'Ecoforte',
             'email' => 'contato@ecofortecambioeturismo.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -263,7 +263,7 @@ class ExchangeOfficeConfig
             'name' => 'Amazônia',
             'email' => 'amazoniacambio@gmail.com',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -306,7 +306,7 @@ class ExchangeOfficeConfig
             'name' => '3AV',
             'email' => 'contatos@3av.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -414,7 +414,7 @@ class ExchangeOfficeConfig
             'name' => 'Dibran',
             'email' => 'comercial@dibran.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -441,7 +441,7 @@ class ExchangeOfficeConfig
             'name' => 'Torre',
             'email' => 'ouvidoria@torrecorretora.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -496,7 +496,7 @@ class ExchangeOfficeConfig
             'name' => 'Start Trips',
             'email' => 'cambio@startcambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -555,7 +555,7 @@ class ExchangeOfficeConfig
             'name' => 'Sagitur',
             'email' => '',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -606,7 +606,7 @@ class ExchangeOfficeConfig
             'name' => 'AGK Câmbio',
             'email' => 'turismo@agkcorretora.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -709,7 +709,7 @@ class ExchangeOfficeConfig
             'name' => 'Best Money',
             'email' => 'contato@bestmoney.tur.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -768,7 +768,7 @@ class ExchangeOfficeConfig
             'name' => 'SP Mundi',
             'email' => 'cambio@spmundi.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -873,7 +873,7 @@ class ExchangeOfficeConfig
             'name' => 'ARRM Câmbio',
             'email' => 'contato@arrmcambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -920,7 +920,7 @@ class ExchangeOfficeConfig
             'currencyCard' => [
                 'url' => 'http://arrmcambio.com.br/?page_id=326',
                 'selector' => 'div.main-body-wrapper section.main-content-wrapper div.woocommerce.columns-4 div.item-block-1._collection-item',
-                'iofIncluded' => false,
+                'iofIncluded' => true,
                 'keywords' => [
                     'USD' => [
                         'Dólar – USD \(Cartão\)'
@@ -944,7 +944,7 @@ class ExchangeOfficeConfig
             'name' => 'Máxima',
             'email' => 'mesacambio@maximacctvm.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -1008,7 +1008,7 @@ class ExchangeOfficeConfig
             'name' => 'Thaler',
             'email' => 'atendimento@thalercambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'decode' => false,
             'delivery' => true,
             'foreignCurrency' => [
@@ -1043,7 +1043,7 @@ class ExchangeOfficeConfig
             'name' => 'Fox Câmbio',
             'email' => '',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1146,7 +1146,7 @@ class ExchangeOfficeConfig
             'name' => 'Gradual',
             'email' => 'cambiosp@gradualinvestimentos.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -1185,7 +1185,7 @@ class ExchangeOfficeConfig
             'name' => 'Green Câmbio',
             'email' => 'atendimento@greencambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1212,7 +1212,7 @@ class ExchangeOfficeConfig
             'name' => 'Picchioni Câmbio',
             'email' => 'mesa.cambio@picchioni.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1267,7 +1267,7 @@ class ExchangeOfficeConfig
             'name' => 'Golden Money',
             'email' => 'cambio@goldenmoney.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1298,7 +1298,7 @@ class ExchangeOfficeConfig
             'name' => 'Europa Câmbio',
             'email' => 'atendimento@europacambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1397,7 +1397,7 @@ class ExchangeOfficeConfig
             'name' => 'Graco Exchange',
             'email' => 'cambio@graco.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -1508,7 +1508,7 @@ class ExchangeOfficeConfig
             'name' => 'Conexion Câmbio',
             'email' => 'ouvidoria@conexioncambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1539,7 +1539,7 @@ class ExchangeOfficeConfig
             'name' => 'Mondial Money',
             'email' => 'contato@mondialmoney.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1634,7 +1634,7 @@ class ExchangeOfficeConfig
             'name' => 'Ourominas',
             'email' => 'ourominas@ourominas.com',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1737,7 +1737,7 @@ class ExchangeOfficeConfig
             'name' => 'Get & Go',
             'email' => 'contato@ggcambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1804,13 +1804,13 @@ class ExchangeOfficeConfig
             'name' => 'Guitta',
             'email' => 'contato@guitta.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => false,
             'decode' => true,
             'foreignCurrency' => [
                 'url' => 'http://www.guitta.com.br/turismo.php',
                 'selector' => 'body > ul.lista-moedas-small > li',
-                'iofIncluded' => true,
+                'iofIncluded' => false,
                 'keywords' => [
                     'USD' => [
                         'USD'
@@ -1847,7 +1847,7 @@ class ExchangeOfficeConfig
             'name' => 'Bee Câmbio',
             'email' => 'contato@beecambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -1923,7 +1923,7 @@ class ExchangeOfficeConfig
             'name' => 'Câmbio Store',
             'email' => 'atendimento@cambiostore.com',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -2034,7 +2034,7 @@ class ExchangeOfficeConfig
             'name' => 'Carol DTVM',
             'email' => 'cadastro@caroldtvm.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -2137,7 +2137,7 @@ class ExchangeOfficeConfig
             'name' => 'Multi Money',
             'email' => 'sac@multimoneycorretora.com.br',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -2240,7 +2240,7 @@ class ExchangeOfficeConfig
             'name' => 'Alpha Câmbio',
             'email' => 'contato@alphacambio.com',
             'state' => 'SP',
-            'city' => 'sao-paulo',
+            'city' => 'São Paulo',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -2339,7 +2339,7 @@ class ExchangeOfficeConfig
             'name' => 'Casa Aliança',
             'email' => 'viagens@casaalianca.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -2414,7 +2414,7 @@ class ExchangeOfficeConfig
             'name' => 'Premium Viagens',
             'email' => 'premium@premiumviagens.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -2489,7 +2489,7 @@ class ExchangeOfficeConfig
             'name' => 'Tempo Livre',
             'email' => 'contato@tempolivretur.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -2576,7 +2576,7 @@ class ExchangeOfficeConfig
             'name' => 'Amitur',
             'email' => 'barra@amitur.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -2651,7 +2651,7 @@ class ExchangeOfficeConfig
             'name' => 'One Barra',
             'email' => 'atendimento@onebarra.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -2698,7 +2698,7 @@ class ExchangeOfficeConfig
             'name' => 'Dantur',
             'email' => '',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -2777,7 +2777,7 @@ class ExchangeOfficeConfig
             'name' => 'Quatro Cantos',
             'email' => 'lojavirtual@4cantosturismo.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -2832,7 +2832,7 @@ class ExchangeOfficeConfig
             'name' => 'Ipanema Exchange',
             'email' => 'ipanemaexchange@gmail.com',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -2879,7 +2879,7 @@ class ExchangeOfficeConfig
             'name' => 'Ultramar',
             'email' => 'ultramar@ultramarviagens.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -2954,7 +2954,7 @@ class ExchangeOfficeConfig
             'name' => 'Le Bon Voyage',
             'email' => '',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3045,7 +3045,7 @@ class ExchangeOfficeConfig
             'name' => 'PM Turismo',
             'email' => 'atendimento@pmturismo.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3080,7 +3080,7 @@ class ExchangeOfficeConfig
             'name' => 'Navegantes',
             'email' => 'info@agencianavegantes.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3163,7 +3163,7 @@ class ExchangeOfficeConfig
             'name' => 'Express Change',
             'email' => 'expresschangetur@gmail.com',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3266,7 +3266,7 @@ class ExchangeOfficeConfig
             'name' => 'Lyg Tur',
             'email' => 'contato@lygtur.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => false,
@@ -3309,7 +3309,7 @@ class ExchangeOfficeConfig
             'name' => 'DG',
             'email' => 'atendimento@dgcambio.com.br',
             'state' => 'RJ',
-            'city' => 'rio-de-janeiro',
+            'city' => 'Rio de Janeiro',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -3412,7 +3412,7 @@ class ExchangeOfficeConfig
             'name' => 'DS Câmbio',
             'email' => 'atendimento@cambioevistos.com.br',
             'state' => 'MG',
-            'city' => 'belo-horizonte',
+            'city' => 'Belo Horizonte',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -3479,7 +3479,7 @@ class ExchangeOfficeConfig
             'name' => 'Sita',
             'email' => 'sita@sita.com.br',
             'state' => 'MG',
-            'city' => 'belo-horizonte',
+            'city' => 'Belo Horizonte',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3502,7 +3502,7 @@ class ExchangeOfficeConfig
             'name' => 'Câmbio Curitiba',
             'email' => 'contato@cambiocuritiba.com',
             'state' => 'PR',
-            'city' => 'curitiba',
+            'city' => 'Curitiba',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -3529,7 +3529,7 @@ class ExchangeOfficeConfig
             'name' => 'Sidney',
             'email' => 'atendimento@sidney.com.br',
             'state' => 'PR',
-            'city' => 'curitiba',
+            'city' => 'Curitiba',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -3616,7 +3616,7 @@ class ExchangeOfficeConfig
             'name' => 'Ebadival',
             'email' => 'ebadival@ebadival.com.br',
             'state' => 'PR',
-            'city' => 'curitiba',
+            'city' => 'Curitiba',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3659,7 +3659,7 @@ class ExchangeOfficeConfig
             'name' => 'AVS',
             'email' => 'contato@avsturismo.com.br',
             'state' => 'PR',
-            'city' => 'curitiba',
+            'city' => 'Curitiba',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3758,7 +3758,7 @@ class ExchangeOfficeConfig
             'name' => 'Dourada',
             'email' => 'sac@dourada.com.br',
             'state' => 'PR',
-            'city' => 'curitiba',
+            'city' => 'Curitiba',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -3813,7 +3813,7 @@ class ExchangeOfficeConfig
             'name' => 'Oliveira Franco',
             'email' => 'cambio@ofranco.com.br',
             'state' => 'PR',
-            'city' => 'curitiba',
+            'city' => 'Curitiba',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3872,7 +3872,7 @@ class ExchangeOfficeConfig
             'name' => 'Fortur',
             'email' => 'forturcambio@gmail.com',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3912,7 +3912,7 @@ class ExchangeOfficeConfig
             'name' => 'Sadoc',
             'email' => 'sadoc@sadoc.com.br',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -3955,7 +3955,7 @@ class ExchangeOfficeConfig
             'name' => 'Fair Câmbio',
             'email' => 'fairfortaleza@faircambiofortaleza.com.br',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4010,7 +4010,7 @@ class ExchangeOfficeConfig
             'name' => 'Tour Star',
             'email' => 'tourstar@tourstar.tur.br',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4061,7 +4061,7 @@ class ExchangeOfficeConfig
             'name' => 'Afetur',
             'email' => 'contato@afetur.com.br',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4088,7 +4088,7 @@ class ExchangeOfficeConfig
             'name' => 'Toppingtur',
             'email' => 'toppingtur@gmail.com',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4131,7 +4131,7 @@ class ExchangeOfficeConfig
             'name' => 'Euro Câmbio',
             'email' => '',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4170,7 +4170,7 @@ class ExchangeOfficeConfig
             'name' => 'Ceará Travel',
             'email' => '',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4197,7 +4197,7 @@ class ExchangeOfficeConfig
             'name' => 'Luza',
             'email' => 'itamar@luzaturismo.com.br',
             'state' => 'CE',
-            'city' => 'fortaleza',
+            'city' => 'Fortaleza',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4240,7 +4240,7 @@ class ExchangeOfficeConfig
             'name' => 'Câmbio Net',
             'email' => 'cambionet@cambionet.com',
             'state' => 'RS',
-            'city' => 'porto-alegre',
+            'city' => 'Porto Alegre',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -4308,7 +4308,7 @@ class ExchangeOfficeConfig
             'name' => 'Fair Câmbio POA',
             'email' => 'fairpoa@faircambiopoa.com.br',
             'state' => 'RS',
-            'city' => 'porto-alegre',
+            'city' => 'Porto Alegre',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4403,7 +4403,7 @@ class ExchangeOfficeConfig
             'name' => 'CTR',
             'email' => 'romina@ctrcambio.com.br',
             'state' => 'RS',
-            'city' => 'porto-alegre',
+            'city' => 'Porto Alegre',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4498,7 +4498,7 @@ class ExchangeOfficeConfig
             'name' => 'Câmbio Ideal',
             'email' => 'contato@cambioideal.com.br',
             'state' => 'RS',
-            'city' => 'porto-alegre',
+            'city' => 'Porto Alegre',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -4609,7 +4609,7 @@ class ExchangeOfficeConfig
             'name' => 'Montevideu',
             'email' => 'contato@montevideucambio.com.br',
             'state' => 'RS',
-            'city' => 'porto-alegre',
+            'city' => 'Porto Alegre',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -4717,7 +4717,7 @@ class ExchangeOfficeConfig
             'name' => 'Exim',
             'email' => 'exim@exim.com.br',
             'state' => 'RS',
-            'city' => 'porto-alegre',
+            'city' => 'Porto Alegre',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4740,7 +4740,7 @@ class ExchangeOfficeConfig
             'name' => 'Amazônia',
             'email' => 'amazoniacambio@gmail.com',
             'state' => 'AM',
-            'city' => 'manaus',
+            'city' => 'Manaus',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -4783,7 +4783,7 @@ class ExchangeOfficeConfig
             'name' => 'Shopping Tour',
             'email' => 'shoppingtour@shoppingtourbahia.com.br',
             'state' => 'BA',
-            'city' => 'salvador',
+            'city' => 'Salvador',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4834,7 +4834,7 @@ class ExchangeOfficeConfig
             'name' => 'Turvicam',
             'email' => 'cambio@turvicam.com.br',
             'state' => 'PA',
-            'city' => 'belem',
+            'city' => 'Belém',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -4925,7 +4925,7 @@ class ExchangeOfficeConfig
             'name' => 'Monopólio',
             'email' => 'gerencia@monopoliocambio.com.br',
             'state' => 'PA',
-            'city' => 'belem',
+            'city' => 'Belém',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -4964,7 +4964,7 @@ class ExchangeOfficeConfig
             'name' => 'Dinastur',
             'email' => 'leandro@dinastur.com.br',
             'state' => 'PA',
-            'city' => 'belem',
+            'city' => 'Belém',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -4987,7 +4987,7 @@ class ExchangeOfficeConfig
             'name' => 'LHX',
             'email' => 'atendimento@lhx.com.br',
             'state' => 'GO',
-            'city' => 'goiania',
+            'city' => 'Goiânia',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -5022,7 +5022,7 @@ class ExchangeOfficeConfig
             'name' => 'Voe Viagens',
             'email' => '',
             'state' => 'MS',
-            'city' => 'campo-grande',
+            'city' => 'Campo Grande',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5081,7 +5081,7 @@ class ExchangeOfficeConfig
             'name' => 'Pontal Turismo',
             'email' => 'sac@pontalturismo.com.br',
             'state' => 'SE',
-            'city' => 'aracaju',
+            'city' => 'Aracajú',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5108,7 +5108,7 @@ class ExchangeOfficeConfig
             'name' => 'Ivoramtur',
             'email' => 'ivoramtur@ivoramtur.com.br',
             'state' => 'SC',
-            'city' => 'florianopolis',
+            'city' => 'Florianópolis',
             'delivery' => false,
             'decode' => true,
             'foreignCurrency' => [
@@ -5208,7 +5208,7 @@ class ExchangeOfficeConfig
             'name' => 'Açoriana',
             'email' => 'contato@acorianacorretora.com.br',
             'state' => 'SC',
-            'city' => 'florianopolis',
+            'city' => 'Florianópolis',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5263,7 +5263,7 @@ class ExchangeOfficeConfig
             'name' => 'Aloha Câmbio',
             'email' => '',
             'state' => 'ES',
-            'city' => 'vitoria',
+            'city' => 'Vitória',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5286,7 +5286,7 @@ class ExchangeOfficeConfig
             'name' => 'Turismo Dez',
             'email' => 'viajarcom@turismodez.com.br',
             'state' => 'ES',
-            'city' => 'vitoria',
+            'city' => 'Vitória',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => [
@@ -5345,7 +5345,7 @@ class ExchangeOfficeConfig
             'name' => 'Lastro',
             'email' => 'ouvidoria@lastro.com.br',
             'state' => 'SP',
-            'city' => 'campinas',
+            'city' => 'Campinas',
             'delivery' => true,
             'decode' => false,
             'foreignCurrency' => false,
@@ -5388,7 +5388,7 @@ class ExchangeOfficeConfig
             'name' => 'GMT Câmbio',
             'email' => 'comercial@gmtcambio.com.br',
             'state' => 'SP',
-            'city' => 'sao-bernardo-do-campo',
+            'city' => 'São Bernardo do Campo',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5427,7 +5427,7 @@ class ExchangeOfficeConfig
             'name' => 'Cagifin ABC',
             'email' => 'cagifinabc@terra.com.br',
             'state' => 'SP',
-            'city' => 'sao-bernardo-do-campo',
+            'city' => 'São Bernardo do Campo',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5458,7 +5458,7 @@ class ExchangeOfficeConfig
             'name' => 'Numatur',
             'email' => 'contato.abc@numatur.com.br',
             'state' => 'SP',
-            'city' => 'santo-andre',
+            'city' => 'Santo André',
             'delivery' => false,
             'decode' => false,
             'foreignCurrency' => [
@@ -5489,7 +5489,7 @@ class ExchangeOfficeConfig
             'name' => 'Interpolo',
             'email' => 'interpolo@interpolo.com.br',
             'state' => 'SP',
-            'city' => 'santo-andre',
+            'city' => 'Santo André',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [
@@ -5592,7 +5592,7 @@ class ExchangeOfficeConfig
             'name' => 'Sidney Londrina',
             'email' => 'atendimento@sidney.com.br',
             'state' => 'PR',
-            'city' => 'londrina',
+            'city' => 'Londrina',
             'delivery' => true,
             'decode' => true,
             'foreignCurrency' => [

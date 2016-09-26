@@ -2,7 +2,8 @@
 
 namespace br\com\InstaCambio\Shell\Task\Scrape;
 
-use br\com\InstaCambio\Config\Database\DatabaseClientBuilder;
+use br\com\InstaCambio\Client\SlackClient;
+use br\com\InstaCambio\Config\Database\MysqlClientBuilder;
 use br\com\InstaCambio\Filesystem\Directory;
 use br\com\InstaCambio\Helper\LogWrapper;
 use br\com\InstaCambio\Model\ExchangeDocument;
@@ -12,8 +13,8 @@ use br\com\InstaCambio\Model\ExchangeScrapeResult;
 use br\com\InstaCambio\Model\Money;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
+use PDOException;
 use Symfony\Component\DomCrawler\Crawler;
-
 
 class ScrapeTask
 {
@@ -77,9 +78,6 @@ class ScrapeTask
                             $crawler->addHtmlContent($htmlContentDecoded);
                         }
                         $exchangeDocumentsArray[$exchangeOffice->getNickname()][$productType] = new ExchangeDocument($crawler, $productType, $exchangeOffice);
-                    } else {
-                        $message = 'file ' . basename($filename) . ' not exists in ' . basename(dirname($filename));
-                        $this->logger->addInfo($message);
                     }
                 }
             }
@@ -91,51 +89,145 @@ class ScrapeTask
                 $logWrappers[$nickname] = $documentScraperWork->logWrapper;
             }
 
-            $database = DatabaseClientBuilder::getInstance();
-            $collectionexchangeRates = $database->selectCollection('exchangeRates');
-            $collectionexchangeRatesHistory = $database->selectCollection('exchangeRatesHistory');
+            $db = MysqlClientBuilder::getInstance();
+
             foreach ($exchangeResults as $nickname => $exchangeResult) {
                 foreach ($exchangeResult->getMoneys() as $productType => $moneys) {
                     /* @var $moneys Money[] */
                     if (!empty($moneys)) {
                         foreach ($moneys as $money) {
                             $exchangeOffice = $exchangeResult->getExchangeOffice();
-                            /* @var $exchangeRateFound ExchangeRate */
-                            $filter = [
-                                'currency' => $money->getCurrency(), 'exchangeOffice.nickname' => $exchangeOffice->getNickname(), 'productType' => $productType
-                            ];
-                            $exchangeRateFound = $collectionexchangeRates->findOne($filter);
-                            if ($money->getAmount() != 0) {
-                                if (is_null($exchangeRateFound)) {
-                                    $exchangeRate = new ExchangeRate($exchangeOffice);
-                                    $exchangeRate
-                                        ->setCurrency($money->getCurrency())
-                                        ->setIofIncluded(ExchangeOfficeConfig::getProductByType($exchangeOffice, $productType)->getIofIncluded())
-                                        ->setPrice($money->getAmount())
-                                        ->setProductType($productType)
-                                        ->setTrade('buy')
-                                        ->setUpdate(date('c'));
-                                    $collectionexchangeRates->insertOne($exchangeRate);
-                                } else if ($exchangeRateFound->getIofIncluded() != ExchangeOfficeConfig::getProductByType($exchangeOffice, $productType)->getIofIncluded() xor $exchangeRateFound->getPrice() != $money->getAmount()) {
-                                    $exchangeRate = new ExchangeRate($exchangeOffice);
-                                    $exchangeRate
-                                        ->setCurrency($exchangeRateFound->getExchangeOffice())
-                                        ->setIofIncluded($exchangeRateFound->getIofIncluded())
-                                        ->setPrice($exchangeRateFound->getPrice())
-                                        ->setProductType($exchangeRateFound->getProductType())
-                                        ->setTrade($exchangeRateFound->getTrade())
-                                        ->setUpdate($exchangeRateFound->getUpdate());
-                                    $collectionexchangeRatesHistory->insertOne($exchangeRate);
 
-                                    $exchangeRateFound
-                                        ->setExchangeOffice($exchangeOffice)
-                                        ->setCurrency($money->getCurrency())
-                                        ->setIofIncluded(ExchangeOfficeConfig::getProductByType($exchangeOffice, $productType)->getIofIncluded())
-                                        ->setPrice($money->getAmount())
-                                        ->setProductType($productType)
-                                        ->setTrade('buy')
-                                        ->setUpdate(date('c'));
-                                    $collectionexchangeRates->replaceOne($filter, $exchangeRateFound);
+                            /* @var $exchangeRateFound ExchangeRate */
+
+                            $exchangeOfficeId = $exchangeOffice->getId($exchangeOffice->getNickname());
+                            $currencyId = $money->getId($money->getCurrency());
+                            $tradeId = 1;
+                            $cityId = $exchangeOffice->getCity();
+                            $productTypeId = ($productType == 'currencyCard') ? 1 : 2;
+                            $delivery = $exchangeOffice->isDelivery();
+                            $scraper = 1;
+                            $created = date('c');
+                            $modified = date('c');
+                            $price = $money->getAmount();
+                            $iofIncluded = ExchangeOfficeConfig::getProductByType($exchangeOffice, $productType)->getIofIncluded();
+
+                            $exchangeRateFoundId = null;
+                            $exchangeRateFoundPrice = null;
+                            $exchangeRateFoundIofIncluded = null;
+                            $exchangeRateFoundDelivery = null;
+
+                            $queryExchangeRate = 'SELECT id, price, iofIncluded, delivery FROM exchange_rates WHERE exchange_office_id=? AND currency_id=? AND trade_id=? AND city_id=? AND product_type_id=?';
+
+                            try {
+                                $stmt = $db->prepare($queryExchangeRate);
+                                $stmt->bindParam(1, $exchangeOfficeId);
+                                $stmt->bindParam(2, $currencyId);
+                                $stmt->bindParam(3, $tradeId);
+                                $stmt->bindParam(4, $cityId);
+                                $stmt->bindParam(5, $productTypeId);
+                                $stmt->execute();
+
+                                while ($row = $stmt->fetch()) {
+                                    $exchangeRateFoundId = $row[0];
+                                    $exchangeRateFoundPrice = $row[1];
+                                    $exchangeRateFoundIofIncluded = $row[2];
+                                    $exchangeRateFoundDelivery = $row[3];
+                                }
+
+                                $stmt = null;
+                            }
+                            catch (PDOException $e) {
+                                print $e->getMessage();
+                            }
+
+                            if ($money->getAmount() != 0) {
+                                if (is_null($exchangeRateFoundId)) {
+                                    $queryExchangeRate = 'INSERT INTO exchange_rates(exchange_office_id, currency_id, trade_id, city_id, product_type_id, delivery, scraper, created, modified, price, iofIncluded) VALUES(?,?,?,?,?,?,?,?,?,?,?)';
+
+                                    try {
+                                        $stmt = $db->prepare($queryExchangeRate);
+                                        $stmt->bindParam(1, $exchangeOfficeId);
+                                        $stmt->bindParam(2, $currencyId);
+                                        $stmt->bindParam(3, $tradeId);
+                                        $stmt->bindParam(4, $cityId);
+                                        $stmt->bindParam(5, $productTypeId);
+                                        $stmt->bindParam(6, $delivery);
+                                        $stmt->bindParam(7, $scraper);
+                                        $stmt->bindParam(8, $created);
+                                        $stmt->bindParam(9, $modified);
+                                        $stmt->bindParam(10, $price);
+                                        $stmt->bindParam(11, $iofIncluded);
+                                        $stmt->execute();
+                                        $stmt = null;
+                                    }
+                                    catch (PDOException $e) {
+                                        print $e->getMessage();
+                                    }
+                                } else if ($exchangeRateFoundPrice != $money->getAmount()) {
+                                    $queryExchangeRateHistory = 'INSERT INTO exchange_rates_history(exchange_office_id, currency_id, trade_id, city_id, product_type_id, created, price, iofIncluded) VALUES(?,?,?,?,?,?,?,?)';
+
+                                    try {
+                                        $stmt = $db->prepare($queryExchangeRateHistory);
+                                        $stmt->bindParam(1, $exchangeOfficeId);
+                                        $stmt->bindParam(2, $currencyId);
+                                        $stmt->bindParam(3, $tradeId);
+                                        $stmt->bindParam(4, $cityId);
+                                        $stmt->bindParam(5, $productTypeId);
+                                        $stmt->bindParam(6, $created);
+                                        $stmt->bindParam(7, $price);
+                                        $stmt->bindParam(8, $iofIncluded);
+                                        $stmt->execute();
+                                        $stmt = null;
+                                    }
+                                    catch (PDOException $e) {
+                                        print $e->getMessage();
+                                    }
+
+                                    $queryExchangeRate = 'UPDATE exchange_rates SET modified=?, price=? WHERE id=' . $exchangeRateFoundId;
+
+                                    try {
+                                        $stmt = $db->prepare($queryExchangeRate);
+                                        $stmt->bindParam(1, $modified);
+                                        $stmt->bindParam(2, $price);
+                                        $stmt->execute();
+                                        $stmt = null;
+                                    }
+                                    catch (PDOException $e) {
+                                        print $e->getMessage();
+                                    }
+                                }
+
+                                if (is_bool($iofIncluded)) {
+                                    if ($exchangeRateFoundIofIncluded != $iofIncluded) {
+                                        $queryExchangeRate = 'UPDATE exchange_rates SET iofIncluded=? WHERE id=' . $exchangeRateFoundId;
+
+                                        try {
+                                            $stmt = $db->prepare($queryExchangeRate);
+                                            $stmt->bindParam(1, $iofIncluded);
+                                            $stmt->execute();
+                                            $stmt = null;
+                                        }
+                                        catch (PDOException $e) {
+                                            print $e->getMessage();
+                                        }
+                                    }
+                                }
+
+                                if (is_bool($delivery)) {
+                                    if ($exchangeRateFoundDelivery != $delivery) {
+                                        $queryExchangeRate = 'UPDATE exchange_rates SET delivery=? WHERE id=' . $exchangeRateFoundId;
+
+                                        try {
+                                            $stmt = $db->prepare($queryExchangeRate);
+                                            $stmt->bindParam(1, $delivery);
+                                            $stmt->execute();
+                                            $stmt = null;
+                                        }
+                                        catch (PDOException $e) {
+                                            print $e->getMessage();
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -182,5 +274,23 @@ class ScrapeTask
         }
         $this->logger->addInfo('Done.');
         return $exchangeResults;
+    }
+
+    public function disableExchangeRatesOutdated()
+    {
+        $acceptableDate = (new \DateTime());
+        $acceptableDate->sub(new \DateInterval('P5D'));
+
+        $db = MysqlClientBuilder::getInstance();
+        $queryExchangeRate = 'UPDATE exchange_rates SET status=0 WHERE modified < "' . $acceptableDate->format('Y-m-d H:i:s') . '"';
+
+        try {
+            $stmt = $db->prepare($queryExchangeRate);
+            $stmt->execute();
+            $stmt = null;
+        }
+        catch (PDOException $e) {
+            print $e->getMessage();
+        }
     }
 }

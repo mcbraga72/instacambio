@@ -3,6 +3,7 @@
 namespace br\com\InstaCambio\Shell\Task\PageLoader;
 
 use br\com\InstaCambio\Client\ExchangeClientException;
+use br\com\InstaCambio\Client\SlackClient;
 use br\com\InstaCambio\Helper\LogWrapper;
 use br\com\InstaCambio\Model\ExchangeOffice;
 use br\com\InstaCambio\Model\ExchangePageLoadCollection;
@@ -45,10 +46,21 @@ class PageLoadWork extends \Collectable
             try {
                 $response = $this->worker->exchangeClient->send($this->exchangeOffice, $product);
                 $exchangePageLoadCollection->add($index, $response->getBody()->getContents());
+                $message = 'Download da página da casa de câmbio ' . $this->exchangeOffice->getName() . ', realizado com sucesso!';
+                $color = '#4CAF50';
+                SlackClient::slack($message, $color, "crawler");
             } catch (ExchangeClientException $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
+                $error = $logWrapper->setMessage($e->getMessage());
+                $message = 'Não foi possível baixar a página da casa de câmbio ' . $this->exchangeOffice->getName() . "." . $error;
+                $color = '#FF0000';
+                SlackClient::slack($message, $color, "crawler");
             } catch (\Exception $e) {
                 $logWrapper->addLog($e->getMessage(), Logger::ERROR);
+                $error = $logWrapper->setMessage($e->getMessage());
+                $message = 'Não foi possível baixar a página da casa de câmbio ' . $this->exchangeOffice->getName() . "." . $error;
+                $color = '#FF0000';
+                SlackClient::slack($message, $color, "crawler");
             }
         }
         $this->exchangePageLoadCollection = $exchangePageLoadCollection;
